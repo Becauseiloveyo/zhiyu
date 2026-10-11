@@ -1,0 +1,213 @@
+{
+  "data_origin": "SYNTHETIC",
+  "description": "四个互斥的反事实分支；不是同一次实际运行的四个先后结果。只有pass分支与主链CONTAINED快照对应。",
+  "objects": [
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-observation-gap",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-observation-gap-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:25Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-observation-gap",
+      "integrity_hash": "5a670dddf4b7117d82e6c1e70f26357aa4c76b91b78f72f760236f2e2df899d9",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:25Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-business-down",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-business-down-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:25Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-business-down",
+      "integrity_hash": "2e8a353eefebfdace8dcbe362003cf6eb4c7f1533ad813e2a8767f7477648afc",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:25Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-probe-security-fail",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-probe-security-fail-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:25Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-probe-security-fail",
+      "integrity_hash": "09fac7b61b2d4fae79f855e8f63042461e270b821436824756f879bc7e1fcba5",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "security_failure"
+      ],
+      "contradicts": [
+        "successful_containment"
+      ],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:25Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "VerificationResult",
+      "verification_id": "verify-containment-pass",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "action_id": "act-synthetic-block-001",
+      "validation_run_id": "run-synthetic-001",
+      "objective_type": "CONTAINMENT",
+      "claim": "only validate the named source-target-port restriction within this interval",
+      "target_ids": [
+        "target-a"
+      ],
+      "scope_id": "scope-lab-web",
+      "scenario_version": "1",
+      "started_at": "2026-09-12T10:01:20Z",
+      "finished_at": "2026-09-12T10:01:30Z",
+      "valid_until": "2026-09-12T10:05:30Z",
+      "security_status": "PASS",
+      "business_status": "PASS",
+      "observation_status": "PASS",
+      "status": "PASS",
+      "evidence_ids": [
+        "e-probe-security",
+        "e-probe-business",
+        "e-observation"
+      ],
+      "expected_result": "scoped anomalous path restricted; legitimate path available; required observation valid",
+      "observed_result": "scoped path restricted; legitimate path available; observation healthy",
+      "residual_risks": [
+        "root cause unremediated",
+        "temporary control has finite lifetime"
+      ],
+      "recommended_next_step": "remain CONTAINED; plan root-cause remediation and TTL review",
+      "verification_spec_id": "vspec-containment-v1"
+    },
+    {
+      "object_type": "VerificationResult",
+      "verification_id": "verify-observation-gap",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "action_id": "act-synthetic-block-001",
+      "validation_run_id": "run-synthetic-001",
+      "objective_type": "CONTAINMENT",
+      "claim": "only validate the named source-target-port restriction within this interval",
+      "target_ids": [
+        "target-a"
+      ],
+      "scope_id": "scope-lab-web",
+      "scenario_version": "1",
+      "started_at": "2026-09-12T10:01:20Z",
+      "finished_at": "2026-09-12T10:01:30Z",
+      "valid_until": "2026-09-12T10:05:30Z",
+      "security_status": "INCONCLUSIVE",
+      "business_status": "PASS",
+      "observation_status": "INCONCLUSIVE",
+      "status": "INCONCLUSIVE",
+      "evidence_ids": [
+        "e-observation-gap",
+        "e-probe-business"
+      ],
+      "expected_result": "scoped anomalous path restricted; legitimate path available; required observation valid",
+      "observed_result": "required security observation missing",
+      "residual_risks": [
+        "root cause unremediated",
+        "temporary control has finite lifetime"
+      ],
+      "recommended_next_step": "repair observation within budget; no closure",
+      "verification_spec_id": "vspec-containment-v1"
+    },
+    {
+      "object_type": "VerificationResult",
+      "verification_id": "verify-business-fail",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "action_id": "act-synthetic-block-001",
+      "validation_run_id": "run-synthetic-001",
+      "objective_type": "CONTAINMENT",
+      "claim": "only validate the named source-target-port restriction within this interval",
+      "target_ids": [
+        "target-a"
+      ],
+      "scope_id": "scope-lab-web",
+      "scenario_version": "1",
+      "started_at": "2026-09-12T10:01:20Z",
+      "finished_at": "2026-09-12T10:01:30Z",
+      "valid_until": "2026-09-12T10:05:30Z",
+      "security_status": "PASS",
+      "business_status": "FAIL",
+      "observation_status": "PASS",
+      "status": "FAIL",
+      "evidence_ids": [
+        "e-probe-security",
+        "e-business-down",
+        "e-observation"
+      ],
+      "expected_result": "scoped anomalous path restricted; legitimate path available; required observation valid",
+      "observed_result": "restriction also broke legitimate business",
+      "residual_risks": [
+        "root cause unremediated",
+        "temporary control has finite lifetime"
+      ],
+      "recommended_next_step": "owned compensation if authorized; otherwise immediate human review",
+      "verification_spec_id": "vspec-containment-v1"
+    },
+    {
+      "object_type": "VerificationResult",
+      "verification_id": "verify-security-fail",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "action_id": "act-synthetic-block-001",
+      "validation_run_id": "run-synthetic-001",
+      "objective_type": "CONTAINMENT",
+      "claim": "only validate the named source-target-port restriction within this interval",
+      "target_ids": [
+        "target-a"
+      ],
+      "scope_id": "scope-lab-web",
+      "scenario_version": "1",
+      "started_at": "2026-09-12T10:01:20Z",
+      "finished_at": "2026-09-12T10:01:30Z",
+      "valid_until": "2026-09-12T10:05:30Z",
+      "security_status": "FAIL",
+      "business_status": "PASS",
+      "observation_status": "PASS",
+      "status": "FAIL",
+      "evidence_ids": [
+        "e-probe-security-fail",
+        "e-probe-business",
+        "e-observation"
+      ],
+      "expected_result": "scoped anomalous path restricted; legitimate path available; required observation valid",
+      "observed_result": "counterfactual: scoped path remains reachable with trustworthy probe",
+      "residual_risks": [
+        "root cause unremediated",
+        "temporary control has finite lifetime"
+      ],
+      "recommended_next_step": "diagnose and bounded replan",
+      "verification_spec_id": "vspec-containment-v1"
+    }
+  ]
+}

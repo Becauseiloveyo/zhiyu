@@ -1,0 +1,101 @@
+services:
+  postgres:
+    image: postgres:17.11@sha256:67f41722b7a8cbdb868a44a4995c846eddfdc2973bccb291ce937dce88ad5675
+    stop_grace_period: 60s
+    environment:
+      POSTGRES_DB: zhiyu
+      POSTGRES_USER: zhiyu
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-zhiyu_dev_only}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zhiyu -d zhiyu"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - zhiyu_pg:/var/lib/postgresql/data
+    networks: [control]
+
+  migrate:
+    build:
+      context: .
+      target: runtime
+    environment:
+      ZHIYU_DATABASE_URL: postgresql+psycopg://zhiyu:${POSTGRES_PASSWORD:-zhiyu_dev_only}@postgres:5432/zhiyu
+    command: ["python", "-m", "alembic", "upgrade", "head"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [control]
+
+  bootstrap:
+    build:
+      context: .
+      target: runtime
+    environment:
+      ZHIYU_DATABASE_URL: postgresql+psycopg://zhiyu:${POSTGRES_PASSWORD:-zhiyu_dev_only}@postgres:5432/zhiyu
+    command: ["python", "-m", "zhiyu.cli", "bootstrap", "--file", "config/bootstrap.lab.json", "--actor", "compose-bootstrap"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    networks: [control]
+
+  api:
+    build:
+      context: .
+      target: runtime
+    environment:
+      ZHIYU_ENV: dev
+      ZHIYU_DATABASE_URL: postgresql+psycopg://zhiyu:${POSTGRES_PASSWORD:-zhiyu_dev_only}@postgres:5432/zhiyu
+      ZHIYU_SERVICE_TOKENS:
+    ports:
+      - "127.0.0.1:${ZHIYU_API_PORT:-8000}:8000"
+    depends_on:
+      postgres:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready', timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 12
+    networks: [control]
+
+  response-target:
+    profiles: [response-test]
+    build:
+      context: .
+      target: runtime
+    command: ["python", "tools/response_probe_target.py"]
+    networks: [control]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+
+  verification-target:
+    profiles: [verification-test]
+    build:
+      context: .
+      target: runtime
+    command: ["python", "tools/verification_probe_target.py"]
+    networks: [control]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+
+  tests:
+    profiles: [test]
+    build:
+      context: .
+      target: tests
+    environment:
+      ZHIYU_TEST_DATABASE_URL: postgresql+psycopg://zhiyu:${POSTGRES_PASSWORD:-zhiyu_dev_only}@postgres:5432/zhiyu
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    networks: [control]
+
+networks:
+  control:
+    driver: bridge
+
+volumes:
+  zhiyu_pg:

@@ -1,0 +1,60 @@
+{
+  "data_origin": "SYNTHETIC",
+  "payloads": {
+    "e-net": {
+      "kind": "network_observation",
+      "description": "representative request metadata from synthetic sequence",
+      "source": "10.77.30.10",
+      "target": "10.77.20.10:8080",
+      "path": "/lab/login"
+    },
+    "e-app": {
+      "kind": "application_audit",
+      "description": "representative synthetic failed authentication",
+      "request_correlation": "lab-request-001",
+      "result": "failed"
+    },
+    "e-state": {
+      "kind": "asset_baseline",
+      "target": "target-a",
+      "state_version": 7,
+      "legitimate_service_available": true
+    },
+    "e-control": {
+      "kind": "device_query",
+      "rule_id": "synthetic-rule-001",
+      "owned_by": "act-synthetic-block-001",
+      "scope": "10.77.30.10 -> 10.77.20.10 TCP/8080",
+      "ttl_seconds": 300
+    },
+    "e-probe-security": {
+      "kind": "independent_security_probe",
+      "path_restricted": true,
+      "probe_control_channel_healthy": true
+    },
+    "e-probe-business": {
+      "kind": "independent_business_probe",
+      "legitimate_operation_success": true
+    },
+    "e-observation": {
+      "kind": "sensor_coverage_canary",
+      "required_paths_valid": true,
+      "loss_observed": false
+    },
+    "e-observation-gap": {
+      "kind": "sensor_coverage_canary",
+      "required_paths_valid": false,
+      "gap": "required observation missing"
+    },
+    "e-business-down": {
+      "kind": "independent_business_probe",
+      "legitimate_operation_success": false,
+      "probe_control_channel_healthy": true
+    },
+    "e-probe-security-fail": {
+      "kind": "independent_security_probe",
+      "path_restricted": false,
+      "probe_control_channel_healthy": true
+    }
+  }
+}

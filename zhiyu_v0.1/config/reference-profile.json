@@ -1,0 +1,13 @@
+{
+  "profile": "windows-docker-linux-reference/1",
+  "api_bind": "127.0.0.1",
+  "api_port": 18010,
+  "database": "zhiyu",
+  "username": "operator",
+  "parent_environment": "v1-reference-control",
+  "scope_id": "scope-lab-web",
+  "ai_default": "OFF",
+  "ai_enabled_default": "SHADOW",
+  "execution_scope": "CONTROLLED_LAB",
+  "model_weights_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+}

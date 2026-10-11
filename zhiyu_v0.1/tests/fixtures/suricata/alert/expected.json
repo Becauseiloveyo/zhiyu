@@ -1,0 +1,6 @@
+{
+  "activity_category": "network_alert",
+  "activity_name": "signature_match",
+  "outcome": "UNKNOWN",
+  "severity_signal": 9
+}

@@ -1,0 +1,173 @@
+[
+  {
+    "object_type": "NormalizedEvent",
+    "event_id": "evt-net",
+    "environment_id": "lab-zhiyu-01",
+    "source_type": "suricata",
+    "collector_id": "sensor-suricata",
+    "origin_event_id": "net-origin-001",
+    "provenance_group": "network-origin-001",
+    "source_timestamp": "2026-09-12T10:00:10Z",
+    "ingested_at": "2026-09-12T10:00:12Z",
+    "clock_status": "TRUSTED",
+    "event_type": "lab.auth.network",
+    "severity_signal": 5,
+    "raw_ref": "examples/evidence_payloads.json#/payloads/e-net",
+    "parser_version": "parser-design-v1",
+    "fingerprint": "291df2fa088572c0d66ebf196fac094bd24a38e1038b600324c6b6f96ee7d072",
+    "validation_run_id": "run-synthetic-001",
+    "data_origin": "SYNTHETIC",
+    "specversion": "1.0",
+    "activity_category": "authentication",
+    "activity_name": "failed_login",
+    "outcome": "FAILURE",
+    "actor_resource_id": null,
+    "source_resource_ids": [
+      "validation-a"
+    ],
+    "target_resource_ids": [
+      "target-a"
+    ],
+    "observables": [
+      {
+        "observable_type": "IP",
+        "value": "10.77.30.10",
+        "role": "SOURCE"
+      }
+    ],
+    "mapping_version": "zhiyu-security-map-v1"
+  },
+  {
+    "object_type": "ValidationScenario",
+    "scenario_id": "SCN-LAB-AUTH-01",
+    "version": "1",
+    "implementation_status": "DESIGN_ONLY",
+    "objective": "controlled authentication anomaly -> scoped temporary containment -> independent three-check verification",
+    "environment_id": "lab-zhiyu-01",
+    "scope_id": "scope-lab-web",
+    "preconditions": [
+      "authorized isolated topology",
+      "independent network and application evidence",
+      "healthy legitimate operation",
+      "locally enforceable TTL demonstrated before automatic actions"
+    ],
+    "trigger_steps": [
+      "register trusted validation run",
+      "20 synthetic failed authentication attempts in 60 seconds at <=1 request/second",
+      "collect network and application observations",
+      "correlate incident and check evidence",
+      "authorize source-target-port temporary restriction",
+      "verify containment, legitimate business and observation independently"
+    ],
+    "expected_events": [
+      "lab.auth.network",
+      "lab.auth.failure"
+    ],
+    "cleanup_steps": [
+      "remove only owned rule after scope/conflict check",
+      "verify restored paths and cleanup",
+      "preserve unresolved root-cause risk"
+    ],
+    "stop_conditions": [
+      "scope expired or revoked",
+      "business health deteriorates",
+      "incident or recovery budget exhausted",
+      "unknown action outcome must reconcile"
+    ],
+    "config_is_measured_performance": false,
+    "verification_spec_id": "vspec-containment-v1"
+  },
+  {
+    "object_type": "VerificationSpec",
+    "verification_spec_id": "vspec-containment-v1",
+    "scenario_id": "SCN-LAB-AUTH-01",
+    "scenario_version": "1",
+    "objective_type": "CONTAINMENT",
+    "checks": [
+      {
+        "check_id": "check-security",
+        "dimension": "SECURITY",
+        "capability_id": "lab.independent.verify",
+        "source_resource_id": "validation-a",
+        "target_resource_id": "target-a",
+        "timeout_seconds": 10,
+        "repetitions": 3,
+        "assertions": [
+          {
+            "field": "path_restricted",
+            "operator": "EQUALS",
+            "expected": true
+          }
+        ],
+        "required_sensor_ids": [
+          "sensor-suricata"
+        ],
+        "executor_must_differ_from_action_executor": true,
+        "on_missing_observation": "INCONCLUSIVE"
+      },
+      {
+        "check_id": "check-business",
+        "dimension": "BUSINESS",
+        "capability_id": "lab.independent.verify",
+        "source_resource_id": "business-probe",
+        "target_resource_id": "target-a",
+        "timeout_seconds": 10,
+        "repetitions": 3,
+        "assertions": [
+          {
+            "field": "legitimate_operation_success",
+            "operator": "EQUALS",
+            "expected": true
+          }
+        ],
+        "required_sensor_ids": [],
+        "executor_must_differ_from_action_executor": true,
+        "on_missing_observation": "INCONCLUSIVE"
+      },
+      {
+        "check_id": "check-observation",
+        "dimension": "OBSERVATION",
+        "capability_id": "lab.independent.verify",
+        "source_resource_id": "business-probe",
+        "target_resource_id": "target-a",
+        "timeout_seconds": 10,
+        "repetitions": 1,
+        "assertions": [
+          {
+            "field": "required_paths_valid",
+            "operator": "EQUALS",
+            "expected": true
+          }
+        ],
+        "required_sensor_ids": [
+          "sensor-suricata",
+          "sensor-wazuh"
+        ],
+        "executor_must_differ_from_action_executor": true,
+        "on_missing_observation": "INCONCLUSIVE"
+      }
+    ],
+    "aggregation_rule": "THREE_DIMENSION_STRICT"
+  },
+  {
+    "object_type": "ValidationRun",
+    "run_id": "run-synthetic-001",
+    "scenario_id": "SCN-LAB-AUTH-01",
+    "scenario_version": "1",
+    "environment_id": "lab-zhiyu-01",
+    "scope_id": "scope-lab-web",
+    "registered_by": "lab-admin-synthetic",
+    "trusted_registration": true,
+    "started_at": "2026-09-12T10:00:00Z",
+    "expires_at": "2026-09-12T10:20:00Z",
+    "expected_event_types": [
+      "lab.auth.network",
+      "lab.auth.failure"
+    ],
+    "allowed_side_effects": [
+      "one owned temporary source-target-port restriction for 300 seconds"
+    ],
+    "cleanup_policy_id": "rollback-owned-rule-v1",
+    "data_origin": "SYNTHETIC"
+  }
+]

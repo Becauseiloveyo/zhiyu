@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zhiyu"
+version = "1.0.0"
+description = "Zhiyu autonomous cyber defense and continuous verification control plane"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.128,<1",
+  "uvicorn[standard]>=0.48,<1",
+  "pydantic>=2.13,<3",
+  "pydantic-settings>=2.7,<3",
+  "sqlalchemy>=2.0,<3",
+  "alembic>=1.18,<2",
+  "psycopg[binary]>=3.2,<4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9,<10", "httpx>=0.28,<1", "ruff>=0.13,<1", "mypy>=1.17,<2", "jsonschema>=4,<5", "PyYAML>=6,<7"]
+
+[project.scripts]
+zhiyu = "zhiyu.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["postgres: requires a real PostgreSQL database", "compose: requires Docker Engine and Compose"]
+addopts = "--strict-markers"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+extend-exclude = ["baseline", "src/zhiyu/domain/contracts.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/zhiyu"]
+exclude = ["src/zhiyu/domain/contracts.py"]
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = "zhiyu.domain.contracts"
+ignore_errors = true

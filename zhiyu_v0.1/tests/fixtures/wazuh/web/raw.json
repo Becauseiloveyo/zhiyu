@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-13T10:00:00Z",
+  "agent": {
+    "id": "001",
+    "name": "auth-host",
+    "ip": "10.77.20.10"
+  },
+  "id": "syn-web-1",
+  "rule": {
+    "id": "31101",
+    "level": 6,
+    "groups": [
+      "web",
+      "apache"
+    ]
+  },
+  "data": {
+    "url": "/error",
+    "srcip": "192.0.2.11"
+  }
+}

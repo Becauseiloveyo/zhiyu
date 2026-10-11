@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "source_digest": "c17bb9e61b5cc5eb32392d10c84da8d2a9e52e6e04c7f5388f93e305254962dd",
+  "checks": [
+    {
+      "command": "python -m ruff check src tests migrations tools",
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m ruff format --check src tests migrations tools",
+      "exit_code": 0,
+      "stdout": "175 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m mypy src/zhiyu",
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 103 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": "python -m compileall -q src tests migrations tools",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "python tools/schema_snapshot.py --check",
+      "exit_code": 0,
+      "stdout": "Schema artifacts verified: 71 tables\n",
+      "stderr": ""
+    }
+  ]
+}

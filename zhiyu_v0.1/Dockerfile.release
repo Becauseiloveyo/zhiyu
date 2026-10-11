@@ -1,0 +1,22 @@
+FROM python:3.12.14-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+COPY requirements-runtime.lock requirements-build.lock requirements-operator.lock ./
+COPY uv.lock ./
+COPY config/reference-build-wheel.json ./config/reference-build-wheel.json
+COPY tools/release_wheels.py ./tools/release_wheels.py
+RUN python tools/release_wheels.py --output /tmp/reference-wheels.lock \
+    && pip install --timeout 120 --retries 5 --no-cache-dir --no-index --only-binary :all: --require-hashes -r /tmp/reference-wheels.lock \
+    && pip check
+COPY pyproject.toml uv.lock ./
+COPY src ./src
+RUN pip install --no-cache-dir --no-build-isolation --no-deps .
+COPY alembic.ini ./
+COPY migrations ./migrations
+COPY config ./config
+COPY tools ./tools
+COPY tests/fixtures/golden_chain_m2.json ./tests/fixtures/golden_chain_m2.json
+COPY frontend/dist ./frontend/dist
+RUN useradd --create-home --uid 10001 zhiyu
+USER zhiyu
+CMD ["python", "tools/release_profile.py", "serve", "--deployment", "/run/reference", "--container"]

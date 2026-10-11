@@ -1,0 +1,244 @@
+meta:
+  project_id: zhiyu
+  name: 智御——网络安全自主决策与持续验证平台
+  version: 2026.09.12-ai.5
+  updated_at: '2026-09-12'
+  deliverable_type: engineering_freeze_context_package
+  implementation_status: project_skeleton_started_after_contract_freeze
+  platform_test_status: not_run
+  current_milestone: M0_engineering_freeze
+authority:
+  metadata_and_decisions: PROJECT_STATE.yaml
+  object_contracts: contracts/models.py
+  state_transitions: contracts/state_machines.json
+  behavior_design: docs/
+  generated_reading_copy: 智御_AI_CONTEXT_v2026.09.12_ai.5.md
+  rule: generated_files_are_not_independent_sources_of_truth
+positioning:
+  one_sentence: 现有安全设备之上的自主安全决策与持续验证中枢。
+  main_product_target: 中小企业或部门级私有网络
+  initial_validation_environment: 隔离授权靶场
+  core_loop:
+  - event
+  - incident
+  - environment_state
+  - context
+  - ai_plan
+  - task_graph
+  - capability
+  - authorization
+  - action
+  - verification
+  - state_update_or_bounded_replan
+architecture:
+  functional_layers:
+  - sensing_adapters
+  - event_intelligence
+  - environment_state_memory
+  - context_ai_decision
+  - orchestration
+  - policy_risk
+  - secure_execution
+  - continuous_verification
+  deployment_planes:
+  - control_decision
+  - data_sensor
+  - response_execution
+  - isolated_validation
+  - trust_governance
+  cross_cutting:
+  - environment_policy
+  - identity_secrets
+  - data_egress
+  - sensor_health_coverage
+  - evidence_provenance
+  - versioning
+  - resource_budget
+  - audit_trace
+  - dashboard
+  core_os: linux
+  access: browser_and_api
+  canonical_state: postgresql
+  graph_role: optional_rebuildable_projection
+invariants:
+- llm_has_no_direct_privileged_execution_or_credentials
+- all_active_validation_requires_explicit_scope_and_authorization
+- high_business_impact_and_r5_require_human_approval
+- load_mode_never_expands_permissions
+- model_self_confidence_is_not_a_calibrated_probability
+- origin_authentication_does_not_prove_content_truth
+- duplicate_provenance_is_not_independent_evidence
+- approval_binds_exact_action_digest_and_expiry
+- preconditions_and_authorization_are_rechecked_before_execution
+- unknown_action_result_requires_reconciliation_before_retry
+- compensation_only_changes_resources_owned_by_the_action
+- containment_pass_is_not_remediation_or_incident_closure
+- verification_checks_security_business_and_observation
+- insufficient_observation_cannot_produce_a_false_pass
+- validation_run_tags_must_come_from_trusted_registration
+- replan_and_recovery_budgets_are_bounded_and_separate
+- raw_retention_is_bounded_and_loss_is_explicit
+- no_new_state_changing_action_without_durable_intent_and_audit
+- local_only_or_air_gapped_never_falls_back_to_cloud
+- underlying_security_controls_survive_ai_failure
+- examples_are_synthetic_and_not_platform_test_results
+third_party:
+  v1_primary:
+  - wazuh
+  - suricata
+  - nuclei
+  v1_capability_roles:
+  - template_check
+  - scoped_response_adapter
+  - independent_security_and_business_probes
+  optional_or_v2:
+  - atomic_red_team
+  - caldera
+  - strix
+  - zeek
+  - opencti
+  - graph_projection
+  reference_only:
+  - pentagi
+  - anthropic_cybersecurity_skills
+  - openaev
+  infrastructure_candidates:
+  - temporal_class
+  - opa_class
+  - spiffe_spire_class
+  - vault_kms_class
+  - durable_event_stream
+  - clickhouse_class
+  - s3_compatible_store
+  - kata_or_firecracker_or_kvm
+v1:
+  scenario_id: SCN-LAB-AUTH-01
+  scenario_status: selected_design_baseline_not_implemented
+  secondary_scenario: SCN-LAB-AUTH-02_remediation_extension_design
+  default_backend: python_3_12_fastapi_pydantic
+  default_state: postgresql_jsonb
+  default_task_durability: postgres_task_table_transactional_outbox_and_leases
+  default_frontend: react_typescript_vite
+  default_dev_runtime: isolated_linux_vms_with_compose_for_control_services
+  default_graph_ui: choose_one_react_flow_or_cytoscape_when_needed
+  default_model: replaceable_single_model_gateway_final_model_unknown
+  must_have:
+  - two_real_independent_event_sources
+  - event_entity_provenance_and_time_normalization
+  - incident_state_and_minimal_context
+  - validated_structured_plan_and_dag
+  - three_real_capability_roles
+  - deterministic_scope_policy_and_minimal_iam
+  - approval_binding_expiry_and_execution_recheck
+  - durable_intent_idempotency_and_unknown_reconciliation
+  - owned_ttl_cleanup_with_local_recovery_path
+  - independent_three_check_verification
+  - incident_containment_remediation_closure_distinction
+  - bounded_replan_and_reserved_recovery_capacity
+  - trace_and_versioned_reproducible_scenario
+  non_goals:
+  - enterprise_ha
+  - multi_tenant_mssp
+  - default_multi_agent
+  - full_digital_twin
+  - full_graph_db
+  - online_learning
+  - dozens_of_tools
+  - public_unscoped_attack
+  - ot_production_control
+  - full_windows_ad_chain_in_first_demo
+  contract_freeze: ai.5
+  implementation_track: M1_infrastructure_then_M2_deterministic_closed_loop_then_M3_ai
+decision_log:
+- id: D01
+  decision: preserve_eight_layers_five_planes
+  status: active
+- id: D02
+  decision: external_state_memory_instead_of_generic_knowledge_base
+  status: active
+- id: D03
+  decision: strix_executor_pentagi_reference
+  status: active
+- id: D04
+  decision: independent_security_business_observation_verification
+  status: active_ai4
+- id: D05
+  decision: approval_digest_expiry_and_preexecution_recheck
+  status: active_ai4
+- id: D06
+  decision: action_unknown_reconcile_and_owned_compensation
+  status: active_ai4
+- id: D07
+  decision: orthogonal_environment_dimensions
+  status: active_ai4
+- id: D08
+  decision: first_scenario_auth_anomaly_containment
+  status: design_default_ai4
+- id: D09
+  decision: atomic_caldera_not_required_for_first_demo
+  status: active_ai4
+- id: D10
+  decision: durable_v1_tasks_no_memory_only_queue
+  status: active_ai4
+- id: D11
+  decision: modular_authoritative_sources_generated_single_file
+  status: active_ai4
+- id: D12
+  decision: deterministic_baseline_to_measure_ai_increment
+  status: active_ai4
+- id: D13
+  decision: generic_resource_ref_and_scope_for_cross_platform_targets
+  status: active_ai5
+- id: D14
+  decision: normalized_event_cloudevents_like_envelope_with_security_semantics_and_ocsf_mapping_path
+  status: active_ai5
+- id: D15
+  decision: event_group_and_correlation_decision_are_first_class_objects
+  status: active_ai5
+- id: D16
+  decision: verification_rules_are_machine_executable_specs
+  status: active_ai5
+- id: D17
+  decision: authorization_decision_preserves_full_input_context_snapshot
+  status: active_ai5
+- id: D18
+  decision: model_invocations_are_versioned_model_run_objects
+  status: active_ai5
+- id: D19
+  decision: capability_definition_and_dynamic_health_are_separate
+  status: active_ai5
+unknowns:
+- actual_repository_and_implemented_modules
+- team_members_roles_and_capacity
+- confirmed_server_ram_gpu_and_virtualization
+- competition_name_deadline_and_required_template
+- final_model_provider_version_and_measured_quality
+- dependency_versions_licenses_and_compatibility
+- measured_throughput_latency_cost_and_recovery
+- real_pilot_assets_scope_egress_and_approval_owner
+- customers_market_pricing_and_ip_status
+next_steps:
+- initialize_real_repository_from_ai5_contracts
+- build_M1_linux_control_plane_postgresql_migrations_and_lab_topology
+- implement_M2_deterministic_event_to_verification_closed_loop
+- run_negative_and_recovery_cases_before_ai
+- integrate_M3_model_gateway_and_structured_planner_through_same_contracts
+- run_M4_acceptance_A01_A15_and_G1_vs_G2_experiments
+engineering_freeze:
+  status: FROZEN_FOR_IMPLEMENTATION
+  freeze_scope:
+  - resource_and_scope_semantics
+  - normalized_event_semantics
+  - event_correlation_contracts
+  - incident_task_action_lifecycle
+  - verification_spec
+  - authorization_context
+  - model_run
+  - capability_definition_vs_health
+  change_gate:
+  - implementation_finding
+  - test_evidence
+  - security_finding
+  - measured_performance_bottleneck
+  - third_party_constraint_mismatch
+  rule: new frameworks or aesthetic preference alone do not justify contract changes

@@ -1,0 +1,81 @@
+{
+  "version": "0.9.0",
+  "milestone_result": "PASS",
+  "current_gate": "COMPLETE",
+  "gates": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS"
+  },
+  "gate_a_tests": {
+    "passed": 25,
+    "failed": 0,
+    "skipped": 0
+  },
+  "original_tests_retained": 381,
+  "original_test_files_unchanged": 74,
+  "frozen_files_unchanged": 28,
+  "latest_full_run": {
+    "passed": 464,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 2834.09,
+    "evidence": "artifacts/v0.9/final-backend.xml"
+  },
+  "scope": "CONTROLLED_LAB",
+  "production_validated": false,
+  "product_tests": {
+    "passed": 83,
+    "failed": 0,
+    "skipped": 0
+  },
+  "frontend_checks": {
+    "lint": "PASS",
+    "typecheck_all_js_jsx": "PASS",
+    "component_contract_tests": 15,
+    "production_build": "PASS",
+    "lockfile_offline_ci": "PASS"
+  },
+  "last_compose_attempt": {
+    "result": "PASS",
+    "linux_tests_passed": 463,
+    "linux_tests_failed": 0,
+    "linux_tests_skipped": 0,
+    "runtime_checks_passed": 189,
+    "evidence": "docs/m5-runtime/zhiyu-smoke-e73aa9148443/result.json"
+  },
+  "last_non_compose_run": {
+    "passed": 463,
+    "failed": 0,
+    "skipped": 0,
+    "deselected": 1,
+    "seconds": 419.242,
+    "evidence": "docs/m5-runtime/zhiyu-smoke-e73aa9148443/test-results.xml",
+    "note": "Linux container suite; Compose itself passed separately in the 464-test host suite."
+  },
+  "gate_d_components": {
+    "incident_report": "PASS",
+    "recorded_replay": "PASS",
+    "demo_controller_metadata": "TESTED",
+    "fixed_lab_worker": "IMPLEMENTED_CONTROLLED_LAB",
+    "live_A_to_E": "PASS",
+    "reset_cleanup_actual_resources": "PASS_ALL_A_TO_E",
+    "live_replay_no_side_effect": "PASS_ALL_A_TO_E"
+  },
+  "gate_d_live_evidence": "artifacts/v0.9/demo-live-evidence.json",
+  "browser_e2e": "PASS",
+  "source_correspondence": "PASS_RAW_BYTES",
+  "remaining": "NONE",
+  "completed_at": "2026-10-04T05:50:39.312992+00:00",
+  "package_validation": "PASS",
+  "release_zip": "智御_Project_v0.9.0_Competition_Product.zip",
+  "package_report": "artifacts/PACKAGE_VALIDATION_v0.9.0.json",
+  "source_digest": "edc309f58d76dad4b6d0ef3bb2982891b4f058bdbfdda9e96a5524d7b5a0f30b",
+  "frontend_build_digest": "da3bfd776289f94cb2360f3ec6fd837e56d008100836d3515b6c6a24b849219b",
+  "high_risk_autonomous_execution": 0,
+  "ai_default": "OFF",
+  "ai_enabled_default": "SHADOW",
+  "next_version_started": false
+}

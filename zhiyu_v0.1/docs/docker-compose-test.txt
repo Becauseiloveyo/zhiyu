@@ -1,0 +1,56 @@
+PASS: linux_engine
+PASS: hello_world
+PASS: compose_config
+BUILD: runtime and tests images
+PASS: image_build
+PASS: postgres_healthy
+PASS: loopback_api_port
+PASS: unmigrated_not_ready
+PASS: migration_failure_not_ready
+PASS: bootstrap_failure_observable
+PASS: migrate_exit
+PASS: downgraded_not_ready
+PASS: migration_roundtrip_and_drift
+PASS: bootstrap_exit
+PASS: compose_up
+PASS: bootstrap_contract_and_passive_defaults
+PASS: schema_constraints_present
+PASS: bootstrap_idempotent
+PASS: linux_nonroot_utc_import
+PASS: image_secret_boundary
+PASS: managed_volume_and_ports
+PASS: normal_health_ready
+PASS: event_A_atomic_ingest
+PASS: event_B_duplicate
+PASS: event_C_conflict_no_overwrite
+PASS: event_D_same_fingerprint_provenance_retained
+PASS: event_E_reject_environment_id
+PASS: event_E_reject_collector_id
+PASS: event_E_reject_source_type
+PASS: audit_outbox
+PASS: db_down_health_ready_write
+PASS: db_recovery_without_api_restart
+PASS: recovery_replay_duplicate
+PASS: loopback_api_port
+PASS: api_restart_persistence
+PASS: migrate_exit
+PASS: bootstrap_exit
+PASS: loopback_api_port
+PASS: compose_down_up_volume_persistence
+TEST: full non-Compose suite inside Linux container
+PASS: postgres_test_suite
+PASS: no_crash_loop
+PASS: ai5_unchanged
+REPORT: C:\Users\wc\Documents\ChatGPT\创新创业大赛\zhiyu_v0.1\docs\docker-runtime\zhiyu-smoke-a35906dee8ed\result.json
+.
+============================== warnings summary ===============================
+..\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\wc\Documents\ChatGPT\创新创业大赛\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+..\.venv\Lib\site-packages\starlette\testclient.py:53
+  C:\Users\wc\Documents\ChatGPT\创新创业大赛\.venv\Lib\site-packages\starlette\testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 46 deselected, 2 warnings in 124.55s (0:02:04)

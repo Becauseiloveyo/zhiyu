@@ -1,0 +1,927 @@
+{
+  "data_origin": "SYNTHETIC",
+  "description": "一条假设运行后的合成快照，用来检查字段与关系。示例HEALTHY/EXECUTED不是实际运行证据；必须完成环境上线检查后才能真实分发。",
+  "objects": [
+    {
+      "object_type": "NormalizedEvent",
+      "event_id": "evt-net",
+      "environment_id": "lab-zhiyu-01",
+      "source_type": "suricata",
+      "collector_id": "sensor-suricata",
+      "origin_event_id": "net-origin-001",
+      "provenance_group": "network-origin-001",
+      "source_timestamp": "2026-09-12T10:00:10Z",
+      "ingested_at": "2026-09-12T10:00:12Z",
+      "clock_status": "TRUSTED",
+      "event_type": "lab.auth.network",
+      "severity_signal": 5,
+      "raw_ref": "examples/evidence_payloads.json#/payloads/e-net",
+      "parser_version": "parser-design-v1",
+      "fingerprint": "291df2fa088572c0d66ebf196fac094bd24a38e1038b600324c6b6f96ee7d072",
+      "validation_run_id": "run-synthetic-001",
+      "data_origin": "SYNTHETIC",
+      "specversion": "1.0",
+      "activity_category": "authentication",
+      "activity_name": "failed_login",
+      "outcome": "FAILURE",
+      "actor_resource_id": null,
+      "source_resource_ids": [
+        "validation-a"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "observables": [
+        {
+          "observable_type": "IP",
+          "value": "10.77.30.10",
+          "role": "SOURCE"
+        }
+      ],
+      "mapping_version": "zhiyu-security-map-v1"
+    },
+    {
+      "object_type": "NormalizedEvent",
+      "event_id": "evt-app",
+      "environment_id": "lab-zhiyu-01",
+      "source_type": "wazuh_application_log",
+      "collector_id": "sensor-wazuh",
+      "origin_event_id": "app-origin-001",
+      "provenance_group": "application-origin-001",
+      "source_timestamp": "2026-09-12T10:00:10Z",
+      "ingested_at": "2026-09-12T10:00:12Z",
+      "clock_status": "TRUSTED",
+      "event_type": "lab.auth.failure",
+      "severity_signal": 5,
+      "raw_ref": "examples/evidence_payloads.json#/payloads/e-app",
+      "parser_version": "parser-design-v1",
+      "fingerprint": "c38a16b65e8b4529929a1fdfe9e72a29ca1f8759a6c3fa15879a20d4544f8ba9",
+      "validation_run_id": "run-synthetic-001",
+      "data_origin": "SYNTHETIC",
+      "specversion": "1.0",
+      "activity_category": "authentication",
+      "activity_name": "failed_login",
+      "outcome": "FAILURE",
+      "actor_resource_id": null,
+      "source_resource_ids": [
+        "validation-a"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "observables": [
+        {
+          "observable_type": "IP",
+          "value": "10.77.30.10",
+          "role": "SOURCE"
+        }
+      ],
+      "mapping_version": "zhiyu-security-map-v1"
+    },
+    {
+      "object_type": "NormalizedEvent",
+      "event_id": "evt-net-forwarded",
+      "environment_id": "lab-zhiyu-01",
+      "source_type": "wazuh_forwarded_suricata",
+      "collector_id": "sensor-wazuh",
+      "origin_event_id": "net-origin-001",
+      "provenance_group": "network-origin-001",
+      "source_timestamp": "2026-09-12T10:00:10Z",
+      "ingested_at": "2026-09-12T10:00:12Z",
+      "clock_status": "TRUSTED",
+      "event_type": "lab.auth.network",
+      "severity_signal": 5,
+      "raw_ref": "examples/evidence_payloads.json#/payloads/e-net",
+      "parser_version": "parser-design-v1",
+      "fingerprint": "291df2fa088572c0d66ebf196fac094bd24a38e1038b600324c6b6f96ee7d072",
+      "validation_run_id": "run-synthetic-001",
+      "data_origin": "SYNTHETIC",
+      "specversion": "1.0",
+      "activity_category": "authentication",
+      "activity_name": "failed_login",
+      "outcome": "FAILURE",
+      "actor_resource_id": null,
+      "source_resource_ids": [
+        "validation-a"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "observables": [
+        {
+          "observable_type": "IP",
+          "value": "10.77.30.10",
+          "role": "SOURCE"
+        }
+      ],
+      "mapping_version": "zhiyu-security-map-v1"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-net",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [
+        "evt-net"
+      ],
+      "provenance_group": "network-origin-001",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:00:10Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-net",
+      "integrity_hash": "f4ae6f4c66e84181e1e972c902cc08fa0c4cf5f067fd114297bb5669fa49dac1",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:00:10Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-app",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [
+        "evt-app"
+      ],
+      "provenance_group": "application-origin-001",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:00:10Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-app",
+      "integrity_hash": "61e8a8aa5ffa9f9fa78bfd39ee0c1287b5cd8dd24e907e7438e025d6fc620429",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:00:10Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-state",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-state-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:00:00Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-state",
+      "integrity_hash": "0bf8f0852035d06eb7611d84be8de13ea8aba31e17308e5a5e86397e22d7c585",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:00:00Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-control",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-control-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:15Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-control",
+      "integrity_hash": "92a4762ba120cf2db15baf1b8d0aa63b308e4d06845f1791fec53b27d65dd7cd",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:15Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-probe-security",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-probe-security-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:25Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-probe-security",
+      "integrity_hash": "460426ccf0accdd5fe6f63f8b6412528be16f486c5aa913008b1c4460ef92acb",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:25Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-probe-business",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-probe-business-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:25Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-probe-business",
+      "integrity_hash": "94baf68d0328bd0618358df33182dbd54551ac59d48c5ba1fe8158fc45db2154",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:25Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "Evidence",
+      "evidence_id": "e-observation",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "source_event_ids": [],
+      "provenance_group": "e-observation-independent",
+      "claim_kind": "OBSERVATION",
+      "observed_at": "2026-09-12T10:01:25Z",
+      "valid_until": "2026-09-12T10:06:00Z",
+      "content_ref": "examples/evidence_payloads.json#/payloads/e-observation",
+      "integrity_hash": "eebf495c87db30da938fa4c644aa2aa999d4cbec64dd3e5ee9b475a58e2d7500",
+      "trust_status": "VERIFIED_ORIGIN",
+      "supports": [
+        "synthetic-scenario-observation"
+      ],
+      "contradicts": [],
+      "data_origin": "SYNTHETIC",
+      "collected_at": "2026-09-12T10:01:25Z",
+      "collector_id": "collector-synthetic",
+      "collection_method": "synthetic_fixture"
+    },
+    {
+      "object_type": "SensorHealth",
+      "sensor_id": "sensor-suricata",
+      "environment_id": "lab-zhiyu-01",
+      "status": "HEALTHY",
+      "last_heartbeat_at": "2026-09-12T10:01:00Z",
+      "last_event_at": "2026-09-12T10:00:12Z",
+      "lag_seconds": 2.0,
+      "lost_event_count": 0,
+      "coverage_scope_ids": [
+        "scope-lab-web"
+      ],
+      "coverage_validated": true,
+      "config_version": "sensor-config-design-v1"
+    },
+    {
+      "object_type": "SensorHealth",
+      "sensor_id": "sensor-wazuh",
+      "environment_id": "lab-zhiyu-01",
+      "status": "HEALTHY",
+      "last_heartbeat_at": "2026-09-12T10:01:00Z",
+      "last_event_at": "2026-09-12T10:00:12Z",
+      "lag_seconds": 2.0,
+      "lost_event_count": 0,
+      "coverage_scope_ids": [
+        "scope-lab-web"
+      ],
+      "coverage_validated": true,
+      "config_version": "sensor-config-design-v1"
+    },
+    {
+      "object_type": "Task",
+      "task_id": "task-check",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "dependencies": [],
+      "capability_id": "lab.template.check",
+      "capability_version": "1.0-design",
+      "scope_id": "scope-lab-web",
+      "parameters": {
+        "template_id": "lab-service-marker-v1"
+      },
+      "status": "SUCCEEDED",
+      "priority": "P2",
+      "timeout_seconds": 30,
+      "max_attempts": 2,
+      "expected_output": "evidence for current lab service identity and scope",
+      "evidence_ids": [
+        "e-net",
+        "e-app",
+        "e-state"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "attempt_count": 1,
+      "created_at": "2026-09-12T10:00:20Z",
+      "queued_at": "2026-09-12T10:00:20Z",
+      "claimed_at": "2026-09-12T10:00:21Z",
+      "started_at": "2026-09-12T10:00:21Z",
+      "finished_at": "2026-09-12T10:00:25Z",
+      "active_lease_id": null,
+      "worker_id": "worker-lab-01"
+    },
+    {
+      "object_type": "Task",
+      "task_id": "task-block",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "dependencies": [
+        "task-check"
+      ],
+      "capability_id": "lab.gateway.temporary_block",
+      "capability_version": "1.0-design",
+      "scope_id": "scope-lab-web",
+      "parameters": {
+        "operation": "ensure_temporary_block",
+        "rule_namespace": "zhiyu_lab"
+      },
+      "status": "SUCCEEDED",
+      "priority": "P2",
+      "timeout_seconds": 30,
+      "max_attempts": 2,
+      "expected_output": "owned rule receipt or execution_unknown",
+      "evidence_ids": [
+        "e-net",
+        "e-app",
+        "e-state"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "attempt_count": 1,
+      "created_at": "2026-09-12T10:01:00Z",
+      "queued_at": "2026-09-12T10:01:00Z",
+      "claimed_at": "2026-09-12T10:01:05Z",
+      "started_at": "2026-09-12T10:01:05Z",
+      "finished_at": "2026-09-12T10:01:15Z",
+      "active_lease_id": null,
+      "worker_id": "worker-lab-01"
+    },
+    {
+      "object_type": "Task",
+      "task_id": "task-verify",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "dependencies": [
+        "task-block"
+      ],
+      "capability_id": "lab.independent.verify",
+      "capability_version": "1.0-design",
+      "scope_id": "scope-lab-web",
+      "parameters": {
+        "objective": "CONTAINMENT"
+      },
+      "status": "SUCCEEDED",
+      "priority": "P2",
+      "timeout_seconds": 30,
+      "max_attempts": 2,
+      "expected_output": "security/business/observation verification and residual risk",
+      "evidence_ids": [
+        "e-net",
+        "e-app",
+        "e-state"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "attempt_count": 1,
+      "created_at": "2026-09-12T10:01:20Z",
+      "queued_at": "2026-09-12T10:01:20Z",
+      "claimed_at": "2026-09-12T10:01:21Z",
+      "started_at": "2026-09-12T10:01:21Z",
+      "finished_at": "2026-09-12T10:01:30Z",
+      "active_lease_id": null,
+      "worker_id": "worker-lab-01"
+    },
+    {
+      "object_type": "StateEntity",
+      "entity_id": "target-a",
+      "environment_id": "lab-zhiyu-01",
+      "entity_type": "service_host",
+      "state_version": 7,
+      "attributes": {
+        "address": "10.77.20.10",
+        "service_port": 8080,
+        "address_binding_version": 1,
+        "business_criticality": "lab_only"
+      },
+      "claim_kind": "OBSERVATION",
+      "evidence_ids": [
+        "e-state"
+      ],
+      "observed_at": "2026-09-12T10:00:00Z",
+      "valid_until": "2026-09-12T10:05:00Z"
+    },
+    {
+      "object_type": "StateRelation",
+      "relation_id": "rel-target-control",
+      "environment_id": "lab-zhiyu-01",
+      "source_entity_id": "target-a",
+      "destination_entity_id": "lab-gateway",
+      "relation_type": "protected_by",
+      "state_version": 7,
+      "evidence_ids": [
+        "e-state"
+      ],
+      "valid_from": "2026-09-12T10:00:00Z",
+      "valid_until": "2026-09-12T10:05:00Z"
+    },
+    {
+      "object_type": "SecurityIncident",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "title": "合成认证异常的受控遏制演示",
+      "status": "CONTAINED",
+      "priority": "P2",
+      "affected_asset_ids": [
+        "target-a"
+      ],
+      "related_event_ids": [
+        "evt-net",
+        "evt-app",
+        "evt-net-forwarded"
+      ],
+      "evidence_ids": [
+        "e-net",
+        "e-app",
+        "e-state",
+        "e-control",
+        "e-probe-security",
+        "e-probe-business",
+        "e-observation"
+      ],
+      "state_version": 8,
+      "open_action_ids": [
+        "act-synthetic-block-001"
+      ],
+      "residual_risks": [
+        "temporary control expires; root cause not remediated"
+      ],
+      "closure_type": null,
+      "closure_evidence_ids": [],
+      "event_group_ids": [
+        "eg-auth-001"
+      ],
+      "first_observed_at": "2026-09-12T10:00:10Z",
+      "created_at": "2026-09-12T10:00:15Z",
+      "updated_at": "2026-09-12T10:01:30Z",
+      "triaged_at": "2026-09-12T10:00:20Z",
+      "investigation_started_at": "2026-09-12T10:00:21Z",
+      "contained_at": "2026-09-12T10:01:30Z",
+      "resolved_at": null,
+      "closed_at": null
+    },
+    {
+      "object_type": "ContextBundle",
+      "context_id": "ctx-001",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "state_version": 7,
+      "evidence_ids": [
+        "e-net",
+        "e-app",
+        "e-state"
+      ],
+      "excluded_evidence_reasons": {},
+      "unresolved_conflicts": [
+        "distinguish expected validation from unexpected activity"
+      ],
+      "sensor_health_ids": [
+        "sensor-suricata",
+        "sensor-wazuh"
+      ],
+      "capability_ids": [
+        "lab.template.check",
+        "lab.gateway.temporary_block",
+        "lab.independent.verify"
+      ],
+      "policy_version": "policy-v1",
+      "token_budget": 6000,
+      "data_classification": "INTERNAL",
+      "egress_allowed": false,
+      "summary_version": "summary-v1",
+      "prompt_version": "planner-design-v1",
+      "created_at": "2026-09-12T10:00:25Z"
+    },
+    {
+      "object_type": "AIPlan",
+      "plan_id": "plan-001",
+      "incident_id": "inc-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "context_id": "ctx-001",
+      "hypotheses": [
+        {
+          "hypothesis_id": "h1",
+          "claim": "pattern matches failed authentication; consult trusted run registration before attribution",
+          "evidence_ids": [
+            "e-net",
+            "e-app"
+          ],
+          "counter_evidence_ids": [],
+          "missing_evidence": [
+            "verify service baseline and control path"
+          ],
+          "model_confidence": 0.8,
+          "calibration_status": "UNCALIBRATED"
+        },
+        {
+          "hypothesis_id": "h2",
+          "claim": "legitimate user mistakes are an alternative explanation",
+          "evidence_ids": [
+            "e-app"
+          ],
+          "counter_evidence_ids": [
+            "e-net"
+          ],
+          "missing_evidence": [
+            "compare identity and frequency with baseline"
+          ],
+          "model_confidence": null,
+          "calibration_status": "UNCALIBRATED"
+        },
+        {
+          "hypothesis_id": "h3",
+          "claim": "forwarded duplicate records may inflate apparent event count",
+          "evidence_ids": [
+            "e-net"
+          ],
+          "counter_evidence_ids": [
+            "e-app"
+          ],
+          "missing_evidence": [
+            "verify provenance-group deduplication"
+          ],
+          "model_confidence": null,
+          "calibration_status": "UNCALIBRATED"
+        }
+      ],
+      "tasks": [
+        {
+          "object_type": "Task",
+          "task_id": "task-check",
+          "incident_id": "inc-synthetic-001",
+          "environment_id": "lab-zhiyu-01",
+          "dependencies": [],
+          "capability_id": "lab.template.check",
+          "capability_version": "1.0-design",
+          "scope_id": "scope-lab-web",
+          "parameters": {
+            "template_id": "lab-service-marker-v1"
+          },
+          "status": "SUCCEEDED",
+          "priority": "P2",
+          "timeout_seconds": 30,
+          "max_attempts": 2,
+          "expected_output": "evidence for current lab service identity and scope",
+          "evidence_ids": [
+            "e-net",
+            "e-app",
+            "e-state"
+          ],
+          "target_resource_ids": [
+            "target-a"
+          ],
+          "attempt_count": 1,
+          "created_at": "2026-09-12T10:00:20Z",
+          "queued_at": "2026-09-12T10:00:20Z",
+          "claimed_at": "2026-09-12T10:00:21Z",
+          "started_at": "2026-09-12T10:00:21Z",
+          "finished_at": "2026-09-12T10:00:25Z",
+          "active_lease_id": null,
+          "worker_id": "worker-lab-01"
+        },
+        {
+          "object_type": "Task",
+          "task_id": "task-block",
+          "incident_id": "inc-synthetic-001",
+          "environment_id": "lab-zhiyu-01",
+          "dependencies": [
+            "task-check"
+          ],
+          "capability_id": "lab.gateway.temporary_block",
+          "capability_version": "1.0-design",
+          "scope_id": "scope-lab-web",
+          "parameters": {
+            "operation": "ensure_temporary_block",
+            "rule_namespace": "zhiyu_lab"
+          },
+          "status": "SUCCEEDED",
+          "priority": "P2",
+          "timeout_seconds": 30,
+          "max_attempts": 2,
+          "expected_output": "owned rule receipt or execution_unknown",
+          "evidence_ids": [
+            "e-net",
+            "e-app",
+            "e-state"
+          ],
+          "target_resource_ids": [
+            "target-a"
+          ],
+          "attempt_count": 1,
+          "created_at": "2026-09-12T10:01:00Z",
+          "queued_at": "2026-09-12T10:01:00Z",
+          "claimed_at": "2026-09-12T10:01:05Z",
+          "started_at": "2026-09-12T10:01:05Z",
+          "finished_at": "2026-09-12T10:01:15Z",
+          "active_lease_id": null,
+          "worker_id": "worker-lab-01"
+        },
+        {
+          "object_type": "Task",
+          "task_id": "task-verify",
+          "incident_id": "inc-synthetic-001",
+          "environment_id": "lab-zhiyu-01",
+          "dependencies": [
+            "task-block"
+          ],
+          "capability_id": "lab.independent.verify",
+          "capability_version": "1.0-design",
+          "scope_id": "scope-lab-web",
+          "parameters": {
+            "objective": "CONTAINMENT"
+          },
+          "status": "SUCCEEDED",
+          "priority": "P2",
+          "timeout_seconds": 30,
+          "max_attempts": 2,
+          "expected_output": "security/business/observation verification and residual risk",
+          "evidence_ids": [
+            "e-net",
+            "e-app",
+            "e-state"
+          ],
+          "target_resource_ids": [
+            "target-a"
+          ],
+          "attempt_count": 1,
+          "created_at": "2026-09-12T10:01:20Z",
+          "queued_at": "2026-09-12T10:01:20Z",
+          "claimed_at": "2026-09-12T10:01:21Z",
+          "started_at": "2026-09-12T10:01:21Z",
+          "finished_at": "2026-09-12T10:01:30Z",
+          "active_lease_id": null,
+          "worker_id": "worker-lab-01"
+        }
+      ],
+      "stop_conditions": [
+        "no new evidence after repeated failure",
+        "scope expires",
+        "business degradation",
+        "budget exhausted"
+      ],
+      "max_replans": 3,
+      "total_model_calls": 1,
+      "model_run_id": "modelrun-synthetic-001"
+    },
+    {
+      "object_type": "ActionRequest",
+      "action_id": "act-synthetic-block-001",
+      "incident_id": "inc-synthetic-001",
+      "task_id": "task-block",
+      "environment_id": "lab-zhiyu-01",
+      "capability_id": "lab.gateway.temporary_block",
+      "capability_version": "1.0-design",
+      "parameters": {
+        "operation": "ensure_temporary_block",
+        "rule_namespace": "zhiyu_lab"
+      },
+      "scope_id": "scope-lab-web",
+      "scope_version": "scope-v1",
+      "environment_profile_version": "env-v1",
+      "policy_version": "policy-v1",
+      "expected_state_version": 7,
+      "preconditions": [
+        "asset binding version 1 still valid",
+        "business baseline healthy",
+        "no conflicting owners",
+        "scope and authorization current"
+      ],
+      "evidence_ids": [
+        "e-net",
+        "e-app",
+        "e-state"
+      ],
+      "created_at": "2026-09-12T10:01:00Z",
+      "expires_at": "2026-09-12T10:02:00Z",
+      "ttl_seconds": 300,
+      "idempotency_key": "lab01-inc001-block-001",
+      "ownership_tag": "act-synthetic-block-001",
+      "rollback_policy_id": "rollback-owned-rule-v1",
+      "source": {
+        "object_type": "ResourceRef",
+        "resource_id": "validation-a",
+        "environment_id": "lab-zhiyu-01",
+        "resource_type": "HOST",
+        "binding_version": 1,
+        "locator": {
+          "address": "10.77.30.10",
+          "os": "Linux"
+        },
+        "display_name": "Validation-A"
+      },
+      "target": {
+        "object_type": "ResourceRef",
+        "resource_id": "target-a",
+        "environment_id": "lab-zhiyu-01",
+        "resource_type": "NETWORK_ENDPOINT",
+        "binding_version": 1,
+        "locator": {
+          "address": "10.77.20.10",
+          "port": 8080,
+          "protocol": "TCP"
+        },
+        "display_name": "Target-A synthetic login service"
+      }
+    },
+    {
+      "object_type": "AuthorizationDecision",
+      "authorization_id": "authz-001",
+      "action_id": "act-synthetic-block-001",
+      "action_digest": "99d4a0cda0cc9d54e9374443fb62d91c9f56721125bf192361289b35255d7a44",
+      "outcome": "ALLOW",
+      "assessed_risk": "R2",
+      "business_impact": "LOW",
+      "human_approval_required": false,
+      "approval_id": null,
+      "policy_version": "policy-v1",
+      "valid_until": "2026-09-12T10:02:00Z",
+      "reasons": [
+        "synthetic preauthorized lab source-target-port scope",
+        "local recovery capability must be verified before actual dispatch"
+      ],
+      "authorization_context_id": "authctx-001"
+    },
+    {
+      "object_type": "ActionAttempt",
+      "attempt_id": "attempt-001",
+      "action_id": "act-synthetic-block-001",
+      "status": "EXECUTED",
+      "fencing_generation": 1,
+      "started_at": "2026-09-12T10:01:10Z",
+      "device_receipt_id": "synthetic-rule-001",
+      "reconciliation_state": "CONFIRMED_APPLIED",
+      "evidence_ids": [
+        "e-control"
+      ],
+      "worker_id": "worker-lab-gateway-01",
+      "finished_at": "2026-09-12T10:01:15Z",
+      "error_code": null,
+      "error_class": null,
+      "device_response_hash": "1d4201f410d36def435b38603f6c8ed6f1efc005d7e38faa89ae3cfe18ccc955"
+    },
+    {
+      "object_type": "EventGroup",
+      "group_id": "eg-auth-001",
+      "environment_id": "lab-zhiyu-01",
+      "first_seen_at": "2026-09-12T10:00:10Z",
+      "last_seen_at": "2026-09-12T10:00:10Z",
+      "member_event_ids": [
+        "evt-net",
+        "evt-app"
+      ],
+      "grouping_keys": {
+        "source": "validation-a",
+        "target": "target-a",
+        "category": "authentication"
+      },
+      "correlation_reasons": [
+        "same source and target",
+        "same second",
+        "authentication semantics"
+      ],
+      "outlier_event_ids": [
+        "evt-net-forwarded"
+      ],
+      "correlation_confidence": 0.95,
+      "rule_version": "corr-rules-v1",
+      "algorithm_version": "window-entity-v1"
+    },
+    {
+      "object_type": "CorrelationDecision",
+      "decision_id": "corrdec-001",
+      "environment_id": "lab-zhiyu-01",
+      "input_event_ids": [
+        "evt-net",
+        "evt-app",
+        "evt-net-forwarded"
+      ],
+      "output_group_id": "eg-auth-001",
+      "rules_fired": [
+        "dedupe.provenance.v1",
+        "window.entity.auth.v1"
+      ],
+      "merge_reason": "independent network/application observations align; forwarded network copy excluded as duplicate provenance",
+      "excluded_event_ids": [
+        "evt-net-forwarded"
+      ],
+      "decision_version": "corrdec-v1",
+      "created_at": "2026-09-12T10:00:14Z"
+    },
+    {
+      "object_type": "WorkerLease",
+      "lease_id": "lease-task-block-001",
+      "task_id": "task-block",
+      "worker_id": "worker-lab-01",
+      "generation": 1,
+      "acquired_at": "2026-09-12T10:01:05Z",
+      "expires_at": "2026-09-12T10:01:35Z",
+      "renewed_at": null
+    },
+    {
+      "object_type": "ModelRun",
+      "run_id": "modelrun-synthetic-001",
+      "environment_id": "lab-zhiyu-01",
+      "incident_id": "inc-synthetic-001",
+      "task_id": null,
+      "provider": "synthetic",
+      "model": "deterministic-fixture",
+      "model_revision": "design-v1",
+      "prompt_version": "planner-design-v1",
+      "context_id": "ctx-001",
+      "input_hash": "04bbc1a629385f507a6581f567f28e7dff594f2d6fe0f8158d503a18d5524beb",
+      "output_hash": "8541951fa5f90b604efda98d14f6f3dca9668174fc35dbdfb12c5bb9defba412",
+      "route_reason": "contract fixture only",
+      "fallback_from_run_id": null,
+      "started_at": "2026-09-12T10:00:26Z",
+      "finished_at": "2026-09-12T10:00:27Z",
+      "input_tokens": 100,
+      "output_tokens": 50,
+      "cached_tokens": 0,
+      "latency_ms": 1000,
+      "cost_usd": 0.0,
+      "schema_valid": true,
+      "safety_status": "PASS"
+    },
+    {
+      "object_type": "AuthorizationContext",
+      "authorization_context_id": "authctx-001",
+      "environment_id": "lab-zhiyu-01",
+      "action_id": "act-synthetic-block-001",
+      "action_digest": "99d4a0cda0cc9d54e9374443fb62d91c9f56721125bf192361289b35255d7a44",
+      "principal_id": "system-planner",
+      "principal_role": "CONTROL_PLANE",
+      "environment_profile_version": "env-v1",
+      "scope_id": "scope-lab-web",
+      "scope_version": "scope-v1",
+      "capability_id": "lab.gateway.temporary_block",
+      "capability_version": "1.0-design",
+      "target_resource_id": "target-a",
+      "source_resource_id": "validation-a",
+      "asset_criticality": "LOW",
+      "business_impact": "LOW",
+      "evidence_quality": "HIGH",
+      "sensor_health_status": "HEALTHY",
+      "autonomy_mode": "VALIDATION",
+      "load_mode": "NORMAL",
+      "requested_risk": "R2",
+      "policy_version": "policy-v1",
+      "budget_id": "budget-lab-001",
+      "created_at": "2026-09-12T10:01:01Z"
+    },
+    {
+      "object_type": "AuditEntry",
+      "audit_id": "audit-001",
+      "trace_id": "trace-inc-001",
+      "environment_id": "lab-zhiyu-01",
+      "actor_type": "SERVICE",
+      "actor_id": "event-intelligence",
+      "object_kind": "SecurityIncident",
+      "object_id": "inc-synthetic-001",
+      "operation": "CREATE",
+      "reason": "synthetic correlation threshold reached",
+      "timestamp": "2026-09-12T10:00:15Z",
+      "previous_entry_hash": null,
+      "integrity_hash": "a0410f98f1359d36d1350ff0844aa2c24f26d3dd4261d3649d7e2735cb742638"
+    },
+    {
+      "object_type": "OutboxMessage",
+      "message_id": "outbox-001",
+      "aggregate_type": "ActionRequest",
+      "aggregate_id": "act-synthetic-block-001",
+      "event_type": "ActionAuthorized",
+      "payload_ref": "synthetic://action/act-synthetic-block-001",
+      "created_at": "2026-09-12T10:01:02Z",
+      "published_at": "2026-09-12T10:01:03Z",
+      "attempt_count": 1
+    }
+  ]
+}

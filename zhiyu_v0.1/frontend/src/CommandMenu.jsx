@@ -1,0 +1,7 @@
+import React from 'react';
+import {Command} from 'cmdk';
+import {shortId} from './presentation';
+import {Search,ArrowUpRight,LayoutDashboard,Inbox,Clock,Network,FileText,Play,RefreshCw} from 'lucide-react';
+/** @type {Array<[string,string,import('lucide-react').LucideIcon]>} */
+const pages=[['overview','安全概览',LayoutDashboard],['incidents','事件列表',Inbox],['timeline','时间线',Clock],['graph','证据图谱',Network],['reports','报告',FileText],['demo','演示',Play]];
+export default function CommandMenu({dismiss,onNavigate,onReload,items}){const run=fn=>dismiss(fn);return <Command label="快速查找" loop><div className="command-input"><Search/><Command.Input autoFocus placeholder="搜索当前页事件 ID、页面或操作…"/></div><Command.List><Command.Empty><div className="empty"><Search/><strong>没有匹配项</strong><p>到事件页搜索所有获准记录。</p></div></Command.Empty><Command.Group heading="当前页安全事件">{items.map(r=><Command.Item key={r.id} value={`${r.id} ${r.name}`} onSelect={()=>run(()=>onNavigate('incident',{incident:r.id,tab:'summary'}))}><span className="mono">{shortId(r.id)}</span><span>{r.name}</span><ArrowUpRight/></Command.Item>)}</Command.Group><Command.Group heading="页面">{pages.map(([page,label,Icon])=><Command.Item key={page} value={label} onSelect={()=>run(()=>onNavigate(page))}><Icon/><span>{label}</span></Command.Item>)}</Command.Group><Command.Group heading="操作"><Command.Item onSelect={()=>run(onReload)}><RefreshCw/>刷新当前数据</Command.Item></Command.Group></Command.List><footer className="command-footer"><span>方向键选择 · Enter 打开</span><kbd>Esc 关闭</kbd></footer></Command>;}

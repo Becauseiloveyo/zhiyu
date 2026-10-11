@@ -1,0 +1,6 @@
+{
+  "activity_category": "authentication",
+  "activity_name": "authenticate",
+  "outcome": "DENIED",
+  "severity_signal": 6
+}

@@ -1,0 +1,237 @@
+{
+  "data_origin": "SYNTHETIC",
+  "description": "三个最低能力角色；HEALTHY是合成运行快照的假设。真实能力均未实现/验证，DEVICE TTL是拟实现要求，不是已经证实的设备特性。",
+  "objects": [
+    {
+      "object_type": "CapabilityManifest",
+      "capability_id": "lab.template.check",
+      "version": "1.0-design",
+      "adapter": "lab_template_check",
+      "base_risk": "R2",
+      "operation_kind": "ACTIVE_CHECK",
+      "controller_location": "Linux control VM",
+      "execution_location": "Linux validation runner",
+      "target_domain": "isolated Linux lab service",
+      "network_path": "approved source to target-a TCP/8080 through lab gateway",
+      "cleanup_owner": "site-gateway for owned changes; validation runner for own artifacts",
+      "supported_os": [
+        "Linux; exact distribution/version not verified"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "template_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "template_id"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "evidence_ids"
+        ],
+        "properties": {
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "scope_required": true,
+      "timeout_seconds": 30,
+      "idempotency": "NATIVE",
+      "reconciliation_method": "repeat scoped read with valid authorization",
+      "ttl_enforcement": "NONE",
+      "rollback_policy": "clean only artifacts owned by run",
+      "integration_status": "DESIGN",
+      "required_permissions": [
+        "lab.execute.scoped"
+      ],
+      "required_secret_refs": [],
+      "supports_cancel": true,
+      "supports_dry_run": false,
+      "resource_locks": [],
+      "max_concurrency": 4,
+      "expected_evidence_types": [
+        "TOOL_RESULT"
+      ],
+      "verification_capability_id": null,
+      "compensator_capability_id": null
+    },
+    {
+      "object_type": "CapabilityHealth",
+      "capability_id": "lab.template.check",
+      "capability_version": "1.0-design",
+      "environment_id": "lab-zhiyu-01",
+      "worker_pool": "lab-worker-pool",
+      "status": "HEALTHY",
+      "checked_at": "2026-09-12T10:00:50Z",
+      "latency_ms": 10,
+      "queue_depth": 0,
+      "running_count": 0,
+      "detail": "synthetic design snapshot"
+    },
+    {
+      "object_type": "CapabilityManifest",
+      "capability_id": "lab.gateway.temporary_block",
+      "version": "1.0-design",
+      "adapter": "lab_gateway_temporary_block",
+      "base_risk": "R2",
+      "operation_kind": "STATE_CHANGE",
+      "controller_location": "Linux control VM",
+      "execution_location": "Linux lab gateway adapter",
+      "target_domain": "isolated Linux lab service",
+      "network_path": "approved source to target-a TCP/8080 through lab gateway",
+      "cleanup_owner": "site-gateway for owned changes; validation runner for own artifacts",
+      "supported_os": [
+        "Linux; exact distribution/version not verified"
+      ],
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operation",
+          "rule_namespace"
+        ],
+        "properties": {
+          "operation": {
+            "const": "ensure_temporary_block"
+          },
+          "rule_namespace": {
+            "const": "zhiyu_lab"
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "evidence_ids"
+        ],
+        "properties": {
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "scope_required": true,
+      "timeout_seconds": 30,
+      "idempotency": "ADAPTER_RECONCILE",
+      "reconciliation_method": "query dedicated rule ID and ownership",
+      "ttl_enforcement": "DEVICE",
+      "rollback_policy": "rollback-owned-rule-v1",
+      "integration_status": "DESIGN",
+      "required_permissions": [
+        "lab.execute.scoped"
+      ],
+      "required_secret_refs": [],
+      "supports_cancel": true,
+      "supports_dry_run": true,
+      "resource_locks": [
+        "lab-gateway:rules"
+      ],
+      "max_concurrency": 4,
+      "expected_evidence_types": [
+        "TOOL_RESULT"
+      ],
+      "verification_capability_id": "lab.independent.verify",
+      "compensator_capability_id": null
+    },
+    {
+      "object_type": "CapabilityHealth",
+      "capability_id": "lab.gateway.temporary_block",
+      "capability_version": "1.0-design",
+      "environment_id": "lab-zhiyu-01",
+      "worker_pool": "lab-worker-pool",
+      "status": "HEALTHY",
+      "checked_at": "2026-09-12T10:00:50Z",
+      "latency_ms": 10,
+      "queue_depth": 0,
+      "running_count": 0,
+      "detail": "synthetic design snapshot"
+    },
+    {
+      "object_type": "CapabilityManifest",
+      "capability_id": "lab.independent.verify",
+      "version": "1.0-design",
+      "adapter": "lab_independent_verify",
+      "base_risk": "R2",
+      "operation_kind": "ACTIVE_CHECK",
+      "controller_location": "Linux control VM",
+      "execution_location": "separate security and business probes",
+      "target_domain": "isolated Linux lab service",
+      "network_path": "approved source to target-a TCP/8080 through lab gateway",
+      "cleanup_owner": "site-gateway for owned changes; validation runner for own artifacts",
+      "supported_os": [
+        "Linux; exact distribution/version not verified"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "objective": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "objective"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "evidence_ids"
+        ],
+        "properties": {
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "scope_required": true,
+      "timeout_seconds": 30,
+      "idempotency": "NATIVE",
+      "reconciliation_method": "repeat scoped read with valid authorization",
+      "ttl_enforcement": "NONE",
+      "rollback_policy": "clean only artifacts owned by run",
+      "integration_status": "DESIGN",
+      "required_permissions": [
+        "lab.execute.scoped"
+      ],
+      "required_secret_refs": [],
+      "supports_cancel": true,
+      "supports_dry_run": false,
+      "resource_locks": [],
+      "max_concurrency": 4,
+      "expected_evidence_types": [
+        "TOOL_RESULT"
+      ],
+      "verification_capability_id": null,
+      "compensator_capability_id": null
+    },
+    {
+      "object_type": "CapabilityHealth",
+      "capability_id": "lab.independent.verify",
+      "capability_version": "1.0-design",
+      "environment_id": "lab-zhiyu-01",
+      "worker_pool": "lab-worker-pool",
+      "status": "HEALTHY",
+      "checked_at": "2026-09-12T10:00:50Z",
+      "latency_ms": 10,
+      "queue_depth": 0,
+      "running_count": 0,
+      "detail": "synthetic design snapshot"
+    }
+  ]
+}

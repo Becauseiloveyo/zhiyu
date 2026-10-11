@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "version": "0.6.0",
+  "release_zip": "智御_Project_v0.6.0_Reliability_Security_Validation.zip",
+  "scope": "CONTROLLED_LAB",
+  "source_digest": "f60a06b0db456ac2c7e282c5522241165747ab65592d64f5d06bd871e5c1aa05",
+  "rc_revision": "RC7",
+  "validation": {
+    "files_including_manifest": 8937,
+    "manifest_entries_verified": 8936,
+    "zip_crc_integrity": "PASS",
+    "all_members_readable": "PASS",
+    "per_file_sha256": "PASS",
+    "duplicate_names": 0,
+    "source_image_zip_correspondence": "PASS_RAW_BYTES",
+    "known_private_matches": 0,
+    "known_private_values_checked": 13
+  },
+  "workspace_image_correspondence": "PASS_RAW_BYTES",
+  "manifest": "MANIFEST.sha256 covers every member except itself",
+  "sha256": "See external SHA256SUMS_v0.6.0.txt and PACKAGE_VALIDATION_v0.6.0.json next to the ZIP; avoids recursive archive hashing.",
+  "verification_protocol": "Preliminary archive verified before writing this report. Rebuild with final reports, repeat full verification, and only then rename the verified candidate to the formal release. External validation binds the final ZIP hash.",
+  "tests": {
+    "passed": 381,
+    "failed": 0,
+    "skipped": 0
+  },
+  "frozen_files_unchanged": 28,
+  "old_test_nodes_retained": 360,
+  "high_risk_autonomous_execution": 0,
+  "prior_release_hashes": {
+    "智御_Project_v0.1.1_M1.1.zip": "0507dfd224fd787f3c5b7e9e8e1b9e75d66bf6881b4313f7a5c7b92019736991",
+    "智御_Project_v0.1.1_M1.1_DockerRuntime.zip": "4a34f96ebb91c76c6a598719a0206369edfc50cd45114962964d4f507fd12b27",
+    "智御_Project_v0.2.0_Deterministic_Event_Intelligence.zip": "3741139833ecdefa3ae7c4f9aab17375c52fd0b8d27c3436c2586937a8d7776f",
+    "智御_Project_v0.3.0_Deterministic_Response_Control.zip": "c82b1d7f1253479a7080a7188e29c9be3f2f10becea3810954bdc06f6e1d84f5",
+    "智御_Project_v0.4.0_Continuous_Verification_Replan.zip": "e4ff484d08f5f2caa9dba6abc73939ef3ee98657e76f07286eb2971a50409eb2",
+    "智御_Project_v0.5.0_AI_Decision_Brain.zip": "dba02bafea018ca8e114d26bf9e2da010850dd709d3abb701a95655e2f7efb48"
+  }
+}

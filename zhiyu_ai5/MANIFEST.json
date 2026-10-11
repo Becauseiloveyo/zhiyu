@@ -1,0 +1,146 @@
+{
+  "package_version": "2026.09.12-ai.5",
+  "source_package": "2026.09.12-ai.4",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 4209,
+      "sha256": "c398fdae9afd15607fd7b31cbe7d22bc5e05325cb1733ed78b0af913b84b0595"
+    },
+    {
+      "path": "PROJECT_STATE.yaml",
+      "size_bytes": 8086,
+      "sha256": "ccfc860839b32ec824b1c79b0a0b9ebeb85e9c173c642fec7c47f1dd40f6f2d0"
+    },
+    {
+      "path": "START_HERE.md",
+      "size_bytes": 1224,
+      "sha256": "0ba9d19559f536b510875454ce7e76125fc326ec6f902f1589794dff980bfa4e"
+    },
+    {
+      "path": "contracts/models.py",
+      "size_bytes": 29366,
+      "sha256": "663a7a597d2ef03fd2db25278858c25a5ce92fe30e55f0d3f21125503a9d85fb"
+    },
+    {
+      "path": "contracts/state_machines.json",
+      "size_bytes": 12293,
+      "sha256": "4aa749df09c3c8d7bc9849c6007c65efecc6548033c2bb73b08e7d501f03a701"
+    },
+    {
+      "path": "contracts/zhiyu.schema.json",
+      "size_bytes": 92310,
+      "sha256": "a3d830e5f4e97df3760dc0ffb1f8359d0d25e65f02ff527aaa82af6cb9a7dae5"
+    },
+    {
+      "path": "docs/01_项目定位与总体架构.md",
+      "size_bytes": 5524,
+      "sha256": "1a4ccdf7fcb03a35e5a4d7ccb30c6ae789e79a2614f860714439d78e9a4f03f6"
+    },
+    {
+      "path": "docs/02_事件状态与上下文.md",
+      "size_bytes": 5997,
+      "sha256": "ada036689e0223fac27c1817219c9f5870dcde4b3f7991c6598a0c2acbaba491"
+    },
+    {
+      "path": "docs/03_决策授权与执行.md",
+      "size_bytes": 8355,
+      "sha256": "4a84c685a73a18e0e1759b6b3acbff1c77832f662ff99de3805c4696feddbdc4"
+    },
+    {
+      "path": "docs/04_验证与运行状态.md",
+      "size_bytes": 5291,
+      "sha256": "6563ec7cef91e4569c4becbaea6db803ef6cf180c63d419be91d6066d4e940ba"
+    },
+    {
+      "path": "docs/05_部署与能力适配.md",
+      "size_bytes": 8572,
+      "sha256": "e60f9405014437c7034f03268cf28830db45cc156d7c1cfa825288fe045433b6"
+    },
+    {
+      "path": "docs/06_V1场景与开发接口.md",
+      "size_bytes": 7910,
+      "sha256": "52716ab599283d82e9c50906aebbe610168eb4b357f74cea1c6a603e5040f2f5"
+    },
+    {
+      "path": "docs/07_实验验收与路线.md",
+      "size_bytes": 6155,
+      "sha256": "895d502b4356d2492a468d350c6c6d68da718260b9bb9399b663a57adb89417a"
+    },
+    {
+      "path": "docs/08_平台治理与故障处理.md",
+      "size_bytes": 4659,
+      "sha256": "d37a503890bc987233c4f08816f0d1d57d15ae18a0c7e5b72fcc7d7dc96bdde2"
+    },
+    {
+      "path": "docs/09_接续维护与审查闭环.md",
+      "size_bytes": 4932,
+      "sha256": "95c3fc5fcd60bb0df9e62072555e0e23d9c19d1fc9f0034c600b9771398099f9"
+    },
+    {
+      "path": "docs/10_ai5工程冻结与实现入口.md",
+      "size_bytes": 2715,
+      "sha256": "c1a57fccd460224b8af22fd87a0f15f2f616bf29884067c1e5ea75783584b9c5"
+    },
+    {
+      "path": "examples/approval.json",
+      "size_bytes": 755,
+      "sha256": "8f57d3e26177c14a151c86d13b2c62adbe0b3496578b56393f81409202c77a9a"
+    },
+    {
+      "path": "examples/capabilities.json",
+      "size_bytes": 7323,
+      "sha256": "2f9e163bc793658fb00abf3056ef43a2a158a9fb2d07616336cf24b37f6612e8"
+    },
+    {
+      "path": "examples/environment.json",
+      "size_bytes": 3782,
+      "sha256": "639dc4751409b03cffb1dd437caf97b38e3e4adc3acd4ba5a044e67a60b0193b"
+    },
+    {
+      "path": "examples/evidence_payloads.json",
+      "size_bytes": 1744,
+      "sha256": "cea72473d35a171bea07bf14138b98d82318e64fe4640b159a967659628cca28"
+    },
+    {
+      "path": "examples/golden_chain.json",
+      "size_bytes": 30490,
+      "sha256": "40d8200e489e18d87ca76cb804eb099421be5a863852f1f2b54d6e0cd92c8905"
+    },
+    {
+      "path": "examples/scenario.json",
+      "size_bytes": 4815,
+      "sha256": "a2ffed0bf33d696bb111b825cf8d9f8b5892e8710b79b43e4aa778d69162d0fa"
+    },
+    {
+      "path": "examples/verification_cases.json",
+      "size_bytes": 8281,
+      "sha256": "2c3d70d6196a4d3f24e9994d7da3cac5259952bcdfad1d93134c30cb0b5583a8"
+    },
+    {
+      "path": "requirements.txt",
+      "size_bytes": 115,
+      "sha256": "6e0cce6b633f5233163cc545e30babf13c0e60599c183d25e2a5622e4cd60dec"
+    },
+    {
+      "path": "tools/build_package.py",
+      "size_bytes": 3047,
+      "sha256": "b02439b5d5580a2d58efb0b13a819186f59c6cacab8003e3e9fc344e4bba7995"
+    },
+    {
+      "path": "tools/validate_package.py",
+      "size_bytes": 11778,
+      "sha256": "c36b722c96bcb2866100efd6d466207e9d65674f08923e212f23fbc4a843824a"
+    },
+    {
+      "path": "智御_AI_CONTEXT_v2026.09.12_ai.5.md",
+      "size_bytes": 159976,
+      "sha256": "124456090bd94f1255a14c46519028d8ac776fa280f9e6e6226baf91d7577134"
+    }
+  ],
+  "excluded_generated_files": [
+    "MANIFEST.json",
+    "VALIDATION_REPORT.json"
+  ],
+  "hash_is_authenticity_signature": false
+}

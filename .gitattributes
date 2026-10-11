@@ -1,0 +1,3 @@
+# Preserve exact bytes across Windows/Linux: frozen contracts and release assets
+# are verified by SHA256. Do not rewrite their line endings on checkout.
+* -text

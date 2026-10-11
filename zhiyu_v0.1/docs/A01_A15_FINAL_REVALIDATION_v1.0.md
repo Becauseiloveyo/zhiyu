@@ -1,0 +1,23 @@
+# v1.0 A01–A15 Final Impact Re-validation
+
+RC12_v1.0.0 / CONTROLLED LAB。原始requirement逐字取自冻结ai.5，未重定义验收。原v0.6证据见 [原矩阵](A01_A15_ACCEPTANCE_MATRIX.md)，原v0.9只读产品证据和当前完整491/490回归共同用于影响复核。
+
+| ID | original requirement | change impact | test performed | evidence | status |
+|---|---|---|---|---|
+| A01 | 两个真实来源入统一 Schema，重复血缘可识别 | Sensor启动参数与重新部署可能影响双来源观测 | 真实A的Suricata/Wazuh OBSERVED原始路径、采集哈希和统一事件血缘；C实际stop/recovery；原去重回归再执行 | gate-e-scenario-a-http.json / gate-e-sensor-stop-recovery.json | REVALIDATED / PASS |
+| A02 | 关联保留异常与矛盾，地址更换不误关联旧资产 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A03 | 非法 JSON、伪造 Evidence ID、未知能力和循环依赖被拒绝 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A04 | Scope 外、过期授权、变更摘要、高影响自动请求被拒绝 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A05 | 实际变更后回执丢失进入 UNKNOWN 并核对 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A06 | 旧 Worker/重复消息不重复修改；补偿不覆盖他人变更 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A07 | 攻击受限、正常业务可用、观测有效才 PASS | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A08 | 业务中断是 FAIL；观测缺失是 INCONCLUSIVE | Sensor parser限制及现场故障可能影响独立验证 | 真实C观测不足INCONCLUSIVE；D业务FAIL且安全/观测PASS，最终仍FAIL | lab/demo-490e8a9bc95940bc9d119b3ffb8b7ee2/verify.json / lab/demo-e9fc98648d2740faaed000ec056a6db6/verify.json | REVALIDATED / PASS |
+| A09 | 临时遏制不会自动变成修复/关闭；TTL 到期复核 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A10 | 模型离线/数据库异常不令底层防御失效，不新增无审计变更 | 部署启动/恢复变化涉及模型与数据库异常 | 真实E停止模型FALLBACK；当前189项中的m3_database_down_readiness/recovery、m5_db_outage_observable；API实际停止重启且74表不变 | gate-e-scenario-e-http.json / gate-e-api-stop-recovery.json | REVALIDATED / PASS |
+| A11 | 高负载下保留关键处理与恢复容量，损失显式可见 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A12 | 可信测试运行可关联，伪造测试标签不能免检 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A13 | 重规划无新证据/达预算后停止并转人工 | 对应核心/策略/迁移源码相对v0.9原字节不变；新运维/Sensor参数未修改此契约 | 原v0.6对应真实运行/故障证据保留；当前491 host /490 Linux完整回归和189 runtime重新执行相关反例；未重跑历史100k/soak | final-test-retention.json / final-source-correspondence.json + 原A01–A15矩阵对应证据 | UNAFFECTED / EVIDENCE CARRIED FORWARD / PASS |
+| A14 | 全链路可重建，敏感数据没有进入云模型/工作流历史/日志 | 新增运维诊断、备份/恢复及发布输出需重核敏感数据 | 1493成员完整备份三次空库恢复；实际日志脱敏、报告/回放字节和全包已知凭据/格式扫描；真实本地模型cloud_calls=0 | gate-c-rc9-logging-restore.json / security/operator-log-redaction.json / package-secret-scan.json | REVALIDATED / PASS |
+| A15 | 环境清理后恢复基线，闭环能重复运行 | 新参考部署/Sensor image与资源生命周期有关 | 浏览器A reset产生新ID保留旧运行，A–E cleanup实际零owned资源，5次浏览器回放10份下载且74表不变 | gate-e-browser-reset-a.json / gate-e-demo-replay-cleanup.json | REVALIDATED / PASS |
+
+当前证据路径相对于 `artifacts/v1.0/`。完整回归：[491 host](../artifacts/v1.0/final-backend.xml)、[490 Linux](m5-runtime/zhiyu-smoke-397c45f14058/test-results.xml)、[189 runtime](m5-runtime/zhiyu-smoke-397c45f14058/result.json)。[影响/字节对应](../artifacts/v1.0/final-source-correspondence.json)。受影响5项真实复验，未受影响10项明确承接证据，均不扩展到生产、任意流量或通用AI语义正确性。

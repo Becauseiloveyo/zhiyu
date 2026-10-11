@@ -1,0 +1,1 @@
+alert http any any -> any 8080 (msg:"ZHIYU controlled Lab authentication observation"; flow:established,to_server; http.uri; content:"/login"; startswith; sid:9900001; rev:1; classtype:bad-unknown;)

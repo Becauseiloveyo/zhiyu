@@ -1,0 +1,3 @@
+node_modules/
+# dist is versioned: the reference installer verifies its clean build against it.
+.vite/

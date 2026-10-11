@@ -1,0 +1,120 @@
+/* Event-list continuity with the shared Sentinel shell. No data or workflow changes. */
+.sentinel-incidents {
+ --sn-preview-width:360px;
+ --sn-preview-height:calc(100dvh - var(--topbar) - var(--s16)*2 - var(--s6));
+}
+.sentinel-incidents .page-tools {
+ padding:var(--s4) var(--s5);gap:var(--s3);margin-bottom:var(--sn-gap);
+ border-radius:var(--sn-card-radius);box-shadow:var(--sn-shadow);
+}
+.sentinel-incidents .page-tools .search-input {flex:1;max-width:var(--drawer);padding:var(--s2) var(--s3);min-height:var(--sn-control)}
+.sentinel-incidents .page-tools select {min-height:var(--sn-control);font-size:var(--text-sm);padding-inline:var(--s3)}
+.sentinel-incidents .page-tools .text-button {color:var(--sn-accent);min-height:var(--sn-control);padding-inline:var(--s2)}
+.sentinel-incidents .page-tools>.icon-button {border:var(--hairline) solid var(--sn-divider)}
+.sentinel-incidents .incident-workspace {grid-template-columns:minmax(0,1fr) minmax(var(--sn-preview-width),.72fr);gap:var(--sn-gap)}
+.sentinel-incidents .incident-workspace.panel-hidden {grid-template-columns:minmax(0,1fr)}
+.sentinel-incidents .incident-list,.sentinel-incidents .incident-panel {
+ min-width:0;background:var(--sn-surface);border:var(--hairline) solid var(--sn-divider);
+ border-radius:var(--sn-card-radius);box-shadow:var(--sn-shadow);
+}
+.sentinel-incidents .incident-list {padding:var(--s5);min-height:0;display:flex;flex-direction:column}
+.sentinel-incidents .incident-list .table-scroll {border-top:0}
+.sentinel-incidents .incident-list table {width:100%;table-layout:auto}
+.sentinel-incidents .incident-list th {height:var(--s8);font-size:var(--sn-small);font-weight:500;padding:var(--s2)}
+.sentinel-incidents .incident-list td {padding:var(--s3) var(--s2);font-size:var(--text-sm);height:var(--s12)}
+.sentinel-incidents .incident-list td:nth-child(2) {max-width:var(--drawer)}
+.sentinel-incidents .event-cell {min-width:0}
+.sentinel-incidents .event-button {min-height:var(--s6);max-width:100%;display:block;overflow:hidden;text-overflow:ellipsis}
+.sentinel-incidents .event-button>span {font-size:var(--sn-body);font-weight:500}
+.sentinel-incidents .record-reference {font-size:var(--sn-small);margin-top:var(--s1);max-width:100%}
+.sentinel-incidents .incident-list .record-reference .reference-details {min-width:0}
+.sentinel-incidents .incident-list tr.selected:after {display:none}
+.sentinel-incidents .incident-list tr.selected td:first-child {box-shadow:inset var(--bar) 0 var(--sn-accent)}
+.sentinel-incidents .incident-list .status,.sentinel-incidents .identity-meta>.status {
+ padding:var(--s1) var(--s2);border:var(--hairline) solid var(--sn-divider);
+ border-radius:var(--sn-tag-radius);background:var(--sn-surface);
+}
+.sentinel-incidents .incident-list>.section-bottom {margin-top:0;border-top:0;padding:var(--s4) 0 0;font-size:var(--sn-small);color:var(--sn-secondary)}
+.sentinel-incidents .incident-pagination {display:flex;align-items:center;gap:var(--s4)}
+.sentinel-incidents .incident-list>.section-bottom .text-button {min-height:var(--sn-control);color:var(--sn-accent)}
+.sentinel-incidents .incident-panel {position:sticky;top:0;max-height:var(--sn-preview-height);overflow:auto;min-height:0;overscroll-behavior:contain}
+.sentinel-incidents .incident-panel .panel-header {padding:var(--s3) var(--s5);background:var(--sn-surface);border-bottom:var(--hairline) solid var(--sn-divider);position:sticky;top:0;z-index:var(--layer-header)}
+.sentinel-incidents .sn-panel-title {font-size:var(--sn-body);font-weight:600}
+.sentinel-incidents .detail-identity {padding:var(--s5);border-bottom:var(--hairline) solid var(--sn-divider)}
+.sentinel-incidents .detail-identity h2 {font-size:var(--sn-section);line-height:1.5;overflow-wrap:anywhere}
+.sentinel-incidents .detail-subline {flex-wrap:wrap;gap:var(--s2) var(--s3)}
+.sentinel-incidents .incident-detail>.tabs {padding-inline:var(--s4);gap:var(--s2);background:var(--sn-surface)}
+.sentinel-incidents .tabs button {min-height:var(--sn-touch);font-size:var(--text-sm)}
+.sentinel-incidents .tabs button[aria-selected=true] {color:var(--sn-accent);border-bottom-color:var(--sn-accent)}
+.sentinel-incidents .detail-body {padding:var(--s5)}
+.sentinel-incidents .detail-body .section {border:var(--hairline) solid var(--sn-divider);border-radius:var(--sn-control-radius);background:var(--sn-surface);padding:var(--s4);margin-top:var(--s4)}
+.sentinel-incidents .detail-body .section-heading {padding:0;margin-bottom:var(--s3)}
+.sentinel-incidents .detail-body .section-heading h2 {font-size:var(--sn-body)}
+.sentinel-incidents .detail-body .decision-callout {padding:var(--s4);border-radius:var(--sn-control-radius);background:var(--sn-hover);flex-wrap:wrap}
+.sentinel-incidents .detail-body .decision-callout>div {flex:1;min-width:0}
+.sentinel-incidents .detail-body .decision-callout>.button {margin-left:var(--s6)}
+.sentinel-incidents .detail-body .event-summary-columns {grid-template-columns:minmax(0,1fr);gap:var(--s4)}
+.sentinel-incidents .facts>div {gap:var(--s3)}
+.sentinel-incidents .facts dd {min-width:0;overflow-wrap:anywhere}
+.sentinel-shell .event-context {padding:var(--s5);background:var(--sn-surface);border:var(--hairline) solid var(--sn-divider);border-radius:var(--sn-card-radius)}
+.sentinel-shell .event-context-title h1 {font-size:var(--sn-title);font-weight:600;line-height:1.4}
+.sentinel-shell .event-workspace>.tabs {background:var(--sn-surface);padding-inline:var(--s5);border:var(--hairline) solid var(--sn-divider);border-radius:var(--sn-control-radius);gap:var(--s5);margin-bottom:var(--s5)}
+.sentinel-shell .event-workspace>.tabs button[aria-selected=true] {color:var(--sn-accent);border-bottom-color:var(--sn-accent)}
+.sentinel-shell .event-workspace .section {box-shadow:var(--sn-shadow)}
+.sentinel-shell .event-workspace .section-heading h2 {font-size:var(--sn-section)}
+.sentinel-shell .relation-toolbar .relation-actions {margin-left:auto}
+.sentinel-shell .modal {--overlay:rgb(23 27 36 / .18);overscroll-behavior:contain}
+@media (min-width:1024px) and (min-height:600px){
+ .sentinel-incidents .content {height:100%;min-height:0;display:flex;flex-direction:column}
+ .sentinel-incidents .page-content {display:flex;flex-direction:column;flex:1;min-height:0}
+ .sentinel-incidents .page-tools {flex-shrink:0}
+ .sentinel-incidents .incident-workspace {flex:1;min-height:0;grid-template-rows:minmax(0,1fr);align-items:start}
+ .sentinel-incidents .incident-list,.sentinel-incidents .incident-panel {max-height:100%;overflow:auto;overscroll-behavior:contain}
+ .sentinel-incidents .incident-list .table-scroll {min-height:0}
+}
+@media (max-width:1279px){
+ .sentinel-incidents {--sn-preview-width:320px}
+ .sentinel-incidents .incident-list {padding:var(--s4)}
+ .sentinel-incidents .page-tools .search-input {max-width:none}
+}
+@media (max-width:1023px){
+ .sentinel-incidents .incident-workspace {grid-template-columns:minmax(0,1fr)}
+ .sentinel-incidents .incident-panel {display:none}
+ .sentinel-incidents .page-tools>.icon-button {display:none}
+ .sentinel-incidents .modal.drawer {background:var(--sn-surface)}
+}
+@media (max-width:767px){
+ .sentinel-incidents .page-tools {padding:var(--s3);gap:var(--s2)}
+ .sentinel-incidents .page-tools .search-input {flex-basis:100%;min-height:var(--sn-touch)}
+ .sentinel-incidents .page-tools select {flex:1 1 calc(50% - var(--s2));min-width:0;min-height:var(--sn-touch);font-size:var(--sn-small);padding-inline:var(--s2)}
+ .sentinel-incidents .page-tools .text-button {min-height:var(--sn-touch)}
+ .sentinel-incidents .incident-list>.section-bottom .text-button {min-height:var(--sn-touch)}
+ .sentinel-incidents .event-button {min-height:var(--sn-touch)}
+ .sentinel-incidents .incident-list table {display:block;width:100%;min-width:0}
+ .sentinel-incidents .incident-list .table-scroll {flex-shrink:0;max-height:none;overflow:visible}
+ .sentinel-incidents .incident-list thead {position:absolute;width:var(--hairline);height:var(--hairline);overflow:hidden;clip-path:inset(50%)}
+ .sentinel-incidents .incident-list tbody {display:block}
+ .sentinel-incidents .incident-list tbody tr {display:grid;height:auto;grid-template-columns:auto minmax(0,1fr);padding:var(--s3);border-bottom:var(--hairline) solid var(--sn-divider)}
+ .sentinel-incidents .incident-list td {height:auto;min-width:0;padding:var(--s1);border:0;text-align:left}
+ .sentinel-incidents .incident-list td:first-child {grid-column:1;grid-row:1;align-self:center}
+ .sentinel-incidents .incident-list td:nth-child(2) {grid-column:1/-1;grid-row:2;max-width:none}
+ .sentinel-incidents .incident-list td:nth-child(3) {grid-column:2;grid-row:1;justify-self:end}
+ .sentinel-incidents .incident-list td:last-child {grid-column:1/-1;grid-row:3;font-size:var(--sn-small);color:var(--sn-secondary)}
+ .sentinel-incidents .incident-list td:last-child:before {content:'更新于 ';color:var(--sn-secondary)}
+ .sentinel-incidents .incident-list tr.selected td:first-child {box-shadow:none}
+ .sentinel-incidents .incident-list tr.selected {box-shadow:inset var(--bar) 0 var(--sn-accent)}
+ .sentinel-incidents .incident-list .event-button {white-space:normal;overflow-wrap:anywhere}
+ .sentinel-incidents .incident-list .record-reference {flex-wrap:wrap}
+ .sentinel-incidents .detail-body .decision-callout {display:grid;grid-template-columns:var(--s4) minmax(0,1fr)}
+ .sentinel-incidents .detail-body .decision-callout>.button {grid-column:2;margin-left:0;justify-self:start}
+ .sentinel-shell .event-context {padding:var(--s4)}
+ .sentinel-shell .event-context-title h1 {font-size:var(--text-title)}
+ .sentinel-shell .event-workspace>.tabs {padding:var(--s2);gap:var(--s1)}
+ .sentinel-shell .event-workspace .section-heading h2 {font-size:var(--sn-body)}
+}
+@media print{
+ .sentinel-shell {background:var(--sn-surface)}
+ .sentinel-shell .content {max-width:none;padding:0;margin:0}
+ .sentinel-shell .event-workspace .section {box-shadow:none}
+ .sentinel-shell .event-context,.sentinel-shell .event-workspace>.tabs {display:none!important}
+}

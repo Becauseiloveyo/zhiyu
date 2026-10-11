@@ -1,0 +1,131 @@
+{
+  "version": "1.0.0",
+  "milestone_result": "PASS",
+  "current_gate": "COMPLETE",
+  "gates": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS"
+  },
+  "scope": "CONTROLLED_LAB",
+  "release_candidate": "RC12_v1.0.0",
+  "ai_value": "OPTION_B",
+  "closed_loop_superiority": "NOT_CLAIMED",
+  "g0": "NOT_INCLUDED_IN_V1.0_CLAIM",
+  "high_risk_autonomous_execution": 0,
+  "ai_default": "OFF",
+  "ai_enabled_default": "SHADOW",
+  "production_validated": false,
+  "gate_b_attempts": [
+    {
+      "revision": "RC1_v1.0.0",
+      "status": "FAIL",
+      "stage": "wheel_download"
+    },
+    {
+      "revision": "RC2_v1.0.0",
+      "status": "FAIL",
+      "stage": "dependency_command_timeout_1200s"
+    },
+    {
+      "revision": "RC3_v1.0.0",
+      "status": "FAIL",
+      "stage": "docker_pip_truncated_simple_index_json",
+      "python": "PASS",
+      "frontend": "PASS",
+      "database_created": false
+    },
+    {
+      "revision": "RC4_v1.0.0",
+      "status": "INTERRUPTED",
+      "dependency_resolution": "OFFLINE_FROZEN_DIRECT_URLS",
+      "fresh_directory": true,
+      "backend_image": "PASS",
+      "sensor_build": "NOT_COMPLETED",
+      "database_created": false,
+      "finding": "RBF-007"
+    },
+    {
+      "revision": "RC4_v1.0.0",
+      "attempt": 2,
+      "status": "FAIL",
+      "dependency_resolution": "OFFLINE_FROZEN_DIRECT_URLS",
+      "fresh_directory": true,
+      "deployment_suffix": "rc4-retry1",
+      "stage": "suricata_apt_dns_connection_failure",
+      "finding": "RBF-008",
+      "python": "PASS",
+      "frontend": "PASS",
+      "backend_image": "PASS",
+      "database_created": false
+    },
+    {
+      "revision": "RC5_v1.0.0",
+      "attempt": 1,
+      "status": "FAIL",
+      "fresh_directory": true,
+      "deployment_suffix": "rc5",
+      "finding": "RBF-009",
+      "sensor_source": "DEBIAN_LISTED_USTC_HTTPS_SIGNED",
+      "stage": "empty_postgres_host_port_unpublished",
+      "backend_image": "PASS",
+      "sensor_images": "PASS",
+      "database_created": true,
+      "schema_initialized": false,
+      "api_started": false
+    },
+    {
+      "revision": "RC6_v1.0.0",
+      "attempt": 1,
+      "status": "PASS",
+      "fresh_directory": true,
+      "deployment_suffix": "rc6",
+      "finding": "RBF-009",
+      "network": "INTERNAL_CONTROL_WITH_FIXED_LOOPBACK_INGRESS",
+      "python": "PASS",
+      "frontend": "PASS",
+      "backend_image": "PASS",
+      "database_created": true,
+      "sensor_images": "PASS",
+      "real_scenario": "PASS",
+      "cleanup": "CLEAN"
+    }
+  ],
+  "environment_blocker": {
+    "finding": "RBF-005",
+    "component": "Docker Desktop static system HTTPS proxy",
+    "endpoint": "127.0.0.1:10808",
+    "observed": "connection refused / no listener",
+    "user_network_choice": "APPROVED_DOCKER_DIRECT_WITH_RESTART",
+    "python_install": "PASS",
+    "configuration": "APPLIED_AND_IMAGE_PULL_PASS",
+    "application_build": "ALL_THREE_IMAGES_PASS",
+    "state": "CLEARED_GATE_B"
+  },
+  "gate_c_finding": "RBF-010_CLOSED_GATE_C",
+  "gate_b_candidate": "RC6_v1.0.0",
+  "rc8_runtime_correspondence": "PASS",
+  "gate_b_current_candidate": "RC11_TARGETED_REVALIDATION_PASS",
+  "gate_c_current_candidate": "UNCHANGED_RECOVERY_BYTES_RC8_RC9_ACTUAL_EVIDENCE_PLUS_RC11_AST_EQUIVALENCE",
+  "supply_chain": "SCANNED_WITH_EXPLICIT_CONTROLLED_LAB_RESIDUAL_CRITICAL_HIGH",
+  "gate_d_current_candidate": "RC12_UNCHANGED_IMAGES_DEPENDENCIES_PLUS_SBOM_SCHEMA_REVALIDATION",
+  "release_claim": "STABLE_PROTOTYPE",
+  "next_version_started": false,
+  "development_stopped": true,
+  "remaining": "NONE",
+  "final_validation": {
+    "host_backend": 491,
+    "linux_backend": 490,
+    "docker_runtime": 189,
+    "frontend": 15,
+    "original_backend_retained": 464
+  },
+  "source_digest": "3525c9d70f7c5b8b38ae9d368671ab7ebba78b1c9b1ba9037904b42e210aa73e",
+  "frontend_build_digest": "da3bfd776289f94cb2360f3ec6fd837e56d008100836d3515b6c6a24b849219b",
+  "completed_at": "2026-10-05T03:58:04.417834+00:00",
+  "release_zip": "artifacts/智御_Project_v1.0.0_Stable_Prototype.zip",
+  "package_validation": "PASS",
+  "package_report": "artifacts/PACKAGE_VALIDATION_v1.0.0.json"
+}

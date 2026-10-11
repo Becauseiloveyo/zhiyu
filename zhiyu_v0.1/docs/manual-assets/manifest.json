@@ -1,0 +1,141 @@
+{
+  "at": "2026-10-05T08:45:51.008571+00:00",
+  "product": "ZHIYU v1.0.0 Stable Prototype",
+  "actual_browser": "headed Chromium via cached Playwright CLI",
+  "source_is_actual_v1_page": true,
+  "mockups_used": false,
+  "screenshots": [
+    {
+      "file": "overview.png",
+      "source": "output/playwright/walkthrough/overview.png",
+      "captured_file_mtime_utc": "2026-10-05T08:27:36.040226+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "d057f6dead516b740d135c8c82dc055a960c3e0b6a8c76e60e8d85dcd94b6158",
+      "caption": "本轮新A首轮子环境；四项实际KPI 8/1/0/1；Sensor已清理、覆盖UNKNOWN，并非实时健康PASS。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "incident-list.png",
+      "source": "output/playwright/walkthrough/incident-list.png",
+      "captured_file_mtime_utc": "2026-10-05T07:33:40.732447+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "a0c51f94a914cb9b5ec61accaa25f193e5c0df88acb32b1c0e91a7bbb25c5f91",
+      "caption": "本轮打开的既有A Lab记录（inc-3e00…）；VERIFYING/搜索筛选状态。不是本轮新A的同一Incident。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "incident-detail.png",
+      "source": "output/playwright/walkthrough/incident-detail.png",
+      "captured_file_mtime_utc": "2026-10-05T07:43:35.393450+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "adf9f68c767f1b7110066b7074bbbf09426e158b9ab14d7b1dd8a90549559e59",
+      "caption": "本轮新A首轮（inc-20293…）的实际事件详情与摘要；历史验证有效期仍如实显示。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "timeline.png",
+      "source": "output/playwright/walkthrough/timeline.png",
+      "captured_file_mtime_utc": "2026-10-05T07:41:11.553099+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "e08b93b60b35bc982e55b6c062fced2d819671282bdeb29a54bb824509da533a",
+      "caption": "既有A Lab记录（inc-3e00…）的实际112点时间线；UTC轴与来源时间语义。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "graph.png",
+      "source": "output/playwright/walkthrough/graph.png",
+      "captured_file_mtime_utc": "2026-10-05T07:43:56.977844+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "33354df265aee2cd7cc9ce55f90153a2cf57c393498261f1c6846ae57e8953b4",
+      "caption": "本轮新A首轮（inc-20293…）；默认两层59/94实体，真实引用/推断/UNKNOWN，非攻击因果图。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "ai-decision.png",
+      "source": "output/playwright/walkthrough/ai-decision.png",
+      "captured_file_mtime_utc": "2026-10-05T07:43:37.484099+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "4e5959a46247e79b749e7f57d724f4a1c209b8153786f379597687916201d06d",
+      "caption": "本轮新A首轮（inc-20293…）决策页顶部；上下文与模型分析，不是UI设计稿。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "ai-modelrun.png",
+      "source": "output/playwright/walkthrough/ai-modelrun.png",
+      "captured_file_mtime_utc": "2026-10-05T08:27:51.204746+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "afabbe168fea1130bb028d171b1cc747be29606accba4b3dbf445ca35efae621",
+      "caption": "本轮新A首轮实际ModelRun字段；provider demo、model/revision/hash与45734ms可见。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "verification.png",
+      "source": "output/playwright/walkthrough/verification.png",
+      "captured_file_mtime_utc": "2026-10-05T07:43:39.570421+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "1ec94f6eb982052539f712da599e926ae7d02145b7f1a0849716b5ddcd3e387c",
+      "caption": "本轮新A首轮三维历史PASS均显示已过期；不能当作当前保证安全。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "report.png",
+      "source": "output/playwright/walkthrough/report.png",
+      "captured_file_mtime_utc": "2026-10-05T07:41:35.736234+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "69c245d2cef7bb346e234598de5a964c5765572710f4d72b03e61887e503be8f",
+      "caption": "既有A Lab记录（inc-3e00…）的实际报告页；八节未复核草稿，JSON/Markdown入口。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "demo.png",
+      "source": "output/playwright/walkthrough/demo.png",
+      "captured_file_mtime_utc": "2026-10-05T08:08:10.662898+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "bdff4b298b98f2cf16c78f07eb983bdc6b2cce270e46d0b0bf961e769bcffd86",
+      "caption": "登记控制环境的固定A–E目录；真实/脚本模型标签与预期可见，运行结果另见走查JSON。",
+      "visually_reviewed": true
+    },
+    {
+      "file": "system-status.png",
+      "source": "output/playwright/walkthrough/system-status.png",
+      "captured_file_mtime_utc": "2026-10-05T07:44:00.191488+00:00",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "sha256": "7a3520de7a04d90edbd001351aa8daa44161b97c66f19f47cbdf2604f4864920",
+      "caption": "本轮新A首轮清理后的健康面板；DB AVAILABLE，过期Sensor及模型/WorkerUNKNOWN如实保留。",
+      "visually_reviewed": true
+    }
+  ]
+}

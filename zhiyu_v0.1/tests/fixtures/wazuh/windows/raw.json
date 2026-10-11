@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-09-13T10:00:00Z",
+  "agent": {
+    "id": "001",
+    "name": "auth-host",
+    "ip": "10.77.20.10"
+  },
+  "id": "syn-win-1",
+  "rule": {
+    "id": "61603",
+    "level": 9,
+    "mitre": {
+      "id": [
+        "T1059"
+      ],
+      "tactic": [
+        "Execution"
+      ]
+    }
+  },
+  "data": {
+    "win": {
+      "system": {
+        "eventID": "1",
+        "providerName": "Microsoft-Windows-Sysmon",
+        "computer": "test-win"
+      },
+      "eventdata": {
+        "image": "C:\\Windows\\System32\\cmd.exe",
+        "user": "TEST\\alice",
+        "hashes": "SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  }
+}

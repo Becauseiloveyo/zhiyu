@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="427.871" timestamp="2026-09-15T06:23:51.201944+01:00" hostname="LAPTOP-1CV14DRE"><testcase classname="tests.test_compose" name="test_live_compose_smoke" time="427.234"><failure message="AssertionError: assert 1 == 0&#10; +  where 1 = CompletedProcess(args=['C:\\Users\\wc\\Documents\\ChatGPT\\创新创业大赛\\.venv\\Scripts\\python.exe', 'C:\\Users\\wc\\Documents\\ChatGPT\\创新创业大赛\\zhiyu_v0.1\\tools\\compose_smoke.py'], returncode=1).returncode">@pytest.mark.compose
+    def test_live_compose_smoke():
+        if os.environ.get("ZHIYU_RUN_COMPOSE") != "1":
+            pytest.skip("set ZHIYU_RUN_COMPOSE=1 on a Docker host; static wiring is not a smoke test")
+        result = subprocess.run([sys.executable, str(ROOT / "tools/compose_smoke.py")], cwd=ROOT, timeout=3600)
+&gt;       assert result.returncode == 0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\wc\\Documents\\ChatGPT\\创新创业大赛\\.venv\\Scripts\\python.exe', 'C:\\Users\\wc\\Documents\\ChatGPT\\创新创业大赛\\zhiyu_v0.1\\tools\\compose_smoke.py'], returncode=1).returncode
+
+tests\test_compose.py:27: AssertionError</failure></testcase></testsuite></testsuites>

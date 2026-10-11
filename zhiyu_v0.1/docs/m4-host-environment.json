@@ -1,0 +1,6 @@
+{
+  "host_os": "Windows-11-10.0.26200-SP0",
+  "host_python": "3.12.14",
+  "docker_compose": "Docker Compose version v5.5.1",
+  "docker_desktop": "4.91.0.239619"
+}

@@ -1,0 +1,16 @@
+<group name="zhiyu_lab,">
+  <rule id="110001" level="5">
+    <decoded_as>json</decoded_as>
+    <field name="event">^zhiyu_login$</field>
+    <field name="auth_result">^denied$</field>
+    <description>Controlled Lab application authentication failure</description>
+    <group>authentication_failed,</group>
+  </rule>
+  <rule id="110002" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="event">^zhiyu_login$</field>
+    <field name="auth_result">^success$</field>
+    <description>Controlled Lab application authentication success</description>
+    <group>authentication_success,</group>
+  </rule>
+</group>

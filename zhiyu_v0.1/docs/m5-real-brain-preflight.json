@@ -1,0 +1,661 @@
+{
+  "environment_id": "m3-m5-brain-preflight-25a092ef",
+  "context": {
+    "context_id": "decision-context-9827a7257aef4d60efdc0567d9a82ea88e2afdd1f084e01ffb3b55d389a92f38",
+    "snapshot_id": "state-snapshot-47b96c6adcbfee6bf9f819b7dad796d0e54e63404a3557d65c3bc26249329ca7",
+    "context_hash": "a8e812ff405f08779aba0d3b58e9b389fdda5ac1ea46d4812b4638b0d0832707",
+    "body": {
+      "objective": "Explain evidence-supported findings and propose bounded read-only next steps",
+      "incident": {
+        "incident_id": "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e",
+        "environment_id": "m3-m5-brain-preflight-25a092ef",
+        "state_version": 2,
+        "status": "TRIAGED",
+        "priority": "P2",
+        "title": "authentication: [\"127.0.0.1\"]",
+        "affected_resources": [
+          "target-a"
+        ],
+        "observed_at": "2026-09-16T08:07:30.480738+00:00",
+        "freshness": "FRESH"
+      },
+      "trusted_facts": [
+        {
+          "evidence_id": "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+          "source_hash": "319a32dd2d9247d78bbc260461b5451a67ea6cd3fa5262a7d2c29e8212ee8aee",
+          "kind": "SOURCE_ASSERTION",
+          "summary": [
+            "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e"
+          ],
+          "source": "sensor-suricata",
+          "source_event_ids": [
+            "evt-aa7cbba145e976fec1f05ef6959b2986a90c0614df37ae96e6b4fe8bd3d7e00f"
+          ],
+          "observed_at": "2026-09-16T08:07:00+00:00",
+          "ingested_at": "2026-09-16T08:07:30.213795+00:00",
+          "valid_until": "2026-09-16T08:12:00+00:00",
+          "freshness": "FRESH",
+          "quality": "VERIFIED_ORIGIN",
+          "confidence_semantics": "verified origin does not prove source assertion true"
+        },
+        {
+          "evidence_id": "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+          "source_hash": "13bda3a5e1843ef41e4db183021a60b3ffdbd253fbbd2a271fc2921da34e7a52",
+          "kind": "SOURCE_ASSERTION",
+          "summary": [
+            "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e"
+          ],
+          "source": "sensor-wazuh",
+          "source_event_ids": [
+            "evt-99635491eab3aae2199d47f13bc7a4ff5714f82cec46b7a11c7d46f60636a943"
+          ],
+          "observed_at": "2026-09-16T08:07:00+00:00",
+          "ingested_at": "2026-09-16T08:07:30.249796+00:00",
+          "valid_until": "2026-09-16T08:12:00+00:00",
+          "freshness": "FRESH",
+          "quality": "VERIFIED_ORIGIN",
+          "confidence_semantics": "verified origin does not prove source assertion true"
+        },
+        {
+          "evidence_id": "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4",
+          "source_hash": "025ce6d1af7b777e33b6467ea4c02da42b81931425d89d905bed6fd9aec5e7cd",
+          "kind": "SOURCE_ASSERTION",
+          "summary": [
+            "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e"
+          ],
+          "source": "sensor-wazuh",
+          "source_event_ids": [
+            "evt-dd55ba9b19de28197c9e1ef81e982ab05b0a4cdf9ca42e8fb31a2d30ba217b52"
+          ],
+          "observed_at": "2026-09-16T08:07:00+00:00",
+          "ingested_at": "2026-09-16T08:07:30.249796+00:00",
+          "valid_until": "2026-09-16T08:12:00+00:00",
+          "freshness": "FRESH",
+          "quality": "VERIFIED_ORIGIN",
+          "confidence_semantics": "verified origin does not prove source assertion true"
+        }
+      ],
+      "state": [
+        {
+          "kind": "CONFIGURATION",
+          "resource_id": "target-a",
+          "resource_type": "NETWORK_ENDPOINT",
+          "binding_version": 1,
+          "display_name": "Target-A synthetic login service",
+          "source": "registered-resource",
+          "environment_id": "m3-m5-brain-preflight-25a092ef",
+          "evidence_ids": [],
+          "observed_at": null,
+          "ingested_at": null,
+          "freshness": "UNKNOWN",
+          "quality": "operator registration; runtime state unverified",
+          "confidence_semantics": "not measured",
+          "service_availability": "UNKNOWN",
+          "business_criticality": "UNKNOWN",
+          "known_vulnerabilities": []
+        },
+        {
+          "kind": "OPERATIONAL_TELEMETRY",
+          "sensor_id": "sensor-suricata",
+          "resource_type": "SENSOR",
+          "source": "sensor-health-registry",
+          "environment_id": "m3-m5-brain-preflight-25a092ef",
+          "evidence_ids": [],
+          "status": "HEALTHY",
+          "observed_at": "2026-09-16T08:07:30.073139+00:00",
+          "valid_until": "2026-09-16T08:09:30.073139+00:00",
+          "ingested_at": null,
+          "freshness": "FRESH",
+          "quality": "coverage validated",
+          "confidence_semantics": "health report; not proof of security",
+          "lost_events": 0
+        },
+        {
+          "kind": "OPERATIONAL_TELEMETRY",
+          "sensor_id": "sensor-wazuh",
+          "resource_type": "SENSOR",
+          "source": "sensor-health-registry",
+          "environment_id": "m3-m5-brain-preflight-25a092ef",
+          "evidence_ids": [],
+          "status": "HEALTHY",
+          "observed_at": "2026-09-16T08:07:30.073139+00:00",
+          "valid_until": "2026-09-16T08:09:30.073139+00:00",
+          "ingested_at": null,
+          "freshness": "FRESH",
+          "quality": "coverage validated",
+          "confidence_semantics": "health report; not proof of security",
+          "lost_events": 0
+        }
+      ],
+      "event_groups": [
+        {
+          "group_id": "grp-bf76cd9b9aabdab4c199901110f52c27f1627601aa92d1aa6c5721eb78526246",
+          "event_count": 3,
+          "last_seen_at": "2026-09-16T08:07:00+00:00",
+          "rule_version": "correlation-rules/1.0.0"
+        }
+      ],
+      "correlations": [
+        {
+          "decision_id": "corr-a062fd1ee7b6e3246f2b6f453f5481a7ee8047855583c19fd0fc270445ab5f7e",
+          "group_id": "grp-bf76cd9b9aabdab4c199901110f52c27f1627601aa92d1aa6c5721eb78526246",
+          "rules": [
+            "exact_identity_dimensions",
+            "fixed_utc_window",
+            "provenance_preserved",
+            "cross_source_authentication"
+          ],
+          "reason": "{\"algorithm_version\": \"fixed-window/1.0.0\", \"candidate_policy\": \"earliest 100 same-window mismatches; bounded sample\", \"config_version\": \"ei-config/1.0.0\", \"dimensions\": {\"action\": \"authenticate\", \"activity\": \"authentication\", \"actor_resource\": \"\", \"config_hash\": \"71dad57b8bf3097a0c0fb0e41754ace86dad3ed6cfcd3ebd6365515a72a88f1a\", \"data_origin\": \"SYNTHETIC\", \"disposition\": \"TIMELY\", \"environment\": \"m3-m5-brain-preflight-25a092ef\", \"key_version\": \"correlation-key/1.0.0\", \"outcome\": \"DENIED\", \"rule_version\": \""
+        }
+      ],
+      "events": [
+        {
+          "event_id": "evt-99635491eab3aae2199d47f13bc7a4ff5714f82cec46b7a11c7d46f60636a943",
+          "category": "authentication",
+          "activity": "authenticate",
+          "outcome": "DENIED",
+          "observed_at": "2026-09-16T08:07:00+00:00",
+          "source": "sensor-wazuh",
+          "freshness": "FRESH"
+        },
+        {
+          "event_id": "evt-aa7cbba145e976fec1f05ef6959b2986a90c0614df37ae96e6b4fe8bd3d7e00f",
+          "category": "authentication",
+          "activity": "authenticate",
+          "outcome": "DENIED",
+          "observed_at": "2026-09-16T08:07:00+00:00",
+          "source": "sensor-suricata",
+          "freshness": "FRESH"
+        },
+        {
+          "event_id": "evt-dd55ba9b19de28197c9e1ef81e982ab05b0a4cdf9ca42e8fb31a2d30ba217b52",
+          "category": "authentication",
+          "activity": "authenticate",
+          "outcome": "DENIED",
+          "observed_at": "2026-09-16T08:07:00+00:00",
+          "source": "sensor-wazuh",
+          "freshness": "FRESH"
+        }
+      ],
+      "prior_plans": [],
+      "previous_actions": [],
+      "verification_history": [],
+      "allowed_capabilities": [
+        {
+          "capability_id": "check_service_reachability",
+          "version": "1.0.0",
+          "risk": "R2",
+          "operation_kind": "ACTIVE_CHECK",
+          "purpose": "check service reachability",
+          "target_classes": [
+            "NETWORK_ENDPOINT"
+          ],
+          "input_schema": {
+            "additionalProperties": false,
+            "properties": {
+              "protocol": {
+                "default": "http",
+                "enum": [
+                  "http",
+                  "https"
+                ],
+                "title": "Protocol",
+                "type": "string"
+              },
+              "timeout_ms": {
+                "default": 1000,
+                "maximum": 3000,
+                "minimum": 100,
+                "title": "Timeout Ms",
+                "type": "integer"
+              }
+            },
+            "title": "ProbeInput",
+            "type": "object"
+          },
+          "definition_hash": "0b75a595c310bc3b2c0425a53bc27084412504730b467c909c23c1e2a2eae93f",
+          "health_checked_at": "2026-09-16T08:07:30.073139+00:00",
+          "execution_requires_fresh_authorization": true
+        },
+        {
+          "capability_id": "collect_resource_context",
+          "version": "1.0.0",
+          "risk": "R0",
+          "operation_kind": "PASSIVE_READ",
+          "purpose": "collect resource context",
+          "target_classes": [
+            "NETWORK_ENDPOINT",
+            "HOST",
+            "IDENTITY",
+            "KUBERNETES",
+            "CLOUD",
+            "SAAS",
+            "SECURITY_CONTROL"
+          ],
+          "input_schema": {
+            "additionalProperties": false,
+            "properties": {
+              "limit": {
+                "default": 50,
+                "maximum": 100,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              }
+            },
+            "title": "ReadInput",
+            "type": "object"
+          },
+          "definition_hash": "a3860474070ce1e5a1591f226809e66098f768c4097795a31ee6c05118bec9cb",
+          "health_checked_at": "2026-09-16T08:07:30.073139+00:00",
+          "execution_requires_fresh_authorization": true
+        },
+        {
+          "capability_id": "query_event_history",
+          "version": "1.0.0",
+          "risk": "R1",
+          "operation_kind": "PASSIVE_READ",
+          "purpose": "query event history",
+          "target_classes": [
+            "NETWORK_ENDPOINT",
+            "HOST",
+            "IDENTITY",
+            "KUBERNETES",
+            "CLOUD",
+            "SAAS",
+            "SECURITY_CONTROL"
+          ],
+          "input_schema": {
+            "additionalProperties": false,
+            "properties": {
+              "limit": {
+                "default": 50,
+                "maximum": 100,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              }
+            },
+            "title": "ReadInput",
+            "type": "object"
+          },
+          "definition_hash": "9fd66acd1a8f3a6f4bdc21da1f57ed85227c4896c69088f8ff5cfcbe0e2c17f4",
+          "health_checked_at": "2026-09-16T08:07:30.073139+00:00",
+          "execution_requires_fresh_authorization": true
+        },
+        {
+          "capability_id": "query_incident_evidence",
+          "version": "1.0.0",
+          "risk": "R1",
+          "operation_kind": "PASSIVE_READ",
+          "purpose": "query incident evidence",
+          "target_classes": [
+            "NETWORK_ENDPOINT",
+            "HOST",
+            "IDENTITY",
+            "KUBERNETES",
+            "CLOUD",
+            "SAAS",
+            "SECURITY_CONTROL"
+          ],
+          "input_schema": {
+            "additionalProperties": false,
+            "properties": {
+              "limit": {
+                "default": 50,
+                "maximum": 100,
+                "minimum": 1,
+                "title": "Limit",
+                "type": "integer"
+              }
+            },
+            "title": "ReadInput",
+            "type": "object"
+          },
+          "definition_hash": "229f56e61a7b57c7bd3bd9add9b061292d7b2244cabc8d7734824fa3170fb151",
+          "health_checked_at": "2026-09-16T08:07:30.073139+00:00",
+          "execution_requires_fresh_authorization": true
+        },
+        {
+          "capability_id": "safe_http_probe",
+          "version": "1.0.0",
+          "risk": "R2",
+          "operation_kind": "ACTIVE_CHECK",
+          "purpose": "safe http probe",
+          "target_classes": [
+            "NETWORK_ENDPOINT"
+          ],
+          "input_schema": {
+            "additionalProperties": false,
+            "properties": {
+              "protocol": {
+                "default": "http",
+                "enum": [
+                  "http",
+                  "https"
+                ],
+                "title": "Protocol",
+                "type": "string"
+              },
+              "timeout_ms": {
+                "default": 1000,
+                "maximum": 3000,
+                "minimum": 100,
+                "title": "Timeout Ms",
+                "type": "integer"
+              }
+            },
+            "title": "ProbeInput",
+            "type": "object"
+          },
+          "definition_hash": "003c8f0a525e452adabc07755ca0b2039d22689a4cd688b0382c6617b02398f9",
+          "health_checked_at": "2026-09-16T08:07:30.073139+00:00",
+          "execution_requires_fresh_authorization": true
+        }
+      ],
+      "constraints": {
+        "environment_version": "env-v1",
+        "policy_version": "policy-v1",
+        "scope_id": "scope-lab-web",
+        "scope_version": "scope-v1",
+        "scope_valid_until": "2026-09-16T10:07:29.915436+00:00",
+        "autonomy_mode": "CONTROLLED_AUTONOMY",
+        "deployment_stage": "LAB",
+        "max_auto_risk": "R2",
+        "model_policy": "LOCAL_ONLY",
+        "connectivity": "RESTRICTED",
+        "data_egress_policy": "DENY",
+        "classification": "SENSITIVE",
+        "model_fact_writes": false,
+        "proposal_is_authorization": false,
+        "max_proposed_tasks": 8
+      }
+    },
+    "manifest": {
+      "incident_ids": [
+        "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e"
+      ],
+      "state_entity_ids": [],
+      "evidence_ids": [
+        "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+        "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+        "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4"
+      ],
+      "event_ids": [
+        "evt-99635491eab3aae2199d47f13bc7a4ff5714f82cec46b7a11c7d46f60636a943",
+        "evt-aa7cbba145e976fec1f05ef6959b2986a90c0614df37ae96e6b4fe8bd3d7e00f",
+        "evt-dd55ba9b19de28197c9e1ef81e982ab05b0a4cdf9ca42e8fb31a2d30ba217b52"
+      ],
+      "event_group_ids": [
+        "grp-bf76cd9b9aabdab4c199901110f52c27f1627601aa92d1aa6c5721eb78526246"
+      ],
+      "correlation_ids": [
+        "corr-a062fd1ee7b6e3246f2b6f453f5481a7ee8047855583c19fd0fc270445ab5f7e"
+      ],
+      "verification_ids": [],
+      "plan_ids": [],
+      "action_ids": [],
+      "capabilities": [
+        {
+          "capability_id": "check_service_reachability",
+          "version": "1.0.0",
+          "definition_hash": "0b75a595c310bc3b2c0425a53bc27084412504730b467c909c23c1e2a2eae93f"
+        },
+        {
+          "capability_id": "collect_resource_context",
+          "version": "1.0.0",
+          "definition_hash": "a3860474070ce1e5a1591f226809e66098f768c4097795a31ee6c05118bec9cb"
+        },
+        {
+          "capability_id": "query_event_history",
+          "version": "1.0.0",
+          "definition_hash": "9fd66acd1a8f3a6f4bdc21da1f57ed85227c4896c69088f8ff5cfcbe0e2c17f4"
+        },
+        {
+          "capability_id": "query_incident_evidence",
+          "version": "1.0.0",
+          "definition_hash": "229f56e61a7b57c7bd3bd9add9b061292d7b2244cabc8d7734824fa3170fb151"
+        },
+        {
+          "capability_id": "safe_http_probe",
+          "version": "1.0.0",
+          "definition_hash": "003c8f0a525e452adabc07755ca0b2039d22689a4cd688b0382c6617b02398f9"
+        }
+      ],
+      "resource_ids": [
+        "target-a"
+      ],
+      "scope_id": "scope-lab-web",
+      "policy_version": "policy-v1",
+      "context_policy_version": "context-policy/1.0.0",
+      "builder_version": "decision-context/1.0.0",
+      "prompt_version": "evidence-brain/1.0.0",
+      "context_hash": "a8e812ff405f08779aba0d3b58e9b389fdda5ac1ea46d4812b4638b0d0832707",
+      "message_hash": "ac17d76358872dd8d7872dda37ef923834dbea5be3ec71a010e259e8412a6386",
+      "chars": 9324,
+      "input_token_upper_bound": 11265,
+      "excluded_evidence": {},
+      "raw_evidence_included": false,
+      "selection": "bounded latest evidence/events/verification; structured summaries; no raw fetch"
+    },
+    "created_at": "2026-09-16T08:07:30.505637+00:00",
+    "valid_until": "2026-09-16T08:09:30.073139+00:00"
+  },
+  "provider": {
+    "provider": "local-llama-cpp",
+    "location": "LOCAL",
+    "endpoint": "http://127.0.0.1:43746/v1",
+    "model": "zhiyu-qwen2.5-1.5b",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "timeout_seconds": 110.0,
+    "max_output_tokens": 1200,
+    "temperature": 0,
+    "structured_format": "JSON_OBJECT_SCHEMA"
+  },
+  "analysis": {
+    "analysis_id": "situation-analysis-8a70821f8d7d5dbd7b984a853c1fa18381700f57f9d5b9ac89ef2fbf99af2f8a",
+    "context_id": "decision-context-9827a7257aef4d60efdc0567d9a82ea88e2afdd1f084e01ffb3b55d389a92f38",
+    "model_run_id": "model-run-8a70821f8d7d5dbd7b984a853c1fa18381700f57f9d5b9ac89ef2fbf99af2f8a",
+    "status": "REFERENCE_GROUNDED",
+    "output": {
+      "hypotheses": [
+        {
+          "claim": "The SYNTHETIC login service is not a valid source of evidence.",
+          "evidence_refs": [
+            "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+            "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+            "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4"
+          ],
+          "missing_evidence": [
+            "The SYNTHETIC login service is not verified."
+          ],
+          "model_confidence": 0.95
+        }
+      ],
+      "uncertainty": "The SYNTHETIC login service is not verified.",
+      "evidence_gaps": [
+        "The evidence for the SYNTHETIC login service is not verified."
+      ],
+      "incident_summary": "authentication: [\"127.0.0.1\"]",
+      "risk_observations": [
+        "The SYNTHETIC login service is not verified."
+      ],
+      "affected_resources": [
+        "target-a"
+      ],
+      "supported_findings": [
+        {
+          "claim": "The SYNTHETIC login service is not a valid source of evidence.",
+          "observed_at": "2026-09-16T08:07:30.073000Z",
+          "resource_ids": [
+            "target-a"
+          ],
+          "evidence_refs": [
+            "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+            "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+            "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4"
+          ]
+        }
+      ],
+      "confidence_semantics": "MODEL_SELF_REPORTED_UNCALIBRATED",
+      "recommended_next_steps": [
+        "Verify the SYNTHETIC login service's origin and ensure it is a valid source of evidence."
+      ]
+    },
+    "grounding": {
+      "valid": true,
+      "reasons": [],
+      "validated_evidence_ids": [
+        "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+        "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+        "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4"
+      ],
+      "validated_resource_ids": [
+        "target-a"
+      ],
+      "supported_finding_count": 1,
+      "hypothesis_count": 1,
+      "semantics": "REFERENCE_INTEGRITY_ONLY_NOT_NATURAL_LANGUAGE_TRUTH",
+      "confidence_semantics": "MODEL_SELF_REPORTED_UNCALIBRATED",
+      "validator_version": "claim-grounding/1.0.0"
+    },
+    "state_entity_id": "model-inference-state-8aba51d8f84b7ce07bf33890cf29ffbe652e58fa4fdc2a5fae5dcf39ba423e9d"
+  },
+  "proposal": {
+    "proposal_id": "ai-proposal-f4111f3f5884771d6a55eabbc373435f04461e4e29b3affde373f5723f995d38",
+    "context_id": "decision-context-9827a7257aef4d60efdc0567d9a82ea88e2afdd1f084e01ffb3b55d389a92f38",
+    "analysis_id": "situation-analysis-8a70821f8d7d5dbd7b984a853c1fa18381700f57f9d5b9ac89ef2fbf99af2f8a",
+    "model_run_id": "model-run-f4111f3f5884771d6a55eabbc373435f04461e4e29b3affde373f5723f995d38",
+    "plan_id": "ai-plan-f4111f3f5884771d6a55eabbc373435f04461e4e29b3affde373f5723f995d38",
+    "parent_verification_id": null,
+    "mode": "ASSISTED",
+    "status": "ACCEPTED",
+    "output": {
+      "objective": "Explain evidence-supported findings and propose bounded read-only next steps",
+      "risk_notes": [
+        "The SYNTHETIC login service is not verified. The SYNTHETIC login service is not a valid source of evidence. The SYNTHETIC login service is not verified."
+      ],
+      "evidence_refs": [
+        "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+        "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+        "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4"
+      ],
+      "proposed_tasks": [
+        {
+          "reason": "verify the SYNTHETIC login service's origin and ensure it is a valid source of evidence.",
+          "task_key": "verify_synthetic_login_service",
+          "parameters": {
+            "limit": null,
+            "protocol": "http",
+            "timeout_ms": 1000
+          },
+          "dependencies": [],
+          "capability_id": "safe_http_probe",
+          "expected_outcome": "verify the SYNTHETIC login service's origin and ensure it is a valid source of evidence.",
+          "target_resource_id": "target-a",
+          "verification_required": "INDEPENDENT_THREE_DIMENSION"
+        }
+      ],
+      "reasoning_summary": "The SYNTHETIC login service is not verified. The SYNTHETIC login service is not a valid source of evidence. The SYNTHETIC login service is not verified.",
+      "success_is_unverified": true
+    },
+    "validation": {
+      "valid": true,
+      "reasons": [],
+      "grounding": {
+        "valid": true,
+        "reasons": [],
+        "validated_evidence_ids": [
+          "evd-be73c402b3bd4980b29bf41a30a29fa385b2bf1f4d92d606a5da2bad72cb6131",
+          "evd-e0f06f310a9cbe26e996c6549fea05333f2ab94c9b72c8996bdb676e1a6e92b3",
+          "evd-e7a3554b0170b2b2dca52faec4ed26059050e68ee86868490a315562514bfcc4"
+        ],
+        "validated_resource_ids": [
+          "target-a"
+        ],
+        "supported_finding_count": 1,
+        "hypothesis_count": 0,
+        "semantics": "REFERENCE_INTEGRITY_ONLY_NOT_NATURAL_LANGUAGE_TRUTH",
+        "confidence_semantics": "MODEL_SELF_REPORTED_UNCALIBRATED",
+        "validator_version": "claim-grounding/1.0.0"
+      },
+      "aggregate": {
+        "valid": true,
+        "reasons": [],
+        "aggregate_risk": "R2",
+        "action_count": 1,
+        "same_target_max": 1,
+        "active_checks": 1,
+        "state_changes": 0,
+        "policy_version": "aggregate-risk/1.0.0"
+      },
+      "parameters": {
+        "verify_synthetic_login_service": {
+          "protocol": "http",
+          "timeout_ms": 1000
+        }
+      },
+      "validator_version": "plan-proposal/1.0.0",
+      "authorization": "NOT_GRANTED"
+    }
+  },
+  "decision": {
+    "context_id": "decision-context-9827a7257aef4d60efdc0567d9a82ea88e2afdd1f084e01ffb3b55d389a92f38",
+    "analysis_id": "situation-analysis-8a70821f8d7d5dbd7b984a853c1fa18381700f57f9d5b9ac89ef2fbf99af2f8a",
+    "proposal_id": "ai-proposal-f4111f3f5884771d6a55eabbc373435f04461e4e29b3affde373f5723f995d38",
+    "plan_id": "ai-plan-f4111f3f5884771d6a55eabbc373435f04461e4e29b3affde373f5723f995d38",
+    "status": "AI_ASSISTED",
+    "execution": "AWAIT_EXISTING_AUTHORIZATION_AND_WORKER",
+    "verification": "INDEPENDENT_REQUIRED"
+  },
+  "runs": [
+    {
+      "run_id": "model-run-8a70821f8d7d5dbd7b984a853c1fa18381700f57f9d5b9ac89ef2fbf99af2f8a",
+      "environment_id": "m3-m5-brain-preflight-25a092ef",
+      "incident_id": "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e",
+      "task_id": null,
+      "provider": "local-llama-cpp",
+      "model": "zhiyu-qwen2.5-1.5b",
+      "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "prompt_version": "evidence-brain/1.0.0",
+      "context_id": "decision-context-9827a7257aef4d60efdc0567d9a82ea88e2afdd1f084e01ffb3b55d389a92f38",
+      "input_hash": "36da605419a831c9808ab3fdc754837a2c15e5c6d3a2bdcf0f174b467e3bdfd7",
+      "output_hash": "792aecb901bf97e97469e5a7ece1a64b832be88bc57e95ffcf7636194634bf31",
+      "route_reason": "explicit route; structured output; proposal only",
+      "fallback_from_run_id": null,
+      "started_at": "2026-09-16 08:07:30.590926+00:00",
+      "finished_at": "2026-09-16 08:08:17.839604+00:00",
+      "input_tokens": 4098,
+      "output_tokens": 725,
+      "cached_tokens": 339,
+      "latency_ms": 47248,
+      "cost_usd": null,
+      "schema_valid": true,
+      "safety_status": "PASS"
+    },
+    {
+      "run_id": "model-run-f4111f3f5884771d6a55eabbc373435f04461e4e29b3affde373f5723f995d38",
+      "environment_id": "m3-m5-brain-preflight-25a092ef",
+      "incident_id": "inc-df726f811d35f632323f42165e5e3611bc491388462bb241d64b87da1624b54e",
+      "task_id": null,
+      "provider": "local-llama-cpp",
+      "model": "zhiyu-qwen2.5-1.5b",
+      "model_revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+      "prompt_version": "evidence-brain/1.0.0",
+      "context_id": "decision-context-9827a7257aef4d60efdc0567d9a82ea88e2afdd1f084e01ffb3b55d389a92f38",
+      "input_hash": "4fd6bcb17b2d8d232f45e0ece8b90b59572fdb462e33384886e059a0ab4d40e5",
+      "output_hash": "2f9793cb6c310c3c80680646da13c0ea7e0f5967fb991df6290c6809bb0b3ed5",
+      "route_reason": "explicit route; structured output; proposal only",
+      "fallback_from_run_id": null,
+      "started_at": "2026-09-16 08:08:17.924007+00:00",
+      "finished_at": "2026-09-16 08:09:02.308795+00:00",
+      "input_tokens": 4688,
+      "output_tokens": 413,
+      "cached_tokens": 155,
+      "latency_ms": 44384,
+      "cost_usd": null,
+      "schema_valid": true,
+      "safety_status": "PASS"
+    }
+  ]
+}

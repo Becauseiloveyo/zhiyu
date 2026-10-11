@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "source_digest": "7e556ad0046e4886820e0f4b94c53b8bea9d7f2527f533cb963fc5197af5ee8e",
+  "tested_image_source_digest": "7e556ad0046e4886820e0f4b94c53b8bea9d7f2527f533cb963fc5197af5ee8e",
+  "image": "zhiyu-smoke-b57553d275bd-api",
+  "all_sources_equal_after_newline_normalization": true,
+  "files_with_only_newline_differences": []
+}

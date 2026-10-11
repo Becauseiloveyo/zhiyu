@@ -1,0 +1,6 @@
+{
+  "activity_category": "security_alert",
+  "activity_name": "rule_match",
+  "outcome": "UNKNOWN",
+  "severity_signal": 0
+}

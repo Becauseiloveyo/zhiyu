@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="201.601" timestamp="2026-09-13T16:41:43.095611+01:00" hostname="LAPTOP-1CV14DRE"><testcase classname="tests.test_compose" name="test_live_compose_smoke" time="200.583" /></testsuite></testsuites>

@@ -1,0 +1,128 @@
+{
+  "label": "SYNTHETIC GOLDEN CHAIN — no real sensor or active security runtime",
+  "reference_time": "2026-09-13T10:00:00Z",
+  "expected": {
+    "raw": 4,
+    "normalized": 4,
+    "groups": 2,
+    "decisions": 2,
+    "incidents": 1,
+    "evidence": 3,
+    "risk_score": 62,
+    "priority": "P2"
+  },
+  "records": [
+    {
+      "source_type": "suricata",
+      "collector_id": "sensor-suricata",
+      "origin": "capture-1",
+      "offset_seconds": 10,
+      "raw": {
+        "timestamp": "2026-09-13T10:00:10Z",
+        "event_type": "alert",
+        "src_ip": "192.0.2.10",
+        "dest_ip": "10.77.20.10",
+        "src_port": 51000,
+        "dest_port": 8080,
+        "proto": "TCP",
+        "alert": {
+          "signature_id": 990002,
+          "severity": 2,
+          "action": "allowed"
+        },
+        "http": {
+          "hostname": "auth.example.test",
+          "url": "/login",
+          "http_method": "POST",
+          "status": 401
+        }
+      }
+    },
+    {
+      "source_type": "wazuh",
+      "collector_id": "sensor-wazuh",
+      "origin": "auth-1",
+      "offset_seconds": 12,
+      "raw": {
+        "timestamp": "2026-09-13T10:00:12Z",
+        "id": "synthetic-auth-1",
+        "agent": {
+          "id": "001",
+          "name": "auth-host",
+          "ip": "10.77.20.10"
+        },
+        "rule": {
+          "id": "100101",
+          "level": 9,
+          "groups": [
+            "application",
+            "authentication_failed"
+          ]
+        },
+        "data": {
+          "srcip": "192.0.2.10",
+          "dstport": 8080,
+          "protocol": "TCP"
+        }
+      }
+    },
+    {
+      "source_type": "wazuh",
+      "collector_id": "sensor-wazuh",
+      "origin": "auth-2",
+      "offset_seconds": 14,
+      "raw": {
+        "timestamp": "2026-09-13T10:00:14Z",
+        "id": "synthetic-auth-2",
+        "agent": {
+          "id": "001",
+          "name": "auth-host",
+          "ip": "10.77.20.10"
+        },
+        "rule": {
+          "id": "100101",
+          "level": 9,
+          "groups": [
+            "application",
+            "authentication_failed"
+          ]
+        },
+        "data": {
+          "srcip": "192.0.2.10",
+          "dstport": 8080,
+          "protocol": "TCP"
+        }
+      }
+    },
+    {
+      "source_type": "wazuh",
+      "collector_id": "sensor-wazuh",
+      "origin": "unrelated-user",
+      "offset_seconds": 16,
+      "unrelated": true,
+      "raw": {
+        "timestamp": "2026-09-13T10:00:16Z",
+        "id": "synthetic-unrelated",
+        "agent": {
+          "id": "001",
+          "name": "auth-host",
+          "ip": "10.77.20.10"
+        },
+        "rule": {
+          "id": "100101",
+          "level": 9,
+          "groups": [
+            "application",
+            "authentication_failed"
+          ]
+        },
+        "data": {
+          "srcip": "192.0.2.10",
+          "srcuser": "unrelated-bob",
+          "dstport": 8080,
+          "protocol": "TCP"
+        }
+      }
+    }
+  ]
+}

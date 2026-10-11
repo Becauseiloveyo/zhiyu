@@ -1,0 +1,51 @@
+# Remediation file changes
+
+RC4 元数据修复基线到最终 RC；旧 360 测试与 ai.5 文件未改。[逐文件 before/after SHA](m6-runtime/gate-e-file-diff.json)。
+
+- `Dockerfile`
+- `config/m6-validation-fixtures.json`
+- `lab/real-sensors/remediation.rules`
+- `lab/real-sensors/wazuh-remediation-rules.xml`
+- `migrations/versions/0016_lab_remediation.py`
+- `schema/0016_lab_remediation_postgresql.sql`
+- `src/zhiyu/core/config.py`
+- `src/zhiyu/db/response_execution.py`
+- `src/zhiyu/response/authorization.py`
+- `src/zhiyu/response/capacity.py`
+- `src/zhiyu/response/catalog.py`
+- `src/zhiyu/response/config.py`
+- `src/zhiyu/response/executors.py`
+- `src/zhiyu/response/gateway.py`
+- `src/zhiyu/response/lab_client.py`
+- `src/zhiyu/response/lab_protocol.py`
+- `src/zhiyu/response/lab_reconcile.py`
+- `src/zhiyu/response/lab_target.py`
+- `src/zhiyu/response/planner.py`
+- `src/zhiyu/response/registry.py`
+- `src/zhiyu/response/scheduler.py`
+- `src/zhiyu/response/worker.py`
+- `src/zhiyu/services/health.py`
+- `src/zhiyu/verification/engine.py`
+- `src/zhiyu/verification/lab_reviews.py`
+- `src/zhiyu/verification/policy.py`
+- `src/zhiyu/verification/replan.py`
+- `src/zhiyu/verification/runtime.py`
+- `src/zhiyu/verification/worker.py`
+- `tests/test_m6_lab_boundaries.py`
+- `tests/test_m6_lab_remediation.py`
+- `tools/m6_final_binding.py`
+- `tools/m6_final_migration.py`
+- `tools/m6_final_reset.py`
+- `tools/m6_final_runtime.py`
+- `tools/m6_final_sensor_outage.py`
+- `tools/m6_final_sensors.py`
+- `tools/m6_final_validation_registry.py`
+- `tools/m6_lab_acceptance.py`
+- `tools/m6_lab_host.py`
+- `tools/m6_lab_observed_target.py`
+- `tools/m6_lab_preflight.py`
+- `tools/m6_lab_proof.py`
+- `tools/m6_rc_freeze.py`
+- `tools/m6_remediation_integrity.py`
+- `tools/runtime_acceptance.py`
+- `tools/schema_snapshot.py`

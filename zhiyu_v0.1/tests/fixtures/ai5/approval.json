@@ -1,0 +1,19 @@
+{
+  "data_origin": "SYNTHETIC",
+  "description": "可选人工确认同一请求的摘要示例；主链的低风险预授权不依赖此记录。",
+  "objects": [
+    {
+      "object_type": "ApprovalRecord",
+      "approval_id": "approval-optional-001",
+      "action_id": "act-synthetic-block-001",
+      "action_digest": "99d4a0cda0cc9d54e9374443fb62d91c9f56721125bf192361289b35255d7a44",
+      "actor_id": "human-approver-synthetic",
+      "actor_role": "APPROVER",
+      "decision": "APPROVED",
+      "reason": "optional human signoff on this exact synthetic request; not used by golden automatic authorization",
+      "policy_version": "policy-v1",
+      "approved_at": "2026-09-12T10:01:05Z",
+      "expires_at": "2026-09-12T10:02:00Z"
+    }
+  ]
+}

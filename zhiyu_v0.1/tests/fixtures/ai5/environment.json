@@ -1,0 +1,141 @@
+{
+  "data_origin": "SYNTHETIC",
+  "description": "隔离授权靶场的配置草案。时间、地址、阈值均为合成示例，不是实际授权。",
+  "objects": [
+    {
+      "object_type": "EnvironmentProfile",
+      "environment_id": "lab-zhiyu-01",
+      "version": "env-v1",
+      "deployment_stage": "LAB",
+      "asset_domain": "IT",
+      "connectivity": "RESTRICTED",
+      "operating_model": "SINGLE_ORG",
+      "autonomy_mode": "VALIDATION",
+      "load_mode": "NORMAL",
+      "model_policy": "LOCAL_ONLY",
+      "data_egress_policy": "DENY",
+      "max_auto_risk": "R2",
+      "active_validation": "SCOPED_PREAPPROVED",
+      "scope_ids": [
+        "scope-lab-web"
+      ],
+      "capability_allowlist": [
+        "lab.template.check",
+        "lab.gateway.temporary_block",
+        "lab.independent.verify"
+      ],
+      "required_sensor_ids": [
+        "sensor-suricata",
+        "sensor-wazuh"
+      ],
+      "policy_version": "policy-v1",
+      "owner_id": "lab-admin-synthetic"
+    },
+    {
+      "object_type": "ScopeDefinition",
+      "scope_id": "scope-lab-web",
+      "environment_id": "lab-zhiyu-01",
+      "version": "scope-v1",
+      "capability_source_ids": {
+        "lab.template.check": [
+          "validation-a"
+        ],
+        "lab.gateway.temporary_block": [
+          "validation-a"
+        ],
+        "lab.independent.verify": [
+          "validation-a",
+          "business-probe"
+        ]
+      },
+      "allowed_capabilities": [
+        "lab.template.check",
+        "lab.gateway.temporary_block",
+        "lab.independent.verify"
+      ],
+      "valid_from": "2026-09-12T10:00:00Z",
+      "valid_until": "2026-09-12T10:30:00Z",
+      "max_requests_per_second": 1.0,
+      "source_resource_ids": [
+        "validation-a",
+        "business-probe"
+      ],
+      "target_resource_ids": [
+        "target-a"
+      ],
+      "network_constraints": [
+        {
+          "source_resource_ids": [
+            "validation-a",
+            "business-probe"
+          ],
+          "target_resource_ids": [
+            "target-a"
+          ],
+          "destination_ports": [
+            8080
+          ],
+          "protocols": [
+            "TCP"
+          ]
+        }
+      ]
+    },
+    {
+      "object_type": "PolicySnapshot",
+      "policy_id": "policy-lab",
+      "version": "policy-v1",
+      "environment_id": "lab-zhiyu-01",
+      "high_impact_requires_human": true,
+      "r5_auto_allowed": false,
+      "load_can_expand_permissions": false,
+      "allowed_capability_ids": [
+        "lab.template.check",
+        "lab.gateway.temporary_block",
+        "lab.independent.verify"
+      ],
+      "valid_until": "2026-09-12T10:30:00Z",
+      "max_replans": 3,
+      "max_model_calls": 8,
+      "max_active_calls": 12,
+      "max_elapsed_seconds": 900
+    },
+    {
+      "object_type": "ResourceRef",
+      "resource_id": "target-a",
+      "environment_id": "lab-zhiyu-01",
+      "resource_type": "NETWORK_ENDPOINT",
+      "binding_version": 1,
+      "locator": {
+        "address": "10.77.20.10",
+        "port": 8080,
+        "protocol": "TCP"
+      },
+      "display_name": "Target-A synthetic login service"
+    },
+    {
+      "object_type": "ResourceRef",
+      "resource_id": "validation-a",
+      "environment_id": "lab-zhiyu-01",
+      "resource_type": "HOST",
+      "binding_version": 1,
+      "locator": {
+        "address": "10.77.30.10",
+        "os": "Linux"
+      },
+      "display_name": "Validation-A"
+    },
+    {
+      "object_type": "ResourceRef",
+      "resource_id": "business-probe",
+      "environment_id": "lab-zhiyu-01",
+      "resource_type": "HOST",
+      "binding_version": 1,
+      "locator": {
+        "address": "10.77.40.10",
+        "os": "Linux"
+      },
+      "display_name": "Business-Probe"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+FROM wazuh/wazuh-manager:4.14.7@sha256:e32fe983f83b9ee1f14d8e4f061848244a21c4f678d278d13f91ff6079961d6f
+# The upstream init removes data_tmp, then fails on a subsequent start when an
+# unused permanent directory is empty. Keep its original seed for repeatable restarts.
+RUN sed -i 's|  rm -rf ${WAZUH_INSTALL_PATH}/data_tmp|  : # Retain original seed directories for container restart|' /etc/cont-init.d/0-wazuh-init \
+    && touch /etc/services.d/filebeat/down

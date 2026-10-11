@@ -1,0 +1,71 @@
+PASS: linux_engine
+PASS: hello_world
+PASS: compose_config
+BUILD: runtime and tests images
+PASS: image_build
+PASS: postgres_healthy
+PASS: loopback_api_port
+PASS: unmigrated_not_ready
+PASS: migration_failure_not_ready
+PASS: bootstrap_failure_observable
+PASS: migrate_exit
+PASS: downgraded_not_ready
+PASS: migration_roundtrip_and_drift
+PASS: bootstrap_exit
+PASS: compose_up
+PASS: bootstrap_contract_and_passive_defaults
+PASS: schema_constraints_present
+PASS: bootstrap_idempotent
+PASS: linux_nonroot_utc_import
+PASS: image_secret_boundary
+PASS: managed_volume_and_ports
+PASS: normal_health_ready
+PASS: event_A_atomic_ingest
+PASS: event_B_duplicate
+PASS: event_C_conflict_no_overwrite
+PASS: event_D_same_fingerprint_provenance_retained
+PASS: event_E_reject_environment_id
+PASS: event_E_reject_collector_id
+PASS: event_E_reject_source_type
+PASS: audit_outbox
+PASS: db_down_health_ready_write
+PASS: db_recovery_without_api_restart
+PASS: recovery_replay_duplicate
+PASS: loopback_api_port
+PASS: api_restart_persistence
+PASS: migrate_exit
+PASS: bootstrap_exit
+PASS: loopback_api_port
+PASS: compose_down_up_volume_persistence
+TEST: full non-Compose suite inside Linux container
+PASS: postgres_test_suite
+PASS: no_crash_loop
+PASS: ai5_unchanged
+PASS: m2_raw_suricata
+PASS: m2_raw_wazuh
+PASS: m2_pipeline
+PASS: m2_risk_pagination_unrelated_excluded
+PASS: m2_audit_outbox_lineage
+PASS: m2_transition_TRIAGED
+PASS: m2_transition_INVESTIGATING
+PASS: loopback_api_port
+PASS: m2_api_restart
+FAIL: postgres did not become healthy/complete
+REPORT: C:\Users\wc\Documents\ChatGPT\创新创业大赛\zhiyu_v0.1\docs\m3-runtime\zhiyu-smoke-e4a2140fcc77\result.json
+F
+================================== FAILURES ===================================
+___________________________ test_live_compose_smoke ___________________________
+
+    @pytest.mark.compose
+    def test_live_compose_smoke():
+        if os.environ.get("ZHIYU_RUN_COMPOSE") != "1":
+            pytest.skip("set ZHIYU_RUN_COMPOSE=1 on a Docker host; static wiring is not a smoke test")
+        result = subprocess.run([sys.executable, str(ROOT / "tools/compose_smoke.py")], cwd=ROOT, timeout=3600)
+>       assert result.returncode == 0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\wc\\Documents\\ChatGPT\\创新创业大赛\\.venv\\Scripts\\python.exe', 'C:\\Users\\wc\\Documents\\ChatGPT\\创新创业大赛\\zhiyu_v0.1\\tools\\compose_smoke.py'], returncode=1).returncode
+
+tests\test_compose.py:27: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_compose.py::test_live_compose_smoke - AssertionError: asser...
+1 failed in 427.88s (0:07:07)

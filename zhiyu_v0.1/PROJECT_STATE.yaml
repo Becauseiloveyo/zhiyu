@@ -1,0 +1,582 @@
+project: zhiyu
+project_version: 1.0.0
+updated_at: '2026-10-05'
+architecture: FROZEN
+engineering_contract: 2026.09.12-ai.5
+current_milestone: v1.0 Stable Prototype / Final Release Freeze
+implementation_status: v1_final_freeze_pass
+milestone_result: v1.0.0 PASS / STABLE PROTOTYPE
+previous_completed_milestone: v0.9.0 PASS / CONTROLLED LAB
+phase_result: FINAL_STABLE_PROTOTYPE
+milestones:
+  M1.1: PASS
+  M2.1: PASS
+  M2.2: PASS
+  M2.3: PASS
+  M2_deterministic_event_to_incident_path: PASS
+  M3_Gate_A: PASS
+  M3_Gate_B: PASS
+  M3_Gate_C: PASS
+  M3_Gate_D: PASS
+  M4_Gate_A: PASS
+  M4_Gate_B: PASS
+  M4_Gate_C: PASS
+  M4_Gate_D: PASS
+  M5_Gate_A: PASS
+  M5_Gate_B: PASS
+  M5_Gate_C: PASS
+  M5_Gate_D: PASS
+  M5_Gate_E: PASS
+  M6_Gate_A: PASS_CONTROLLED_LAB
+  M6_Gate_B: PASS_CONTROLLED_LAB
+  M6_Gate_C: PASS_CONTROLLED_LAB
+  M6_Gate_D: PASS_CONTROLLED_LAB
+  M6_Gate_E: PASS_CONTROLLED_LAB
+  M9_Gate_A: PASS_CONTROLLED_LAB
+  M9_Gate_B: PASS_CONTROLLED_LAB
+  M9_Gate_C: PASS_CONTROLLED_LAB
+  M9_Gate_D: PASS_CONTROLLED_LAB
+  M9_Gate_E: PASS_CONTROLLED_LAB
+ai_enabled: false
+active_security_actions_enabled: false
+platform_acceptance_A01_A15:
+  PASS: 15
+  PARTIAL: 0
+  FAIL: 0
+  NOT_RUN: 0
+real_sensor_runtime: PASS_CONTROLLED_LAB
+canonical_database: PostgreSQL
+migration_head: 0016_lab_remediation
+contract_table_count: 30
+infrastructure_table_count: 41
+total_tables_including_alembic: 72
+implemented:
+- explicit_postgresql_contract_models_and_constraints
+- fixed_incremental_migrations_and_tested_reverse_path
+- environment_resource_scope_repositories
+- passive_atomic_idempotent_bootstrap
+- resource_binding_optimistic_concurrency
+- authenticated_environment_collector_bound_ingest
+- origin_deduplication_and_mutation_conflict
+- atomic_event_receipt_audit_outbox_transaction
+- append_only_audit_hash_chain
+- outbox_expiring_claims_generation_and_bounded_retry
+- health_readiness_separation
+- locked_dependencies_and_compose_migration_bootstrap_wiring
+- suricata_wazuh_adapters_and_synthetic_golden_mapping
+- raw_bytes_hashes_immutable_delivery_results_and_error_isolation
+- versioned_severity_timestamp_mapping_and_provenance_roots
+- deterministic_versioned_keys_fixed_windows_and_late_event_policy
+- relational_eventgroup_membership_and_processing_checkpoints
+- persisted_explainable_correlation_decisions_and_metrics
+- deterministic_incident_promotion_risk_and_bounded_merge
+- incident_evidence_lineage_mapping_attestation_and_ownership
+- guarded_new_triaged_investigating_lifecycle
+- environment_scoped_keyset_paginated_incident_api
+- concurrent_idempotent_workers_and_transactional_audit_outbox
+- synthetic_docker_golden_chain_and_1k_10k_benchmarks
+- deterministic_ai5_plan_identity_and_explanation
+- relational_task_dag_and_dependency_state_machine
+- fixed_capability_registry_and_separate_health
+- persisted_authorization_inputs_risk_scope_digest_and_budget_guards
+- postgres_scheduler_expiring_lease_generation_and_backoff
+- registered_read_only_gateway_and_immutable_receipts
+- execution_boundary_revocation_recheck_and_old_ack_rejection
+- http_response_api_isolation_pagination_and_replay
+- real_isolated_http_head_probe_and_worker_api_database_recovery
+- synthetic_100_1000_response_task_benchmarks
+- independent_three_dimensional_verification
+- qualified_verdict_and_immutable_effectiveness
+- fenced_verification_workers_and_cancel
+- observed_state_separate_from_inference
+- bounded_replan_risk_budget_loop_detection
+- deterministic_closed_loop_without_models
+- bounded_provenance_context_and_redaction
+- durable_provider_independent_model_gateway
+- reference_grounded_analysis_as_inference
+- validated_ai_plan_proposal_existing_execution_chain
+- shadow_and_lab_assisted_modes
+- bounded_ai_replan_and_deterministic_fallback
+validation:
+  baseline_contract_and_json_schema: PASS
+  original_0001_migration_and_sql_byte_identity: PASS
+  baseline_package: PASS_234_checks_53_synthetic_objects
+  postgres_engine: 17.11 Debian Linux container on Docker Desktop WSL2
+  runtime_python: 3.12.14
+  runtime_uid: 10001
+  db_timezone: UTC
+  migration_metadata_drift: NONE
+  docker_desktop: 4.91.0.239619
+  docker_compose: Docker Compose version v5.5.1
+  docker_engine: 29.8.0
+  tests:
+    total: 343
+    passed: 343
+    failed: 0
+    skipped: 0
+    warnings: 2
+  static: PASS
+  docker_runtime:
+    status: PASS
+    checks_passed: 190
+    checks_failed: 0
+    artifact: docs/m5-runtime/zhiyu-smoke-a6edef3fbf39/result.json
+  verification_benchmark: docs/m5-runtime/zhiyu-smoke-a6edef3fbf39/verification-benchmark.json
+  migration_roundtrip: 0010 -> 0015 -> 0010 -> 0015 preserves all 63 old tables
+  final_linux_junit: docs/m5-runtime/zhiyu-smoke-a6edef3fbf39/test-results.xml
+  final_host_junit: docs/m5-host-compose-tests.xml
+  source_digest: c17bb9e61b5cc5eb32392d10c84da8d2a9e52e6e04c7f5388f93e305254962dd
+  docker_containers_after_acceptance: REMOVED; volumes retained
+  real_http_db_failure_recovery: PASS
+  mypy: 103 source files PASS
+  ai_evaluation:
+    cases: 24
+    outcomes:
+      REFERENCE_GROUNDED: 14
+      REJECTED: 10
+    artifact: docs/m5-runtime/zhiyu-smoke-a6edef3fbf39/ai-evaluation.json
+    general_accuracy: NOT_ESTABLISHED
+  m6_real_sensor: docs/m6-runtime/gate-a-acceptance.json
+  m6_reliability: docs\m6-runtime\zhiyu-smoke-3aff09145006\result.json
+  m6_adversarial: docs/m6-runtime/gate-c-acceptance.json
+  m6_load: docs/m6-runtime/gate-d-001/result.json
+  m6_adversarial_corpus: tests/fixtures/adversarial/m6-v1.json
+  m6_model_oom_evidence: docs/m6-runtime/gate-c-001/model-exit-state.json
+  m6_model_cache_hardening: prompt cache 8192 MiB default -> explicit 256 MiB; 43-case
+    recovery PASS
+  m6_interim_regression:
+    passed: 358
+    skipped: 1
+    skip_reason: host Docker full acceptance deferred to Gate E
+    failed: 0
+    warnings: 2
+pending:
+- A01_A15_platform_acceptance
+- production_workload_SLA
+- broader_adversarial_G1_G2_evaluation
+- dashboard_competition_UI
+- approval_execution_flow
+next_unit: Gate D load and small model concurrency; 30-minute soak complete; Gate
+  E not started
+verification_enabled: true
+previous_validation_v03:
+  baseline_contract_and_json_schema: PASS
+  original_0001_migration_and_sql_byte_identity: PASS
+  baseline_package: PASS_234_checks_53_synthetic_objects
+  postgres_engine: 17.11 Debian Linux container on Docker Desktop WSL2
+  runtime_python: 3.12.14
+  runtime_uid: 10001
+  db_timezone: UTC
+  real_http_db_failure_recovery: PASS
+  tests:
+    total: 201
+    passed: 201
+    failed: 0
+    skipped: 0
+    postgres: 114
+    pure_static_inprocess: 86
+    host_compose: 1
+    warning_types: 2
+    baseline_v02_retained: 147
+    added_response_tests: 54
+  migration_roundtrip: PASS
+  old_m1_data_survives_upgrade: PASS
+  migration_metadata_drift: NONE
+  ruff_check_and_format: PASS
+  compileall: PASS
+  schema_snapshot: PASS
+  mypy: PASS_74_source_files
+  docker_compose_config: PASS
+  docker_compose_runtime: PASS
+  docker_runtime_checks: 81
+  docker_engine: 29.8.0 linux/amd64
+  docker_desktop: 4.91.0.239619
+  docker_compose: 5.5.1
+  docker_runtime_evidence: docs/m3-runtime/zhiyu-smoke-c85b15ffaa87/result.json
+  docker_containers_after_acceptance: stopped_removed_volume_retained
+  final_linux_junit: docs/m3-runtime/zhiyu-smoke-c85b15ffaa87/test-results.xml
+  final_host_junit: docs/m3-final-compose.xml
+  source_digest: af39c0168e09855a187634e9d6bbbd5aeeeac72cb7452a275977bfcd0cb58043
+  golden_chain:
+    label: SYNTHETIC_GOLDEN_CHAIN
+    unique_raw_events: 4
+    deliveries_after_replay: 8
+    replay_duplicates: 4
+    normalized_events: 4
+    event_groups: 2
+    correlation_decisions: 2
+    incidents: 1
+    evidence: 3
+    risk_score: 62
+    priority: P2
+    unrelated_event_excluded_from_incident: true
+    api_db_restart_replay: PASS
+    audit_outbox_lineage: PASS
+  final_test_details: docs/VALIDATION_REPORT_v0.3.0.md
+  old_v02_data_survives_m3_roundtrip: PASS
+  response_golden_chain:
+    label: SYNTHETIC_RESPONSE_GOLDEN_CHAIN
+    incidents: 1
+    plans: 1
+    tasks: 4
+    worker_leases: 5
+    authorization_contexts: 8
+    policy_decisions: 8
+    actions: 4
+    execution_results: 4
+    http_head_calls: 1
+    high_risk_executions: 0
+    verification_results: 0
+    negative_cases: 8
+    restart_recovery: PASS
+  performance_baseline_v02:
+    label: SYNTHETIC_service_level_not_production
+    evidence: docs/m2-runtime/zhiyu-smoke-89199b674d14/benchmark.json
+    code_version: 0.2.0
+    event_sizes:
+    - 1000
+    - 10000
+    logical_cpus: 16
+    config_version: ei-config/benchmark-1h
+    http_serialization_included: false
+  performance_baseline:
+    label: SYNTHETIC_response_tasks_not_production
+    evidence: docs/m3-runtime/zhiyu-smoke-c85b15ffaa87/response-benchmark.json
+    code_version: 0.3.0
+    tasks_executed:
+    - 100
+    - 1000
+    plans_created:
+    - 34
+    - 334
+    http_serialization_included: false
+  profile_cleanup_revalidated: PASS; corrected cleanup executed after functional/performance
+    run; zero project containers remain; volumes retained
+replan_enabled: true
+verification_chains:
+  pass:
+    status: PASS
+    counts:
+      incidents: 1
+      plans: 1
+      tasks: 4
+      action_requests: 4
+      action_execution_results: 4
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 4
+    incident_status: VERIFYING
+    replan:
+      verification_id: verification-caea72da878df147482b6f978b4b89e7d507b165f1b42f48de0e7d1163a15ea8
+      parent_plan_id: plan-7280aadc251705559c15f66687f1df442c65ad23941969257dea9afbf88f76c7
+      new_plan_id: null
+      status: NO_REPLAN
+      reason: DETECTION verified; residual risk remains; no containment or closure
+        claim
+      replan_count: 0
+  security:
+    status: FAIL
+    counts:
+      incidents: 1
+      plans: 2
+      tasks: 5
+      action_requests: 5
+      action_execution_results: 5
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 4
+    incident_status: EXECUTING
+    replan:
+      verification_id: verification-d60cd6653b4a345fb616e8756fa6edd79ae651591ca08109be30849026cd8627
+      parent_plan_id: plan-6a19d2bc5b94f23553ef7a87d40bc1eba059a23cadf50c6448bb713767949aa3
+      new_plan_id: replan-ff765003d4743ce0dcc3cc491bb117f20835c98b25eff38e0685fb13e0bcc28b
+      status: CREATED
+      reason: diagnose trustworthy failure
+      replan_count: 1
+  offline:
+    status: INCONCLUSIVE
+    counts:
+      incidents: 1
+      plans: 2
+      tasks: 5
+      action_requests: 4
+      action_execution_results: 4
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 4
+    incident_status: PLANNED
+    replan:
+      verification_id: verification-056b1740309a8c34cfa54f7d75524159b3b0a6b613b46fc9f7609a75e99d8395
+      parent_plan_id: plan-c09ea659c8dfd1a5bc56cb6d1b3bbd5b4e0bafa10509cabe921a3ecf5148bcf9
+      new_plan_id: replan-cc9e54a224ef6cb43066a455eb5ff273f60c7b4b77647e460e26abd2a409ab4c
+      status: CREATED
+      reason: collect additional observation
+      replan_count: 1
+  business:
+    status: FAIL
+    counts:
+      incidents: 1
+      plans: 2
+      tasks: 5
+      action_requests: 4
+      action_execution_results: 4
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 4
+    incident_status: PLANNED
+    replan:
+      verification_id: verification-0b467a6eae429df09af3c41c9a1ee709b06d2a52f269159ff45a228b6a8eeea3
+      parent_plan_id: plan-31f0f25c5af7cd0779c92d064da5394348eea6a3622cdb02e5d24f6e591bb7f3
+      new_plan_id: replan-5bec9fb4a6f285996098da99044220d85611dbdf6d85e655e1d3396a8ca8f4e9
+      status: CREATED
+      reason: diagnose trustworthy failure
+      replan_count: 1
+not_implemented:
+- real_sensor_runtime_acceptance
+- A01_A15_platform_acceptance
+- production_workload_SLA
+- broader_adversarial_G1_G2_evaluation
+- dashboard_competition_UI
+- approval_execution_flow
+previous_validation_v04:
+  baseline_contract_and_json_schema: PASS
+  original_0001_migration_and_sql_byte_identity: PASS
+  baseline_package: PASS_234_checks_53_synthetic_objects
+  postgres_engine: 17.11 Debian Linux container on Docker Desktop WSL2
+  runtime_python: 3.12.14
+  runtime_uid: 10001
+  db_timezone: UTC
+  migration_metadata_drift: NONE
+  docker_desktop: 4.91.0.239619
+  docker_compose: Docker Compose version v5.5.1
+  docker_engine: 29.8.0
+  tests:
+    total: 245
+    passed: 245
+    failed: 0
+    skipped: 0
+    warnings: 2
+  static: PASS
+  docker_runtime:
+    status: PASS
+    checks_passed: 135
+    checks_failed: 0
+    artifact: docs/m4-runtime/zhiyu-smoke-b57553d275bd/result.json
+  verification_benchmark: docs/m4-runtime/zhiyu-smoke-b57553d275bd/verification-benchmark.json
+  migration_roundtrip: 0007 -> 0010 -> 0007 -> 0010 preserves v0.2/v0.3 data
+  final_linux_junit: docs/m4-runtime/zhiyu-smoke-b57553d275bd/test-results.xml
+  final_host_junit: docs/m4-host-compose-tests.xml
+  source_digest: 7e556ad0046e4886820e0f4b94c53b8bea9d7f2527f533cb963fc5197af5ee8e
+  docker_containers_after_acceptance: REMOVED; volumes retained
+  real_http_db_failure_recovery: PASS
+  mypy: 85 source files PASS
+ai_implemented: true
+ai_default_mode: SHADOW
+ai_chains:
+  valid:
+    status: AI_ASSISTED
+    counts:
+      incidents: 1
+      plans: 1
+      tasks: 1
+      action_requests: 1
+      action_execution_results: 1
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 5
+      raw_records: 4
+      normalized_events: 4
+      event_groups: 2
+      correlation_decisions: 2
+      ai_state_snapshots: 1
+      decision_contexts: 1
+      model_runs: 2
+      ai_situation_analyses: 1
+      ai_plan_proposals: 1
+      ai_decisions: 1
+      authorization_contexts: 2
+      authorization_decisions: 2
+  hallucination:
+    status: REJECTED
+    counts:
+      incidents: 1
+      plans: 0
+      tasks: 0
+      action_requests: 0
+      action_execution_results: 0
+      verification_runtime: 0
+      verification_checks: 0
+      verification_observations: 0
+      verification_results: 0
+      replan_decisions: 0
+      state_entities: 1
+      raw_records: 4
+      normalized_events: 4
+      event_groups: 2
+      correlation_decisions: 2
+      ai_state_snapshots: 1
+      decision_contexts: 1
+      model_runs: 2
+      ai_situation_analyses: 1
+      ai_plan_proposals: 1
+      ai_decisions: 1
+      authorization_contexts: 0
+      authorization_decisions: 0
+  injection:
+    status: REJECTED
+    counts:
+      incidents: 1
+      plans: 0
+      tasks: 0
+      action_requests: 0
+      action_execution_results: 0
+      verification_runtime: 0
+      verification_checks: 0
+      verification_observations: 0
+      verification_results: 0
+      replan_decisions: 0
+      state_entities: 1
+      raw_records: 4
+      normalized_events: 4
+      event_groups: 2
+      correlation_decisions: 2
+      ai_state_snapshots: 1
+      decision_contexts: 1
+      model_runs: 2
+      ai_situation_analyses: 1
+      ai_plan_proposals: 1
+      ai_decisions: 1
+      authorization_contexts: 0
+      authorization_decisions: 0
+  down:
+    status: DETERMINISTIC_FALLBACK
+    counts:
+      incidents: 1
+      plans: 1
+      tasks: 3
+      action_requests: 3
+      action_execution_results: 3
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 4
+      raw_records: 4
+      normalized_events: 4
+      event_groups: 2
+      correlation_decisions: 2
+      ai_state_snapshots: 1
+      decision_contexts: 1
+      model_runs: 1
+      ai_situation_analyses: 1
+      ai_plan_proposals: 0
+      ai_decisions: 1
+      authorization_contexts: 6
+      authorization_decisions: 6
+  claims-success:
+    status: AI_ASSISTED
+    counts:
+      incidents: 1
+      plans: 2
+      tasks: 2
+      action_requests: 1
+      action_execution_results: 1
+      verification_runtime: 1
+      verification_checks: 3
+      verification_observations: 3
+      verification_results: 1
+      replan_decisions: 1
+      state_entities: 5
+      raw_records: 4
+      normalized_events: 4
+      event_groups: 2
+      correlation_decisions: 2
+      ai_state_snapshots: 1
+      decision_contexts: 1
+      model_runs: 2
+      ai_situation_analyses: 1
+      ai_plan_proposals: 1
+      ai_decisions: 1
+      authorization_contexts: 2
+      authorization_decisions: 2
+model_runtime:
+  provider: local
+  model: zhiyu-qwen2.5-1.5b
+  revision: 91cad51170dc346986eccefdc2dd33a9da36ead9
+  weights_sha256: 6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e
+  location: LOCAL
+  cloud_calls: 0
+  cost_usd: null
+release_candidate: RC7
+v06_final_validation:
+  runtime: docs/m6-runtime/gate-e-final/zhiyu-smoke-771744b23fbb/result.json
+  runtime_status: PASS
+  tests:
+    total: 381
+    passed: 381
+    failed: 0
+    skipped: 0
+  release_blockers: []
+  release_zip: 智御_Project_v0.6.0_Reliability_Security_Validation.zip
+  source_digest: f60a06b0db456ac2c7e282c5522241165747ab65592d64f5d06bd871e5c1aa05
+  report: docs/VALIDATION_REPORT_v0.6.0.md
+historical_fields_note: M1–M9 validation fields remain historical; V1.0_STATUS.json
+  and v1_final_validation are authoritative current results
+remediation_current:
+  frozen_rc: docs/m6-runtime/rc/RC7.json
+  test_inventory: 381
+  old_tests_unchanged: 360
+  development_preflight: PASS_DEVELOPMENT_ONLY
+  latest_authoritative_validation: Gate E PASS_CONTROLLED_LAB
+  release_zip: 智御_Project_v0.6.0_Reliability_Security_Validation.zip
+  source_digest: f60a06b0db456ac2c7e282c5522241165747ab65592d64f5d06bd871e5c1aa05
+v09_final_validation:
+  status: PASS_CONTROLLED_LAB
+  backend_tests:
+    passed: 464
+    failed: 0
+    skipped: 0
+  original_tests_retained: 381
+  new_product_tests: 83
+  frontend_tests: 15
+  linux_container_tests: 463
+  docker_runtime_checks: 189
+  browser_e2e: PASS
+  original_test_files_unchanged: 74
+  frozen_files_unchanged: 28
+  product_metadata_schema: zhiyu_product
+  product_metadata_tables: 2
+  source_digest: edc309f58d76dad4b6d0ef3bb2982891b4f058bdbfdda9e96a5524d7b5a0f30b
+  frontend_build_digest: da3bfd776289f94cb2360f3ec6fd837e56d008100836d3515b6c6a24b849219b
+  release_zip: 智御_Project_v0.9.0_Competition_Product.zip
+  package_validation: artifacts/PACKAGE_VALIDATION_v0.9.0.json
+  report: docs/VALIDATION_REPORT_v0.9.0.md
+  high_risk_autonomous_execution: 0
+  production_validated: false
+v1_final_validation:
+  status: PASS_CONTROLLED_LAB
+  backend_tests: 491
+  linux_container_tests: 490
+  frontend_tests: 15
+  docker_checks: 189
+  ai_default: 'OFF'
+  ai_enabled_default: SHADOW
+  high_risk_autonomous_execution: 0
+  production_validated: false
+  development_stopped: true

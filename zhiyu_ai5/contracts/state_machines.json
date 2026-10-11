@@ -1,0 +1,453 @@
+{
+  "version": "2026.09.12-ai.5",
+  "note": "guards require runtime implementation; this file only defines legal transitions",
+  "machines": {
+    "Incident": {
+      "states": [
+        "NEW",
+        "TRIAGED",
+        "INVESTIGATING",
+        "PLANNED",
+        "WAITING_APPROVAL",
+        "EXECUTING",
+        "VERIFYING",
+        "CONTAINED",
+        "RESOLVED",
+        "CLOSED",
+        "HUMAN_REVIEW",
+        "REOPENED"
+      ],
+      "initial": "NEW",
+      "transitions": [
+        {
+          "from": "NEW",
+          "event": "triage",
+          "to": "TRIAGED",
+          "guard": "schema and origin checked"
+        },
+        {
+          "from": "TRIAGED",
+          "event": "investigate",
+          "to": "INVESTIGATING",
+          "guard": "scope-bound evidence lookup"
+        },
+        {
+          "from": "INVESTIGATING",
+          "event": "plan_validated",
+          "to": "PLANNED",
+          "guard": "valid evidence, capability, DAG and budget"
+        },
+        {
+          "from": "PLANNED",
+          "event": "approval_required",
+          "to": "WAITING_APPROVAL",
+          "guard": "policy requires exact approval"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "approval_rejected",
+          "to": "HUMAN_REVIEW",
+          "guard": "rejection gives no containment evidence"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "approval_expired",
+          "to": "INVESTIGATING",
+          "guard": "refresh state and authorization"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "approval_granted",
+          "to": "PLANNED",
+          "guard": "digest and expiry match; dispatch must recheck"
+        },
+        {
+          "from": "PLANNED",
+          "event": "dispatch",
+          "to": "EXECUTING",
+          "guard": "fresh authorization and durable action intent"
+        },
+        {
+          "from": "EXECUTING",
+          "event": "ready_for_verification",
+          "to": "VERIFYING",
+          "guard": "execution resolved; never assume effect from receipt"
+        },
+        {
+          "from": "EXECUTING",
+          "event": "outcome_unresolved",
+          "to": "HUMAN_REVIEW",
+          "guard": "unknown action requires reconcile"
+        },
+        {
+          "from": "VERIFYING",
+          "event": "containment_pass",
+          "to": "CONTAINED",
+          "guard": "security/business/observation pass for containment"
+        },
+        {
+          "from": "VERIFYING",
+          "event": "remediation_pass",
+          "to": "RESOLVED",
+          "guard": "remediation and closure preconditions verified"
+        },
+        {
+          "from": "VERIFYING",
+          "event": "verification_fail",
+          "to": "INVESTIGATING",
+          "guard": "budget available; diagnose trustworthy failure"
+        },
+        {
+          "from": "VERIFYING",
+          "event": "observation_missing",
+          "to": "INVESTIGATING",
+          "guard": "repair observation first"
+        },
+        {
+          "from": "VERIFYING",
+          "event": "budget_exhausted",
+          "to": "HUMAN_REVIEW",
+          "guard": "no unsafe repeated action"
+        },
+        {
+          "from": "CONTAINED",
+          "event": "control_expires",
+          "to": "INVESTIGATING",
+          "guard": "root cause may persist"
+        },
+        {
+          "from": "CONTAINED",
+          "event": "plan_remediation",
+          "to": "PLANNED",
+          "guard": "new plan and authorization"
+        },
+        {
+          "from": "CONTAINED",
+          "event": "new_risk",
+          "to": "INVESTIGATING",
+          "guard": "new conflicting or path evidence"
+        },
+        {
+          "from": "RESOLVED",
+          "event": "closure_approved",
+          "to": "CLOSED",
+          "guard": "closure evidence fresh; no unresolved or overdue owned effects"
+        },
+        {
+          "from": "RESOLVED",
+          "event": "evidence_expired",
+          "to": "INVESTIGATING",
+          "guard": "revalidate"
+        },
+        {
+          "from": "INVESTIGATING",
+          "event": "manual_disposition",
+          "to": "CLOSED",
+          "guard": "documented false positive/duplicate/risk acceptance; no fake PASS"
+        },
+        {
+          "from": "HUMAN_REVIEW",
+          "event": "manual_disposition",
+          "to": "CLOSED",
+          "guard": "explicit recorded reason and residual risk owner"
+        },
+        {
+          "from": "HUMAN_REVIEW",
+          "event": "resume",
+          "to": "INVESTIGATING",
+          "guard": "new evidence or authorization"
+        },
+        {
+          "from": "CLOSED",
+          "event": "new_related_evidence",
+          "to": "REOPENED",
+          "guard": "preserve previous closure audit"
+        },
+        {
+          "from": "REOPENED",
+          "event": "resume",
+          "to": "INVESTIGATING",
+          "guard": "new handling cycle"
+        }
+      ]
+    },
+    "Task": {
+      "states": [
+        "QUEUED",
+        "BLOCKED",
+        "WAITING_APPROVAL",
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED",
+        "TIMED_OUT"
+      ],
+      "initial": "QUEUED",
+      "transitions": [
+        {
+          "from": "QUEUED",
+          "event": "dependencies_pending",
+          "to": "BLOCKED",
+          "guard": "dependency unresolved"
+        },
+        {
+          "from": "BLOCKED",
+          "event": "dependencies_ready",
+          "to": "QUEUED",
+          "guard": "all dependencies completed"
+        },
+        {
+          "from": "QUEUED",
+          "event": "needs_approval",
+          "to": "WAITING_APPROVAL",
+          "guard": "policy"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "approved",
+          "to": "QUEUED",
+          "guard": "approval still valid"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "rejected",
+          "to": "CANCELLED",
+          "guard": "no execution"
+        },
+        {
+          "from": "QUEUED",
+          "event": "claim",
+          "to": "RUNNING",
+          "guard": "valid lease"
+        },
+        {
+          "from": "RUNNING",
+          "event": "output_valid",
+          "to": "SUCCEEDED",
+          "guard": "task output contract met, not incident closure"
+        },
+        {
+          "from": "RUNNING",
+          "event": "known_failure",
+          "to": "FAILED",
+          "guard": "failure evidence"
+        },
+        {
+          "from": "RUNNING",
+          "event": "timeout",
+          "to": "TIMED_OUT",
+          "guard": "side effect uncertainty tracked in Action"
+        },
+        {
+          "from": "TIMED_OUT",
+          "event": "retry",
+          "to": "QUEUED",
+          "guard": "budget and reconciliation allow retry"
+        },
+        {
+          "from": "FAILED",
+          "event": "retry",
+          "to": "QUEUED",
+          "guard": "budget and safe retry"
+        },
+        {
+          "from": "QUEUED",
+          "event": "cancel",
+          "to": "CANCELLED",
+          "guard": "authorized stop"
+        },
+        {
+          "from": "BLOCKED",
+          "event": "cancel",
+          "to": "CANCELLED",
+          "guard": "authorized stop"
+        },
+        {
+          "from": "RUNNING",
+          "event": "cancel_confirmed",
+          "to": "CANCELLED",
+          "guard": "stop confirmed; action effect remains separately tracked"
+        }
+      ]
+    },
+    "Action": {
+      "states": [
+        "PROPOSED",
+        "WAITING_APPROVAL",
+        "AUTHORIZED",
+        "DISPATCHED",
+        "EXECUTING",
+        "EXECUTED",
+        "EXECUTION_UNKNOWN",
+        "RECONCILING",
+        "COMPENSATING",
+        "COMPENSATED",
+        "COMPENSATION_FAILED",
+        "NEEDS_MANUAL",
+        "DENIED",
+        "EXPIRED",
+        "CANCELLED",
+        "FAILED"
+      ],
+      "initial": "PROPOSED",
+      "transitions": [
+        {
+          "from": "PROPOSED",
+          "event": "cancel",
+          "to": "CANCELLED",
+          "guard": "no dispatch or side effect"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "cancel",
+          "to": "CANCELLED",
+          "guard": "no execution"
+        },
+        {
+          "from": "PROPOSED",
+          "event": "needs_approval",
+          "to": "WAITING_APPROVAL",
+          "guard": "policy decision"
+        },
+        {
+          "from": "PROPOSED",
+          "event": "allowed",
+          "to": "AUTHORIZED",
+          "guard": "matching current policy and scope"
+        },
+        {
+          "from": "PROPOSED",
+          "event": "denied",
+          "to": "DENIED",
+          "guard": "hard rule"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "approved",
+          "to": "AUTHORIZED",
+          "guard": "matching digest and valid approval"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "rejected",
+          "to": "DENIED",
+          "guard": "no side effect"
+        },
+        {
+          "from": "WAITING_APPROVAL",
+          "event": "expired",
+          "to": "EXPIRED",
+          "guard": "approval/action validity ended"
+        },
+        {
+          "from": "AUTHORIZED",
+          "event": "dispatch",
+          "to": "DISPATCHED",
+          "guard": "recheck current scope/state/lease/approval"
+        },
+        {
+          "from": "AUTHORIZED",
+          "event": "stale",
+          "to": "EXPIRED",
+          "guard": "must create or reauthorize updated request"
+        },
+        {
+          "from": "AUTHORIZED",
+          "event": "cancel",
+          "to": "CANCELLED",
+          "guard": "no side effect started"
+        },
+        {
+          "from": "DISPATCHED",
+          "event": "started",
+          "to": "EXECUTING",
+          "guard": "current fencing generation"
+        },
+        {
+          "from": "DISPATCHED",
+          "event": "lost_ack",
+          "to": "EXECUTION_UNKNOWN",
+          "guard": "may have reached device"
+        },
+        {
+          "from": "EXECUTING",
+          "event": "receipt_applied",
+          "to": "EXECUTED",
+          "guard": "execution evidence only"
+        },
+        {
+          "from": "EXECUTING",
+          "event": "timeout",
+          "to": "EXECUTION_UNKNOWN",
+          "guard": "cannot prove no effect"
+        },
+        {
+          "from": "EXECUTING",
+          "event": "known_no_effect_failure",
+          "to": "FAILED",
+          "guard": "no side effect confirmed"
+        },
+        {
+          "from": "EXECUTION_UNKNOWN",
+          "event": "query",
+          "to": "RECONCILING",
+          "guard": "authorized status query"
+        },
+        {
+          "from": "RECONCILING",
+          "event": "confirmed_applied",
+          "to": "EXECUTED",
+          "guard": "real device state matches owned request"
+        },
+        {
+          "from": "RECONCILING",
+          "event": "confirmed_not_applied",
+          "to": "AUTHORIZED",
+          "guard": "same immutable request, valid new authorization and budget"
+        },
+        {
+          "from": "RECONCILING",
+          "event": "unresolved",
+          "to": "NEEDS_MANUAL",
+          "guard": "no blind retry"
+        },
+        {
+          "from": "RECONCILING",
+          "event": "partial",
+          "to": "COMPENSATING",
+          "guard": "authorized owned compensation"
+        },
+        {
+          "from": "EXECUTED",
+          "event": "owned_expiry_or_rollback",
+          "to": "COMPENSATING",
+          "guard": "preauthorized cleanup and conflict check"
+        },
+        {
+          "from": "COMPENSATING",
+          "event": "cleanup_confirmed",
+          "to": "COMPENSATED",
+          "guard": "independent cleanup/state evidence"
+        },
+        {
+          "from": "COMPENSATING",
+          "event": "cleanup_failed",
+          "to": "COMPENSATION_FAILED",
+          "guard": "retain residual effect"
+        },
+        {
+          "from": "COMPENSATION_FAILED",
+          "event": "escalate",
+          "to": "NEEDS_MANUAL",
+          "guard": "human review"
+        },
+        {
+          "from": "NEEDS_MANUAL",
+          "event": "recheck",
+          "to": "RECONCILING",
+          "guard": "explicit authorized reconciliation"
+        }
+      ]
+    }
+  }
+}

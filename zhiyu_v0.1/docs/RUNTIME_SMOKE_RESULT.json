@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "M1 real loopback HTTP/PostgreSQL recovery smoke, not Compose or platform acceptance",
+  "checks": [
+    "HTTP process starts with PostgreSQL stopped; health=200",
+    "PostgreSQL stopped; ready=503",
+    "PostgreSQL recovered; ready=200 without API restart",
+    "real HTTP ingest and retransmit: 202, accepted=1 then duplicates=1",
+    "DB outage: write=503; health remains 200",
+    "after second DB recovery: replay remains duplicate"
+  ]
+}

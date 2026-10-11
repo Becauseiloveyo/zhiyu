@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-09-13T10:00:00Z",
+  "src_ip": "192.0.2.10",
+  "dest_ip": "10.77.20.10",
+  "src_port": 51000,
+  "dest_port": 8080,
+  "proto": "TCP",
+  "event_type": "http",
+  "http": {
+    "hostname": "example.test",
+    "url": "/status",
+    "http_method": "GET",
+    "status": 200
+  }
+}

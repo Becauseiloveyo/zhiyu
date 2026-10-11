@@ -1,0 +1,230 @@
+PASS: linux_engine
+PASS: hello_world
+PASS: compose_config
+BUILD: runtime and tests images
+PASS: image_build
+PASS: postgres_healthy
+PASS: loopback_api_port
+PASS: unmigrated_not_ready
+PASS: migration_failure_not_ready
+PASS: bootstrap_failure_observable
+PASS: migrate_exit
+PASS: downgraded_not_ready
+PASS: migration_roundtrip_and_drift
+PASS: bootstrap_exit
+PASS: compose_up
+PASS: bootstrap_contract_and_passive_defaults
+PASS: schema_constraints_present
+PASS: bootstrap_idempotent
+PASS: linux_nonroot_utc_import
+PASS: image_secret_boundary
+PASS: managed_volume_and_ports
+PASS: normal_health_ready
+PASS: event_A_atomic_ingest
+PASS: event_B_duplicate
+PASS: event_C_conflict_no_overwrite
+PASS: event_D_same_fingerprint_provenance_retained
+PASS: event_E_reject_environment_id
+PASS: event_E_reject_collector_id
+PASS: event_E_reject_source_type
+PASS: audit_outbox
+PASS: db_down_health_ready_write
+PASS: db_recovery_without_api_restart
+PASS: recovery_replay_duplicate
+PASS: loopback_api_port
+PASS: api_restart_persistence
+PASS: migrate_exit
+PASS: bootstrap_exit
+PASS: loopback_api_port
+PASS: compose_down_up_volume_persistence
+TEST: full non-Compose suite inside Linux container
+PASS: postgres_test_suite
+PASS: no_crash_loop
+PASS: ai5_unchanged
+PASS: m2_raw_suricata
+PASS: m2_raw_wazuh
+PASS: m2_pipeline
+PASS: m2_risk_pagination_unrelated_excluded
+PASS: m2_audit_outbox_lineage
+PASS: m2_transition_TRIAGED
+PASS: m2_transition_INVESTIGATING
+PASS: loopback_api_port
+PASS: m2_api_restart
+PASS: m2_db_restart
+PASS: m2_replay_suricata
+PASS: m2_replay_wazuh
+PASS: m2_no_duplicate_groups_decisions_incidents
+PASS: m3_isolated_target
+PASS: m3_raw_suricata
+PASS: m3_raw_wazuh
+PASS: m3_incident_created
+PASS: m3_incident_triaged
+PASS: m3_plan_and_graph
+PASS: m3_plan_replay
+PASS: m3_worker_crash_with_lease
+PASS: loopback_api_port
+PASS: m3_scheduler_restart_valid_lease
+PASS: m3_worker_restart_recovery
+PASS: m3_old_worker_rejected
+PASS: m3_execute_task_1
+PASS: m3_execute_task_2
+PASS: m3_execute_task_3
+PASS: m3_real_http_head
+PASS: m3_audit_outbox
+PASS: m3_execution_not_security_verification
+PASS: loopback_api_port
+PASS: m3_api_gateway_restart_persistence
+PASS: m3_gateway_replay_no_duplicate_probe
+PASS: m3_database_down_readiness
+PASS: m3_database_recovery
+PASS: m3_recovered_scheduler_idle
+PASS: m3_negative_correct_scope
+PASS: m3_negative_wrong_target
+PASS: m3_negative_wrong_environment
+PASS: m3_negative_mutated_digest
+PASS: m3_negative_offline_capability
+PASS: m3_negative_r3_risk
+PASS: m3_negative_expired_worker
+PASS: m3_negative_duplicate_action
+PASS: m4_pass_plan
+PASS: m4_pass_action_execution
+PASS: m4_pass_spec_idempotent
+PASS: m4_two_verification_workers
+PASS: loopback_api_port
+PASS: m4_postgres_down_readiness
+PASS: m4_expired_verification_worker_fenced
+PASS: m4_verification_worker_recovered
+PASS: loopback_api_port
+PASS: m4_decision_before_crash_idempotent
+PASS: m4_pass_verdict
+PASS: m4_pass_new_independent_http_request
+PASS: m4_pass_evidence_transaction_and_risk
+PASS: m4_pass_independent_evidence
+PASS: m4_pass_audit_outbox
+PASS: m4_pass_no_false_closure
+PASS: m4_pass_metrics
+PASS: m4_pass_api_lineage
+PASS: m4_security_plan
+PASS: m4_security_action_execution
+PASS: m4_security_spec_idempotent
+PASS: m4_security_checks_scheduled_with_scope_rate
+PASS: m4_security_verdict
+PASS: m4_security_new_independent_http_request
+PASS: loopback_api_port
+PASS: m4_replan_before_crash_idempotent
+PASS: m4_replan_new_authorization_and_execution
+PASS: m4_security_evidence_transaction_and_risk
+PASS: m4_security_independent_evidence
+PASS: m4_security_audit_outbox
+PASS: m4_security_no_false_closure
+PASS: m4_security_metrics
+PASS: m4_security_api_lineage
+PASS: m4_offline_plan
+PASS: m4_offline_action_execution
+PASS: m4_offline_spec_idempotent
+PASS: m4_offline_checks_scheduled_with_scope_rate
+PASS: m4_offline_verdict
+PASS: m4_offline_new_independent_http_request
+PASS: m4_offline_evidence_transaction_and_risk
+PASS: m4_offline_independent_evidence
+PASS: m4_offline_audit_outbox
+PASS: m4_offline_no_false_closure
+PASS: m4_offline_metrics
+PASS: m4_offline_api_lineage
+PASS: m4_business_plan
+PASS: m4_business_action_execution
+PASS: m4_business_spec_idempotent
+PASS: m4_business_checks_scheduled_with_scope_rate
+PASS: m4_business_verdict
+PASS: m4_business_new_independent_http_request
+PASS: m4_business_evidence_transaction_and_risk
+PASS: m4_business_independent_evidence
+PASS: m4_business_audit_outbox
+PASS: m4_business_no_false_closure
+PASS: m4_business_metrics
+PASS: m4_business_api_lineage
+PASS: m4_verification_benchmark_measured
+PASS: m5_model_isolated
+PASS: m5_valid_decision
+PASS: m3-m5-valid_fresh_authorization_execution
+PASS: m3-m5-valid_independent_verification
+PASS: m3-m5-valid_bounded_replan
+PASS: m5_valid_lineage_and_risk
+PASS: m5_real_model_calls_and_one_plan
+PASS: m5_valid_decision_replay
+PASS: m5_hallucination_decision
+PASS: m5_hallucination_lineage_and_risk
+PASS: m5_hallucination_decision_replay
+PASS: m5_injection_decision
+PASS: m5_injection_lineage_and_risk
+PASS: m5_injection_decision_replay
+PASS: m5_down_decision
+PASS: m3-m5-down_fresh_authorization_execution
+PASS: m3-m5-down_independent_verification
+PASS: m3-m5-down_bounded_replan
+PASS: m5_down_lineage_and_risk
+PASS: m5_down_decision_replay
+PASS: m5_claims-success_decision
+PASS: m3-m5-claims-success_fresh_authorization_execution
+PASS: m3-m5-claims-success_independent_verification
+PASS: m3-m5-claims-success_bounded_replan
+PASS: m5_claims-success_lineage_and_risk
+PASS: m5_verification_overrides_model_success
+PASS: m5_claims-success_decision_replay
+PASS: loopback_api_port
+PASS: m5_postcommit_crash_recovery
+PASS: m5_db_outage_observable
+PASS: m5_api_db_model_restart_persistence
+PASS: m5_interrupted_model_call_fallback
+PASS: m5_evaluation_E01
+EVALUATION: E01 authentication failed-burst REFERENCE_GROUNDED
+PASS: m5_evaluation_E02
+EVALUATION: E02 authentication success-after-fail REFERENCE_GROUNDED
+PASS: m5_evaluation_E03
+EVALUATION: E03 authentication service-account REFERENCE_GROUNDED
+PASS: m5_evaluation_E04
+EVALUATION: E04 authentication unknown-user REFERENCE_GROUNDED
+PASS: m5_evaluation_E05
+EVALUATION: E05 network reconnects REFERENCE_GROUNDED
+PASS: m5_evaluation_E06
+EVALUATION: E06 network registered-scanner REJECTED
+PASS: m5_evaluation_E07
+EVALUATION: E07 network blocked-flow REJECTED
+PASS: m5_evaluation_E08
+EVALUATION: E08 network single-probe REFERENCE_GROUNDED
+PASS: m5_evaluation_E09
+EVALUATION: E09 service healthy-response REFERENCE_GROUNDED
+PASS: m5_evaluation_E10
+EVALUATION: E10 service server-error REFERENCE_GROUNDED
+PASS: m5_evaluation_E11
+EVALUATION: E11 service recovered-response REFERENCE_GROUNDED
+PASS: m5_evaluation_E12
+EVALUATION: E12 service missing-check REFERENCE_GROUNDED
+PASS: m5_evaluation_E13
+EVALUATION: E13 false-positive planned-validation REFERENCE_GROUNDED
+PASS: m5_evaluation_E14
+EVALUATION: E14 false-positive forwarded-duplicate REFERENCE_GROUNDED
+PASS: m5_evaluation_E15
+EVALUATION: E15 false-positive admin-maintenance REFERENCE_GROUNDED
+PASS: m5_evaluation_E16
+EVALUATION: E16 false-positive injection-as-data REFERENCE_GROUNDED
+PASS: m5_evaluation_E17
+EVALUATION: E17 conflicting inconsistent-health REJECTED
+PASS: m5_evaluation_E18
+EVALUATION: E18 conflicting inconsistent-identity REJECTED
+PASS: m5_evaluation_E19
+EVALUATION: E19 conflicting success-vs-failure REJECTED
+PASS: m5_evaluation_E20
+EVALUATION: E20 conflicting clock-uncertainty REJECTED
+PASS: m5_evaluation_E21
+EVALUATION: E21 insufficient expired-observation REJECTED
+PASS: m5_evaluation_E22
+EVALUATION: E22 insufficient missing-sensor REJECTED
+PASS: m5_evaluation_E23
+EVALUATION: E23 insufficient unverified-claim REJECTED
+PASS: m5_evaluation_E24
+EVALUATION: E24 insufficient unknown-remediation REJECTED
+PASS: project_containers_removed
+REPORT: C:\Users\wc\Documents\ChatGPT\创新创业大赛\zhiyu_v0.1\docs\m5-runtime\zhiyu-smoke-a6edef3fbf39\result.json
+.
+1 passed in 2441.40s (0:40:41)

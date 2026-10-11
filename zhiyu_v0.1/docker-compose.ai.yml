@@ -1,0 +1,47 @@
+# Optional isolated AI acceptance profile. Weights and key remain outside the source/image.
+services:
+  api:
+    command: ["python", "tools/ai_api.py"]
+    environment:
+      ZHIYU_AI_POLICIES:
+      ZHIYU_AI_PROVIDERS:
+      ZHIYU_MODEL_KEY_FILE: /run/secrets/model-key
+    volumes:
+      - type: bind
+        source: ${ZHIYU_MODEL_KEY_FILE:?set private key file}
+        target: /run/secrets/model-key
+        read_only: true
+
+  local-model:
+    profiles: [ai-test]
+    image: ghcr.io/ggml-org/llama.cpp@sha256:b15cd87030b2eb8a284d398c095e03c6ba8baf386b68e1b83ab8b46e9555ffe8
+    user: "10001:10001"
+    # llama.cpp's 8192 MiB default prompt cache exceeds this container's 4 GiB RAM
+    # budget. Gate C observed slow inference, timeouts and OOMKilled=true after many calls.
+    command: ["--model", "/models/model.gguf", "--alias", "zhiyu-qwen2.5-1.5b", "--host", "0.0.0.0", "--port", "8080", "--threads", "6", "--ctx-size", "8192", "--parallel", "1", "--cache-ram", "256", "--predict", "1400", "--api-key-file", "/run/secrets/model-key", "--no-webui", "--no-agent", "--cors-origins", "http://127.0.0.1", "--no-cors-credentials"]
+    volumes:
+      - type: bind
+        source: ${ZHIYU_MODEL_PATH:?set verified GGUF file}
+        target: /models/model.gguf
+        read_only: true
+      - type: bind
+        source: ${ZHIYU_MODEL_KEY_FILE:?set private key file}
+        target: /run/secrets/model-key
+        read_only: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    cpus: 6
+    mem_limit: 4g
+    networks: [control]
+
+  model-fault-fixture:
+    profiles: [ai-test]
+    build:
+      context: .
+      target: runtime
+    command: ["python", "tools/model_fault_fixture.py"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [control]

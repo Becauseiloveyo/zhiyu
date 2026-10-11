@@ -1,0 +1,11 @@
+:root,[data-theme="light"]{
+ color-scheme:light;--bg:#F7F6F3;--surface:#FFFFFF;--ink:#1C2B3A;--ink-2:#4A5568;--ink-3:#8A94A3;--line:#E5E3DE;--accent:#1C2B3A;--ok:#2F9E6E;--warn:#D9930D;--danger:#D64545;--info:#3B7DD8;--hover:#F2F1ED;--selected:#F0EFEB;--skeleton:#EEECE7;--accent-hover:#101D2A;--clear:transparent;--overlay:rgba(28,43,58,.18);
+ --shadow-sm:0 1px 2px rgba(28,43,58,.04);--shadow-hover:0 3px 8px rgba(28,43,58,.08);
+ --font-ui:Inter,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;--text-xs:12px;--text-sm:13px;--text-md:14px;--text-title:20px;--text-kpi:36px;--weight-normal:400;--weight-medium:500;--weight-strong:600;--leading:1.6;--leading-tight:1.25;--tracking:.06em;
+ --s0:0px;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s7:32px;--s8:40px;--s9:48px;--s10:56px;--s12:64px;--s16:80px;
+ --radius-control:6px;--radius-panel:8px;--round:50%;--hairline:1px;--bar:3px;--focus:2px;--icon:16px;--icon-large:24px;--icon-stroke:1.5;--dot:6px;
+ --sidebar:232px;--sidebar-small:64px;--topbar:56px;--max-width:1520px;--drawer:560px;--command:580px;--row:44px;--control:32px;--touch:40px;--table-min:540px;--chart-height:180px;--graph-height:520px;--graph-min:680px;--timeline-min:760px;--list-min:280px;--toast-width:340px;
+ --motion-fast:120ms;--motion-hover:150ms;--motion-panel:220ms;--motion-enter:350ms;--motion-stagger:50ms;--motion-count:600ms;--motion-pulse:2000ms;--ease:cubic-bezier(.22,1,.36,1);--rise:8px;--active-scale:.97;--disabled:.5;--dim:.2;--layer-header:10;--layer-tip:20;
+ --plot-line:1.5;--plot-dot:2.5;--plot-active:4;--plot-dash:3 4;--axis-width:28;--axis-height:24;--plot-pad:8;
+}
+[data-theme="dark"]{color-scheme:dark;--bg:#14202B;--surface:#1C2B3A;--ink:#EEF0F3;--ink-2:#C6CBD2;--ink-3:#A1AAB6;--line:#35414D;--accent:#EEF0F3;--hover:#263544;--selected:#263544;--skeleton:#293846;--accent-hover:#D7DDE4;--overlay:rgba(0,0,0,.32)}
